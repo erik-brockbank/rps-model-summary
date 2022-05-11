@@ -2,7 +2,23 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
-chapters:
-- file: markdown
-- file: notebooks
+root: home
+parts:
+  - caption: Summary
+    chapters:
+      - file: Overview.md
+      - file: Introduction.md
+      - file: Data.md
+  - caption: Model-Based Agent
+    chapters:
+      - file: ModelModel.md
+      - file: ModelModel_results.ipynb
+  - caption: Model-Free RL Agent
+    chapters:
+      - file: RLModel.md
+      - file: RLModel_results.ipynb
+  - caption: Model Comparison
+    chapters:
+      - file: ModelComparison.md
+      - file: ModelComparison_results.ipynb
+  # - file: Discussion.md
