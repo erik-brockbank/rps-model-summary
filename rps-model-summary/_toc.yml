@@ -21,4 +21,6 @@ parts:
     chapters:
       - file: ModelComparison.md
       - file: ModelComparison_results.ipynb
-  # - file: Discussion.md
+  - caption: Discussion
+    chapters:
+      - file: Discussion.md
