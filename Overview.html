@@ -256,6 +256,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-goals">
+   Project Goals
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -271,6 +289,25 @@ a) the data
 b) our models
 c) our results
 d) our conclusions</p>
+<div class="section" id="project-goals">
+<h2>Project Goals<a class="headerlink" href="#project-goals" title="Permalink to this headline">¶</a></h2>
+<p>Through interaction with others and the environment, people make countless of decisions in various different settings every single day. To achieve a certain desired goal, people often need to make successive observations of a sequential process before making a final decision. We are curious about the model behind the process of how people detect the sequential patterns through interactions despite all the uncertainty and complexity. To achieve this goal, we will be implementing two types of model mimicking human reasoning based on data of people playing rock, paper, scissors with bot from a prior study.</p>
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Human participants (217 people total) were paired with bot to play rock, paper, scissors</p></li>
+<li><p>300 rounds of rock, paper, scissors per human/bot pairing</p></li>
+<li><p>The bot that participants are playing against would use one of the seven strategies shown below</p></li>
+<li><p>For each round the moves, outcomes and view time were recorded</p></li>
+</ul>
+<p align = "center">
+<img src="img/strategies.png" width = "500px">
+</p>
+<p><em>“+” sign means that the bot transitions to a winning move based on the chosen reference move from last round</em><br />
+<em>“-” sign means that the bot transitions to a losing move based on the chosen reference move from last round</em><br />
+<em>“0” means that the bot plays the exact chosen reference move from last round</em></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
