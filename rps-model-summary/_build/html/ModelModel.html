@@ -265,6 +265,19 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-based-agent-decision-making-processing">
+   Model-based Agent Decision-making Processing
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -277,6 +290,19 @@ const thebe_selector_output = ".output, .cell_output"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-based-agent-decision-making-processing">
+   Model-based Agent Decision-making Processing
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -285,7 +311,21 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>Overview of hte model (equations, decision policy, etc.)</p>
+<p>Overview of the model (equations, decision policy, etc.)</p>
+<p>This model-based agent uses a <strong><ins>Statistical Learning Approach</ins></strong> to keeps track of patterns in the opponent’s moves to try and predict the opponent’s next move.</p>
+<blockquote>
+<div><p><strong>Simple Explanation of how the Statistical Learning Agent works:</strong><br />
+       Track whether or not the opponent has a bias towards playing rock, paper or scissors</p>
+<ol class="simple">
+<li><p>Track the cumulative counts of rock, paper and scissors that the bot has made</p></li>
+<li><p>Use the cumulative counts as the basis for predicting the next probable move the bot will make</p></li>
+<li><p>Choose the right move corresponding the predicted move</p></li>
+</ol>
+</div></blockquote>
+<div class="section" id="model-based-agent-decision-making-processing">
+<h2>Model-based Agent Decision-making Processing<a class="headerlink" href="#model-based-agent-decision-making-processing" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+</div>
 </div>
 
     <script type="text/x-thebe-config">

@@ -28,3 +28,8 @@ Through interaction with others and the environment, people make countless of de
 *"+" sign means that the bot transitions to a winning move based on the chosen reference move from last round*  
 *"-" sign means that the bot transitions to a losing move based on the chosen reference move from last round*  
 *"0" means that the bot plays the exact chosen reference move from last round*  
+
+>All strategies favoring a transition:
+>- favoring a particular transition, or
+>- favoring a transition given the previous outcome, or
+>- favoring a transition given the previous outcome and the previous transition. 
