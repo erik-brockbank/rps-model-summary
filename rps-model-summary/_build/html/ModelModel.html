@@ -52,6 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Results" href="ModelModel_results.html" />
@@ -271,9 +273,22 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-based-agent-decision-making-processing">
-   Model-based Agent Decision-making Processing
+  <a class="reference internal nav-link" href="#details-equations-in-model-based-agent-decision-making-process">
+   Details(Equations) in Model-based Agent Decision-making Process
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ins-expected-values-ins">
+     <ins>
+      <strong>
+       Expected Values:
+      </strong>
+      <ins>
+      </ins>
+     </ins>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -296,9 +311,22 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-based-agent-decision-making-processing">
-   Model-based Agent Decision-making Processing
+  <a class="reference internal nav-link" href="#details-equations-in-model-based-agent-decision-making-process">
+   Details(Equations) in Model-based Agent Decision-making Process
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ins-expected-values-ins">
+     <ins>
+      <strong>
+       Expected Values:
+      </strong>
+      <ins>
+      </ins>
+     </ins>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -322,9 +350,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Choose the right move corresponding the predicted move</p></li>
 </ol>
 </div></blockquote>
-<div class="section" id="model-based-agent-decision-making-processing">
-<h2>Model-based Agent Decision-making Processing<a class="headerlink" href="#model-based-agent-decision-making-processing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="details-equations-in-model-based-agent-decision-making-process">
+<h2>Details(Equations) in Model-based Agent Decision-making Process<a class="headerlink" href="#details-equations-in-model-based-agent-decision-making-process" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
+<p>To choose the final move, we utilized <em><strong>expected values</strong></em> and <em><strong>softmax function</strong></em> in our model-based agent.</p>
+<div class="section" id="ins-expected-values-ins">
+<h3><ins><strong>Expected Values:</strong><ins><a class="headerlink" href="#ins-expected-values-ins" title="Permalink to this headline">¶</a></h3>
+<p>We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the bot playing each move based on the previous cumulative counts.
+$<span class="math notranslate nohighlight">\(
+  E[X] = \sum x_ip(x_i)
+\)</span>$</p>
+<p><span class="math notranslate nohighlight">\(x_i\)</span> = the values that X takes<br />
+<span class="math notranslate nohighlight">\(p(x_i)\)</span> = the probability that X takes the value <span class="math notranslate nohighlight">\(x_i\)</span></p>
+</div>
 </div>
 </div>
 
