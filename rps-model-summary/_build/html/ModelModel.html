@@ -356,10 +356,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>To choose the final move, we utilized <em><strong>expected values</strong></em> and <em><strong>softmax function</strong></em> in our model-based agent.</p>
 <div class="section" id="ins-expected-values-ins">
 <h3><ins><strong>Expected Values:</strong><ins><a class="headerlink" href="#ins-expected-values-ins" title="Permalink to this headline">¶</a></h3>
-<p>We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the bot playing each move based on the previous cumulative counts.
-$<span class="math notranslate nohighlight">\(
+<p>We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the bot playing each move based on the previous cumulative counts.</p>
+<div class="math notranslate nohighlight">
+\[
   E[X] = \sum x_ip(x_i)
-\)</span>$</p>
+\]</div>
 <p><span class="math notranslate nohighlight">\(x_i\)</span> = the values that X takes<br />
 <span class="math notranslate nohighlight">\(p(x_i)\)</span> = the probability that X takes the value <span class="math notranslate nohighlight">\(x_i\)</span></p>
 </div>

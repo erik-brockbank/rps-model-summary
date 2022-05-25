@@ -16,7 +16,8 @@ This model-based agent uses a **<ins>Statistical Learning Approach</ins>** to ke
 To choose the final move, we utilized ***expected values*** and ***softmax function*** in our model-based agent.
 
 #### <ins>**Expected Values:**<ins>
-We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the bot playing each move based on the previous cumulative counts.
+We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the bot playing each move based on the previous cumulative counts.  
+
 $$
   E[X] = \sum x_ip(x_i)
 $$
