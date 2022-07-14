@@ -9,7 +9,7 @@ This model adopts the notion of **<ins>reinforcement learning</ins>** as the age
 > Essentially, we kept tracking the agent's prior moves and calculated their respective reward rates through the soft-max probability function. In order to facilitate the tracking process, we generated new columns that store the human player's rewards associated with different scenarios. These scenarios include the rewards of human player's each move, combinations of the human previous move and the human's current move, opponent's past move and the human's current move, opponent past move, human past move, and human current move reward. The counts of the accumulative rewards have been updated under the rules of win-3pts, tie-0pt,and loss--1pt. After the reward counts have been finalized, the agent will simulate playing against each bot by converting the rewards to a probability distribution through the soft-max function. Finally, the visualizations of the simulation of agent outcomes were generated. 
 
 
-## Details(Equations) in Model-based Agent Decision-making Process
+## Details(Equations) in Model-free Agent Decision-making Process
 ---
 To choose the final move, we utilized ***expected values*** and ***softmax function*** in our model-free agent.
 
