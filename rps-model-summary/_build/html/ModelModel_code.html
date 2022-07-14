@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Reference: Model Code &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -466,9 +467,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="reference-model-code">
+  <section class="tex2jax_ignore mathjax_ignore" id="reference-model-code">
 <h1>Reference: Model Code<a class="headerlink" href="#reference-model-code" title="Permalink to this headline">#</a></h1>
-<div class="section" id="a-human-reward-move">
+<section id="a-human-reward-move">
 <h2>3a) human_reward_move<a class="headerlink" href="#a-human-reward-move" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -477,10 +478,10 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">random</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
-<span class="kn">from</span> <span class="nn">utils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
@@ -670,8 +671,106 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py:679: RuntimeWarning: overflow encountered in exp
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.9/site-packages/pandas/core/arraylike.py:364: RuntimeWarning: overflow encountered in exp
   result = getattr(ufunc, method)(*inputs, **kwargs)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">tm</span><span class="o">/</span><span class="n">sjjwcmbs3250mhfs5psrzf5w0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_59538</span><span class="o">/</span><span class="mf">4060523398.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span> 
+<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="c1"># code from the original model:</span>
+<span class="ne">---&gt; </span><span class="mi">74</span> <span class="n">soft_dist</span> <span class="o">=</span> <span class="n">get_softmax_probabilities</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">df</span><span class="p">,</span> <span class="c1"># df should be just human rows at this point, strip out nans etc.</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>     <span class="p">[</span><span class="s1">&#39;rock_reward&#39;</span><span class="p">,</span> <span class="s1">&#39;paper_reward&#39;</span><span class="p">,</span> <span class="s1">&#39;scissors_reward&#39;</span><span class="p">]</span>
+
+<span class="nn">/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_59538/4060523398.py</span> in <span class="ni">get_softmax_probabilities</span><span class="nt">(df, columns)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">vals</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<span class="ne">---&gt; </span><span class="mi">20</span>         <span class="n">soft_max</span> <span class="o">=</span> <span class="n">softmax</span><span class="p">(</span><span class="n">vals</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">beta</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># add aggressive beta term to make max probability move more likely</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="n">distribution</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">soft_max</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">distribution</span><span class="p">)</span>
+
+<span class="nn">/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_59538/4060523398.py</span> in <span class="ni">softmax</span><span class="nt">(x, beta)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">def</span> <span class="nf">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="sd">&quot;&quot;&quot;Compute softmax values for each sets of scores in x.&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">beta</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">beta</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> 
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">sum</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2245</span>         <span class="k">return</span> <span class="n">res</span>
+<span class="g g-Whitespace">   </span><span class="mi">2246</span> 
+<span class="ne">-&gt; </span><span class="mi">2247</span>     <span class="k">return</span> <span class="n">_wrapreduction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2248</span>                           <span class="n">initial</span><span class="o">=</span><span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2249</span> 
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">_wrapreduction</span><span class="nt">(obj, ufunc, method, axis, dtype, out, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>                 <span class="k">return</span> <span class="n">reduction</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>             <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">85</span>                 <span class="k">return</span> <span class="n">reduction</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span> 
+<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="k">return</span> <span class="n">ufunc</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/generic.py</span> in <span class="ni">sum</span><span class="nt">(self, axis, skipna, level, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10706</span>             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10707</span>         <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">10708</span>             <span class="k">return</span> <span class="n">NDFrame</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">10709</span>                 <span class="bp">self</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="n">min_count</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">  </span><span class="mi">10710</span>             <span class="p">)</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/generic.py</span> in <span class="ni">sum</span><span class="nt">(self, axis, skipna, level, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10444</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10445</span>     <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">10446</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_min_count_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">10447</span>             <span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">nanops</span><span class="o">.</span><span class="n">nansum</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="n">min_count</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">  </span><span class="mi">10448</span>         <span class="p">)</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/generic.py</span> in <span class="ni">_min_count_stat_function</span><span class="nt">(self, name, func, axis, skipna, level, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10426</span>                 <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10427</span>             <span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">10428</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">10429</span>             <span class="n">func</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">10430</span>             <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/series.py</span> in <span class="ni">_reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4390</span>                 <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4391</span>             <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">4392</span>                 <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">delegate</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4393</span> 
+<span class="g g-Whitespace">   </span><span class="mi">4394</span>     <span class="k">def</span> <span class="nf">_reindex_indexer</span><span class="p">(</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/nanops.py</span> in <span class="ni">_f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>             <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span>                 <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">93</span>                     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>             <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>                 <span class="c1"># we want to transform an object array</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/nanops.py</span> in <span class="ni">new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span>             <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span> 
+<span class="ne">--&gt; </span><span class="mi">410</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span> 
+<span class="g g-Whitespace">    </span><span class="mi">412</span>         <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/nanops.py</span> in <span class="ni">nansum</span><span class="nt">(values, axis, skipna, min_count, mask)</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="mf">3.0</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">579</span><span class="s2">     values, mask, dtype, dtype_max, _ = _get_values(</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span><span class="s2">         values, skipna, fill_value=0, mask=mask</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span><span class="s2">     )</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/nanops.py</span> in <span class="ni">_get_values</span><span class="nt">(values, skipna, fill_value, fill_value_typ, mask)</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span><span class="s2">     if is_integer_dtype(dtype) or is_bool_dtype(dtype):</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span><span class="s2">         dtype_max = np.dtype(np.int64)</span>
+<span class="ne">--&gt; </span><span class="mi">340</span><span class="s2">     elif is_float_dtype(dtype):</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span><span class="s2">         dtype_max = np.dtype(np.float64)</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span><span class="s2"> </span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -774,8 +873,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <img alt="_images/ModelModel_code_8_2.png" src="_images/ModelModel_code_8_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="b-human-past-current-reward-move">
+</section>
+<section id="b-human-past-current-reward-move">
 <h2>3b human_past_current_reward_move<a class="headerlink" href="#b-human-past-current-reward-move" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -822,7 +921,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">):</span>
         <span class="n">pre_move</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">pre_move</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">pre_move</span><span class="p">):</span>
-            <span class="n">reward_cols</span><span class="o">=</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{pre_move}</span><span class="s1">_rock_reward&#39;</span><span class="p">,</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{pre_move}</span><span class="s1">_paper_reward&#39;</span><span class="p">,</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{pre_move}</span><span class="s1">_scissors_reward&#39;</span><span class="p">]</span>
+            <span class="n">reward_cols</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">pre_move</span><span class="si">}</span><span class="s1">_rock_reward&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">pre_move</span><span class="si">}</span><span class="s1">_paper_reward&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">pre_move</span><span class="si">}</span><span class="s1">_scissors_reward&#39;</span><span class="p">]</span>
             <span class="n">val</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">reward_cols</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -888,8 +987,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <img alt="_images/ModelModel_code_14_2.png" src="_images/ModelModel_code_14_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="c-opponent-past-human-current-reward-move">
+</section>
+<section id="c-opponent-past-human-current-reward-move">
 <h2>3c opponent_past_human_current_reward_move<a class="headerlink" href="#c-opponent-past-human-current-reward-move" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1255,7 +1354,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">):</span>
         <span class="n">pre_move</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># -1 instead of -2 since opponent_pre</span>
         <span class="k">if</span> <span class="n">pre_move</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">pre_move</span><span class="p">):</span>
-            <span class="n">reward_cols</span><span class="o">=</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{pre_move}</span><span class="s1">_rock_reward&#39;</span><span class="p">,</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{pre_move}</span><span class="s1">_paper_reward&#39;</span><span class="p">,</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{pre_move}</span><span class="s1">_scissors_reward&#39;</span><span class="p">]</span>
+            <span class="n">reward_cols</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;opponent_</span><span class="si">{</span><span class="n">pre_move</span><span class="si">}</span><span class="s1">_rock_reward&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;opponent_</span><span class="si">{</span><span class="n">pre_move</span><span class="si">}</span><span class="s1">_paper_reward&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;opponent_</span><span class="si">{</span><span class="n">pre_move</span><span class="si">}</span><span class="s1">_scissors_reward&#39;</span><span class="p">]</span>
             <span class="n">val</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">reward_cols</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1325,8 +1424,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <img alt="_images/ModelModel_code_21_2.png" src="_images/ModelModel_code_21_2.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
