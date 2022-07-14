@@ -2,7 +2,7 @@
 
 Overview of the model (equations, decision policy, etc.)
 
-This model adopts the notion of **<ins>reinforcement learning</ins>** as the agent determines its next move by scrutinizing its previous winning patterns. The reinforcement learning model is fundamentally different than the model based model as its next moves are no longer susceptible to his opponent's counterparts. Therefore, this model is as known as "model-free". The implementation of the reinforcement model incorporates is summarized below.
+This model adopts the notion of **<ins>reinforcement learning</ins>** as the agent determines its next move by scrutinizing its previous winning patterns. The reinforcement learning model is fundamentally different than the model based model as its next moves are no longer susceptible to his opponent's counterparts. Therefore, this model is as known as "model-free". The implementation of the reinforcement model incorporates is summarized as below.
 
 
 > **Simple Explanation of how the Reinforcement Learning Agent works:**
