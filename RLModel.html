@@ -174,6 +174,11 @@ const thebe_selector_output = ".output, .cell_output"
    Model Results
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RLModel_code.html">
+   Reference: RL Model Code
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -448,7 +453,7 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="model-overview">
 <h1>Model Overview<a class="headerlink" href="#model-overview" title="Permalink to this headline">#</a></h1>
 <p>Overview of the model (equations, decision policy, etc.)</p>
-<p>This model adopts the notion of <strong><ins>reinforcement learning</ins></strong> as the agent determines its next move by scrutinizing its previous winning patterns. The reinforcement learning model is fundamentally different than the model based model as its next moves are no longer susceptible to his opponent’s counterparts. Therefore, this model is as known as “model-free”. The implementation of the reinforcement model incorporates is summarized below.</p>
+<p>This model adopts the notion of <strong><ins>reinforcement learning</ins></strong> as the agent determines its next move by scrutinizing its previous winning patterns. The reinforcement learning model is fundamentally different than the model based model as its next moves are no longer susceptible to his opponent’s counterparts. Therefore, this model is as known as “model-free”. The implementation of the reinforcement model incorporates is summarized as below.</p>
 <blockquote>
 <div><p><strong>Simple Explanation of how the Reinforcement Learning Agent works:</strong>
 Essentially, we kept tracking the agent’s prior moves and calculated their respective reward rates through the soft-max probability function. In order to facilitate the tracking process, we generated new columns that store the human player’s rewards associated with different scenarios. These scenarios include the rewards of human player’s each move, combinations of the human previous move and the human’s current move, opponent’s past move and the human’s current move, opponent past move, human past move, and human current move reward. The counts of the accumulative rewards have been updated under the rules of win-3pts, tie-0pt,and loss–1pt. After the reward counts have been finalized, the agent will simulate playing against each bot by converting the rewards to a probability distribution through the soft-max function. Finally, the visualizations of the simulation of agent outcomes were generated.</p>
