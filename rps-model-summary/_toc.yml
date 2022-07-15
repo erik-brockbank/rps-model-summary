@@ -26,3 +26,9 @@ parts:
   - caption: Discussion
     chapters:
       - file: Discussion.md
+  - caption: APPENDIX - code
+    chapters:
+      - file: model_python_lib_utils.ipynb
+      - file: model_python_lib_event_counts.ipynb
+      - file: model_python_lib_decision_functions.ipynb
+      - file: model_python_lib_visualization.ipynb
