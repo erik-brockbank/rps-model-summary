@@ -102,16 +102,6 @@ df=r
 # In[5]:
 
 
-def move_matrix():
-        outcomes = pd.DataFrame.from_dict({
-        'win':     ['0', '1', '-1'],
-        'stay':    ['-1', '0', '1'],
-        'loss': ['1', '-1', '0']
-        }, orient='index', columns=['win', 'paper', 'scissors'])
-        outcomes = np.transpose(outcomes)
-        return outcomes
-comp_matrix = move_matrix()
-
 def softmax(x, beta = 1):
     """Compute softmax values for each sets of scores in x."""
     return np.exp(x * beta) / np.sum(np.exp(x * beta), axis=0)
