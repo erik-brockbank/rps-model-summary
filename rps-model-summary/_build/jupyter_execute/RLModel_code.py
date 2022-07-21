@@ -3,31 +3,77 @@
 
 # # Reference: RL Model Code
 
-# ### 3a) human_reward_move
+# ## Initialization
 
 # In[1]:
 
 
-import numpy as np
-import pandas as pd
-import random
+# Run dependencies
+get_ipython().run_line_magic('run', './RL_model_python_lib_utils.ipynb')
+get_ipython().run_line_magic('run', './RL_model_python_lib_reward.ipynb')
+get_ipython().run_line_magic('run', './RL_model_python_lib_decision_functions.ipynb')
+get_ipython().run_line_magic('run', './RL_model_python_lib_visualization.ipynb')
 
-import matplotlib.pyplot as plt
-from scipy import stats
-import seaborn as sns
 
-from utils import *
-
+# ## Model Fit
 
 # In[2]:
 
 
-import os
-path=os.path.join('data','rps_v2_clean.csv')
-df = pd.read_csv(path)
+df = read_rps_data(os.path.join("data", DEFAULT_FILE))
 
 
 # In[3]:
+
+
+# add opponent move column
+separated = separate_df(df)
+for e in separated:
+    get_opponent_move(e)
+df = pd.concat(separated)
+
+
+# ### a) human_reward_move
+
+# In[4]:
+
+
+df_a = add_col(df, ['rock_reward', 'paper_reward','scissors_reward',], value =0)
+separated = separate_df(df_a)
+for e in separated:
+    human_reward_move(e)
+df_a = pd.concat(separated)
+
+
+# In[5]:
+
+
+df_a=df_a[df_a['is_bot']==0]
+soft_dist = get_softmax_probabilities(
+    df_a, # df should be just human rows at this point, strip out nans etc. 
+    ['rock_reward', 'paper_reward', 'scissors_reward']
+)
+
+
+# In[ ]:
+
+
+df_a = pick_move(df_a, soft_dist)
+
+
+# In[ ]:
+
+
+assign_agent_outcomes(df_a)
+
+
+# In[13]:
+
+
+soft_dist
+
+
+# In[4]:
 
 
 ## add new columns to count the number of each reward
@@ -35,17 +81,6 @@ new_df = add_col(df, ['rock_reward', 'paper_reward','scissors_reward',], value =
 new_df
 
 df = add_col(new_df, ['opponent_move'], value ='')
-def get_opponent_move(sub_df):
-    """
-    fills in the `opponent_move` column
-    """
-    for i in range(len(sub_df)):
-        if i%2 == 0:
-            sub_df.at[i, 'opponent_move'] = sub_df.at[i + 1, 'player_move']
-        else:
-            sub_df.at[i, 'opponent_move'] = sub_df.at[i - 1, 'player_move']
-    
-    return sub_df
 
 separated = separate_df(df)
 for e in separated:
@@ -53,7 +88,7 @@ for e in separated:
 df = pd.concat(separated)
 
 
-# In[4]:
+# In[5]:
 
 
 # 3 points for a win, 0 for a tie, -1 for a loss
@@ -99,7 +134,7 @@ r = pd.concat(separated)
 df=r
 
 
-# In[5]:
+# In[6]:
 
 
 def softmax(x, beta = 1):

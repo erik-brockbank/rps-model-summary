@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>model_event_counts.py &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -250,6 +249,42 @@ const thebe_selector_output = ".output, .cell_output"
    </code>
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RL_model_python_lib_utils.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RL_model_utils.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RL_model_python_lib_reward.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RL_model_reward.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RL_model_python_lib_decision_functions.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RL_model_decision_functions.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RL_model_python_lib_visualization.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RL_model_visualization.py
+    </span>
+   </code>
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -458,7 +493,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="model-event-counts-py">
+  <div class="tex2jax_ignore mathjax_ignore section" id="model-event-counts-py">
 <h1><code class="docutils literal notranslate"><span class="pre">model_event_counts.py</span></code><a class="headerlink" href="#model-event-counts-py" title="Permalink to this headline">#</a></h1>
 <p>TODO add quick explanation of this library</p>
 <div class="cell docutils container">
@@ -620,11 +655,11 @@ title="Print to PDF"
         <span class="c1"># get bot&#39;s transition_outcome from bot&#39;s previous move and current move</span>
         <span class="n">bot_transition</span> <span class="o">=</span> <span class="n">transition_lookup</span><span class="p">(</span><span class="n">previous_move</span><span class="p">,</span> <span class="n">player_move</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">bot_previous_outcome</span><span class="p">):</span>
-            <span class="n">update_cols</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">outcome</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">trans</span><span class="si">}</span><span class="s1">_count&#39;</span> <span class="k">for</span> <span class="n">outcome</span> <span class="ow">in</span> <span class="n">OUTCOMES</span> <span class="k">for</span> <span class="n">trans</span> <span class="ow">in</span> <span class="n">TRANSITIONS</span><span class="p">]</span>
+            <span class="n">update_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{outcome}</span><span class="s1">_</span><span class="si">{trans}</span><span class="s1">_count&#39;</span> <span class="k">for</span> <span class="n">outcome</span> <span class="ow">in</span> <span class="n">OUTCOMES</span> <span class="k">for</span> <span class="n">trans</span> <span class="ow">in</span> <span class="n">TRANSITIONS</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">update_cols</span><span class="p">:</span>
                 <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
 
-            <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">bot_previous_outcome</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">bot_transition</span><span class="si">}</span><span class="s1">_count&#39;</span>
+            <span class="n">col_name</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{bot_previous_outcome}</span><span class="s1">_</span><span class="si">{bot_transition}</span><span class="s1">_count&#39;</span>
             <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">col_name</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="k">return</span> <span class="n">sub_df</span>
@@ -658,11 +693,11 @@ title="Print to PDF"
         <span class="n">previous_transition</span> <span class="o">=</span> <span class="n">sub_df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;previous_transition&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">current_transition</span> <span class="o">=</span> <span class="n">sub_df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;current_transition&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">bot_previous_outcome</span><span class="p">):</span>
-            <span class="n">update_cols</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prev_trans</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">outcome</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">trans</span><span class="si">}</span><span class="s1">_count&#39;</span> <span class="k">for</span> <span class="n">prev_trans</span> <span class="ow">in</span> <span class="n">TRANSITIONS</span> <span class="k">for</span> <span class="n">outcome</span> <span class="ow">in</span> <span class="n">OUTCOMES</span> <span class="k">for</span> <span class="n">trans</span> <span class="ow">in</span> <span class="n">TRANSITIONS</span><span class="p">]</span>
+            <span class="n">update_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{prev_trans}</span><span class="s1">_</span><span class="si">{outcome}</span><span class="s1">_</span><span class="si">{trans}</span><span class="s1">_count&#39;</span> <span class="k">for</span> <span class="n">prev_trans</span> <span class="ow">in</span> <span class="n">TRANSITIONS</span> <span class="k">for</span> <span class="n">outcome</span> <span class="ow">in</span> <span class="n">OUTCOMES</span> <span class="k">for</span> <span class="n">trans</span> <span class="ow">in</span> <span class="n">TRANSITIONS</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">update_cols</span><span class="p">:</span>
                 <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
 
-            <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">previous_transition</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">bot_previous_outcome</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">current_transition</span><span class="si">}</span><span class="s1">_count&#39;</span>
+            <span class="n">col_name</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;</span><span class="si">{previous_transition}</span><span class="s1">_</span><span class="si">{bot_previous_outcome}</span><span class="s1">_</span><span class="si">{current_transition}</span><span class="s1">_count&#39;</span>
             <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">col_name</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="k">return</span> <span class="n">sub_df</span>
@@ -760,7 +795,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
