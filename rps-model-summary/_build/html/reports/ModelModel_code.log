@@ -1,15 +1,4 @@
 Traceback (most recent call last):
-  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 622, in _async_poll_for_reply
-    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
-  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 85, in ensure_async
-    result = await obj
-  File "/opt/anaconda3/lib/python3.9/site-packages/jupyter_client/asynchronous/channels.py", line 48, in get_msg
-    raise Empty
-_queue.Empty
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
   File "/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
   File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
@@ -22,18 +11,55 @@ Traceback (most recent call last):
     return future.result()
   File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
     await self.async_execute_cell(
-  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 841, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 646, in _async_poll_for_reply
-    await self._async_handle_timeout(timeout, cell)
-  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 696, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['def move_matrix():', '        outcomes = pd.DataFrame.from_dict({', "        'win':     ['0', '1', '-1'],", "        'stay':    ['-1', '0', '1'],", "        'loss': ['1', '-1', '0']"]
-...
-['    df should include only human rows, since agent outcomes are irrelevant for simulating bots', '    """', "    # df.assign(agent_outcome = '')", "    df['agent_outcome'] = df.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)", '    return df']
--------------------
+  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Run dependencies
+%run ./model_python_lib_utils.ipynb
+%run ./model_python_lib_event_counts.ipynb
+%run ./model_python_lib_decision_functions.ipynb
+%run ./model_python_lib_visualization.ipynb
+------------------
+
+Traceback [0;36m(most recent call last)[0m:
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m3444[0m, in [1;35mrun_code[0m
+    exec(code_obj, self.user_global_ns, self.user_ns)
+
+  File [1;32m"/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_33299/421172343.py"[0m, line [1;32m5[0m, in [1;35m<module>[0m
+    get_ipython().run_line_magic('run', './model_python_lib_visualization.ipynb')
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m2351[0m, in [1;35mrun_line_magic[0m
+    result = fn(*args, **kwargs)
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/decorator.py"[0m, line [1;32m232[0m, in [1;35mfun[0m
+    return caller(func, *(extras + args), **kw)
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/magic.py"[0m, line [1;32m187[0m, in [1;35m<lambda>[0m
+    call = lambda f, *a, **k: f(*a, **k)
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/magics/execution.py"[0m, line [1;32m724[0m, in [1;35mrun[0m
+    self.shell.safe_execfile_ipy(filename, raise_exceptions=True)
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m2838[0m, in [1;35msafe_execfile_ipy[0m
+    result.raise_error()
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m330[0m, in [1;35mraise_error[0m
+    raise self.error_before_exec
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m3143[0m, in [1;35mrun_cell_async[0m
+    code_ast = compiler.ast_parse(cell, filename=cell_name)
+
+[0;36m  File [0;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/compilerop.py"[0;36m, line [0;32m101[0;36m, in [0;35mast_parse[0;36m[0m
+[0;31m    return compile(source, filename, symbol, self.flags | PyCF_ONLY_AST, 1)[0m
+
+[0;36m  File [0;32m"/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_33299/3635694259.py"[0;36m, line [0;32m79[0m
+[0;31m    plt.savefig(os.path.join('/img', 'critical_trial_intervention_dist.pdf'), dpi=300, bbox_inches='tight', transparent=True)[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (3635694259.py, line 79)
 

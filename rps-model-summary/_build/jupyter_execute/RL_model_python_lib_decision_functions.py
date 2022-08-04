@@ -28,13 +28,9 @@ def get_softmax_probabilities(df, columns):
     rock, paper, or scissors move.
     This general sofm function is used for human_reward_move model.
     """
-    distribution = []
     vals = df[columns]
-    for i in range(df.shape[0]):
-        soft_max = softmax(vals.iloc[i], beta = 4).tolist()
-    dist = np.array(distribution)
-    sofm = pd.DataFrame(dist, columns = ['softmax_prob_rock',     'softmax_prob_paper', 'softmax_prob_scissors'])
-    return sofm
+    vals = vals.apply(softmax,axis=1,beta=4)
+    return vals
 
 def get_softmax_probabilities_3b(df):
     """
@@ -141,6 +137,6 @@ def assign_agent_outcomes(df):
     df should include only human rows, since agent outcomes are irrelevant for simulating bots
     """
     df.assign(agent_outcome = '')
-    df['agent_outcome'] = df.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
+    df=df.assign(agent_outcome=df.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1))
     return df
 
