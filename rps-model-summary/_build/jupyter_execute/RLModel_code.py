@@ -67,7 +67,7 @@ df_a=df_a[df_a['is_bot']==0]
 df_a=assign_agent_outcomes(df_a)
 
 
-# In[37]:
+# In[40]:
 
 
 plot_win_rates(win_summary(groupby_f_data(df_a,'agent_outcome',30),'agent_outcome'))
