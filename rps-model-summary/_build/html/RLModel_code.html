@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Reference: RL Model Code &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,7 +37,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -574,9 +575,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="reference-rl-model-code">
+  <section class="tex2jax_ignore mathjax_ignore" id="reference-rl-model-code">
 <h1>Reference: RL Model Code<a class="headerlink" href="#reference-rl-model-code" title="Permalink to this headline">#</a></h1>
-<div class="section" id="initialization">
+<section id="initialization">
 <h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -588,9 +589,71 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">File /var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_5721/3126402295.py:6,</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Library for visualizing model output</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> These functions are primarily graphing functions, with some supporting functions as well</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;./RL_model_python_lib_reward.ipynb&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;./RL_model_python_lib_decision_functions.ipynb&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;./RL_model_python_lib_visualization.ipynb&#39;</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2305,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2303</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2304</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2305</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2306</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/magics/execution.py:717,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
+<span class="g g-Whitespace">    </span><span class="mi">715</span>     <span class="k">with</span> <span class="n">preserve_keys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">user_ns</span><span class="p">,</span> <span class="s1">&#39;__file__&#39;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">716</span>         <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">user_ns</span><span class="p">[</span><span class="s1">&#39;__file__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filename</span>
+<span class="ne">--&gt; </span><span class="mi">717</span>         <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">safe_execfile_ipy</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">raise_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">718</span>     <span class="k">return</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span> <span class="c1"># Control the response to exit() calls made by the script being run</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2811,</span> in <span class="ni">InteractiveShell.safe_execfile_ipy</span><span class="nt">(self, fname, shell_futures, raise_exceptions)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2809</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell_futures</span><span class="o">=</span><span class="n">shell_futures</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2810</span> <span class="k">if</span> <span class="n">raise_exceptions</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2811</span>     <span class="n">result</span><span class="o">.</span><span class="n">raise_error</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2812</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2813</span>     <span class="k">break</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:251,</span> in <span class="ni">ExecutionResult.raise_error</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_before_exec</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_in_exec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">251</span>     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_in_exec</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">1</span> <span class="n">frame</span><span class="p">]</span>
+
+<span class="nn">File /var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_5721/3126402295.py:6,</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Library for visualizing model output</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> These functions are primarily graphing functions, with some supporting functions as well</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
 </div>
 </div>
-<div class="section" id="model-fit">
+</div>
+</section>
+<section id="model-fit">
 <h2>Model Fit<a class="headerlink" href="#model-fit" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -610,7 +673,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="section" id="a-human-reward-move">
+<section id="a-human-reward-move">
 <h3>a) human_reward_move<a class="headerlink" href="#a-human-reward-move" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -633,7 +696,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/pandas/core/series.py:679: RuntimeWarning: overflow encountered in exp
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.9/site-packages/pandas/core/arraylike.py:364: RuntimeWarning: overflow encountered in exp
   result = getattr(ufunc, method)(*inputs, **kwargs)
 </pre></div>
 </div>
@@ -664,8 +727,8 @@ title="Print to PDF"
 <img alt="_images/RLModel_code_11_0.png" src="_images/RLModel_code_11_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="b-human-past-current-reward-move">
+</section>
+<section id="b-human-past-current-reward-move">
 <h3>3b human_past_current_reward_move<a class="headerlink" href="#b-human-past-current-reward-move" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -688,8 +751,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <img alt="_images/RLModel_code_15_2.png" src="_images/RLModel_code_15_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="c-opponent-past-human-current-reward-move">
+</section>
+<section id="c-opponent-past-human-current-reward-move">
 <h3>3c opponent_past_human_current_reward_move<a class="headerlink" href="#c-opponent-past-human-current-reward-move" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1055,7 +1118,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">):</span>
         <span class="n">pre_move</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># -1 instead of -2 since opponent_pre</span>
         <span class="k">if</span> <span class="n">pre_move</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">pre_move</span><span class="p">):</span>
-            <span class="n">reward_cols</span><span class="o">=</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{pre_move}</span><span class="s1">_rock_reward&#39;</span><span class="p">,</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{pre_move}</span><span class="s1">_paper_reward&#39;</span><span class="p">,</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{pre_move}</span><span class="s1">_scissors_reward&#39;</span><span class="p">]</span>
+            <span class="n">reward_cols</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;opponent_</span><span class="si">{</span><span class="n">pre_move</span><span class="si">}</span><span class="s1">_rock_reward&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;opponent_</span><span class="si">{</span><span class="n">pre_move</span><span class="si">}</span><span class="s1">_paper_reward&#39;</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;opponent_</span><span class="si">{</span><span class="n">pre_move</span><span class="si">}</span><span class="s1">_scissors_reward&#39;</span><span class="p">]</span>
             <span class="n">val</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">reward_cols</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
             <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1125,9 +1188,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <img alt="_images/RLModel_code_22_2.png" src="_images/RLModel_code_22_2.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1177,7 +1240,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By The Jupyter Book Community<br/>
+    By Betty Gong, MJ Mei, Annalea O'Halloran, Alison Yu, Erik Brockbank<br/>
   
       &copy; Copyright 2022.<br/>
 </p>

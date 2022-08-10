@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Modeling Adaptive Reasoning in 🪨 📜 ✂️
-author: The Jupyter Book Community
+author: Betty Gong, MJ Mei, Annalea O'Halloran, Alison Yu, Erik Brockbank
 logo: img/rps_graphic.png
 
 # Force re-execution of notebooks on each build.
