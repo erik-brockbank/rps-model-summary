@@ -1,19 +1,19 @@
 Traceback (most recent call last):
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 1269, in execute
+  File "/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/util.py", line 85, in wrapped
+  File "/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/util.py", line 60, in just_run
+  File "/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+  File "/Users/jiemei/opt/anaconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
     return future.result()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 707, in async_execute
+  File "/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 1025, in async_execute_cell
+  File "/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 919, in _check_raise_for_error
+  File "/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -26,34 +26,39 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 
 Traceback [0;36m(most recent call last)[0m:
 
-  File [1;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3398[0m in [1;35mrun_code[0m
+  File [1;32m"/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m3343[0m, in [1;35mrun_code[0m
     exec(code_obj, self.user_global_ns, self.user_ns)
 
-  Input [1;32mIn [1][0m in [1;35m<cell line: 5>[0m
+  File [1;32m"<ipython-input-1-9951fd5e0512>"[0m, line [1;32m5[0m, in [1;35m<module>[0m
     get_ipython().run_line_magic('run', './model_python_lib_visualization.ipynb')
 
-  File [1;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2305[0m in [1;35mrun_line_magic[0m
+  File [1;32m"/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m2326[0m, in [1;35mrun_line_magic[0m
     result = fn(*args, **kwargs)
 
-  File [1;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/magics/execution.py:717[0m in [1;35mrun[0m
+  File [1;32m"<decorator-gen-52>"[0m, line [1;32m2[0m, in [1;35mrun[0m
+
+  File [1;32m"/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/magic.py"[0m, line [1;32m187[0m, in [1;35m<lambda>[0m
+    call = lambda f, *a, **k: f(*a, **k)
+
+  File [1;32m"/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/magics/execution.py"[0m, line [1;32m718[0m, in [1;35mrun[0m
     self.shell.safe_execfile_ipy(filename, raise_exceptions=True)
 
-  File [1;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2811[0m in [1;35msafe_execfile_ipy[0m
+  File [1;32m"/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m2803[0m, in [1;35msafe_execfile_ipy[0m
     result.raise_error()
 
-  File [1;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:249[0m in [1;35mraise_error[0m
+  File [1;32m"/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m329[0m, in [1;35mraise_error[0m
     raise self.error_before_exec
 
-  File [1;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:3108[0m in [1;35mrun_cell_async[0m
+  File [1;32m"/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m3042[0m, in [1;35mrun_cell_async[0m
     code_ast = compiler.ast_parse(cell, filename=cell_name)
 
-[0;36m  File [0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/compilerop.py:105[0;36m in [0;35mast_parse[0;36m[0m
+[0;36m  File [0;32m"/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/compilerop.py"[0;36m, line [0;32m101[0;36m, in [0;35mast_parse[0;36m[0m
 [0;31m    return compile(source, filename, symbol, self.flags | PyCF_ONLY_AST, 1)[0m
 
-[0;36m  File [0;32m/var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_5714/3635694259.py:79[0;36m[0m
+[0;36m  File [0;32m"<ipython-input-1-b865b5afc89a>"[0;36m, line [0;32m79[0m
 [0;31m    plt.savefig(os.path.join('/img', 'critical_trial_intervention_dist.pdf'), dpi=300, bbox_inches='tight', transparent=True)[0m
 [0m    ^[0m
 [0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-SyntaxError: invalid syntax (3635694259.py, line 79)
+SyntaxError: invalid syntax (<ipython-input-1-b865b5afc89a>, line 79)
 
