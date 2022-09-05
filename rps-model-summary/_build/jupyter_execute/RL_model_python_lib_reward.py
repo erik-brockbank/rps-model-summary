@@ -86,8 +86,7 @@ def human_reward_past_cur_move(sub_df):
         # human current move
         cur_move=sub_df.get('player_move').iloc[i]
         # ignore Nan cells
-        if pre_move != 'none'and not pd.isna(pre_move) and\
-         cur_move != 'none'and not pd.isna(cur_move):
+        if pre_move != 'none'and not pd.isna(pre_move) and         cur_move != 'none'and not pd.isna(cur_move):
             # get reward for move combination of current round
             dic_move[pre_move][cur_move]+=dic_reward[outcome]
             # fill in reward
@@ -123,8 +122,7 @@ def human_reward_oppo_past_cur_move(sub_df):
         # human current move
         cur_move=sub_df.get('player_move').iloc[i]
         # get rid of Nan cells
-        if oppo_pre_move != 'none'and not pd.isna(oppo_pre_move) \
-        and cur_move != 'none'and not pd.isna(cur_move):
+        if oppo_pre_move != 'none'and not pd.isna(oppo_pre_move)         and cur_move != 'none'and not pd.isna(cur_move):
             # get reward of move combination
             dic_move[oppo_pre_move][cur_move]+=dic_reward[outcome]
             # fill in reward value
