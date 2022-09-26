@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reference: Model Code &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -509,9 +508,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="reference-model-code">
+  <div class="tex2jax_ignore mathjax_ignore section" id="reference-model-code">
 <h1>Reference: Model Code<a class="headerlink" href="#reference-model-code" title="Permalink to this headline">#</a></h1>
-<section id="initialization">
+<div class="section" id="initialization">
 <h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -524,54 +523,53 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_30227/3635694259.py&quot;</span><span class="gt">, line </span><span class="mi">79</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/img&#39;</span><span class="p">,</span> <span class="s1">&#39;critical_trial_intervention_dist.pdf&#39;</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-1-b865b5afc89a&gt;&quot;</span><span class="gt">, line </span><span class="mi">79</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/img&#39;</span><span class="p">,</span> <span class="s1">&#39;critical_trial_intervention_dist.pdf&#39;</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3444</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_code</span>
-    <span class="n">exec</span><span class="p">(</span><span class="n">code_obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_global_ns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_ns</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">&quot;/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3343</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_code</span>
+    <span class="k">exec</span><span class="p">(</span><span class="n">code_obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_global_ns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_ns</span><span class="p">)</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_30227/421172343.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">5</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;ipython-input-1-9951fd5e0512&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">5</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
     <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;./model_python_lib_visualization.ipynb&#39;</span><span class="p">)</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2351</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_line_magic</span>
+  <span class="n">File</span> <span class="s2">&quot;/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2326</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_line_magic</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/anaconda3/lib/python3.9/site-packages/decorator.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">232</span><span class="p">,</span> <span class="ow">in</span> <span class="n">fun</span>
-    <span class="k">return</span> <span class="n">caller</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="p">(</span><span class="n">extras</span> <span class="o">+</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">&quot;&lt;decorator-gen-52&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/anaconda3/lib/python3.9/site-packages/IPython/core/magic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">187</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span>
+  <span class="n">File</span> <span class="s2">&quot;/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/magic.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">187</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="k">lambda</span><span class="o">&gt;</span>
     <span class="n">call</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">k</span><span class="p">)</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/anaconda3/lib/python3.9/site-packages/IPython/core/magics/execution.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">724</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">safe_execfile_ipy</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">raise_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">&quot;/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/magics/execution.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">718</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">safe_execfile_ipy</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">raise_exceptions</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2838</span><span class="p">,</span> <span class="ow">in</span> <span class="n">safe_execfile_ipy</span>
+  <span class="n">File</span> <span class="s2">&quot;/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2803</span><span class="p">,</span> <span class="ow">in</span> <span class="n">safe_execfile_ipy</span>
     <span class="n">result</span><span class="o">.</span><span class="n">raise_error</span><span class="p">()</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">330</span><span class="p">,</span> <span class="ow">in</span> <span class="n">raise_error</span>
+  <span class="n">File</span> <span class="s2">&quot;/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">329</span><span class="p">,</span> <span class="ow">in</span> <span class="n">raise_error</span>
     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_before_exec</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3143</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell_async</span>
+  <span class="n">File</span> <span class="s2">&quot;/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/interactiveshell.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3042</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run_cell_async</span>
     <span class="n">code_ast</span> <span class="o">=</span> <span class="n">compiler</span><span class="o">.</span><span class="n">ast_parse</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">cell_name</span><span class="p">)</span>
 
-  <span class="n">File</span> <span class="s2">&quot;/opt/anaconda3/lib/python3.9/site-packages/IPython/core/compilerop.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">101</span><span class="p">,</span> <span class="ow">in</span> <span class="n">ast_parse</span>
+  <span class="n">File</span> <span class="s2">&quot;/Users/jiemei/opt/anaconda3/lib/python3.8/site-packages/IPython/core/compilerop.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">101</span><span class="p">,</span> <span class="ow">in</span> <span class="n">ast_parse</span>
     <span class="k">return</span> <span class="nb">compile</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span> <span class="o">|</span> <span class="n">PyCF_ONLY_AST</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="gt">  File</span><span class="nn"> &quot;/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_30227/3635694259.py&quot;</span><span class="gt">, line </span><span class="mi">79</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/img&#39;</span><span class="p">,</span> <span class="s1">&#39;critical_trial_intervention_dist.pdf&#39;</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-1-b865b5afc89a&gt;&quot;</span><span class="gt">, line </span><span class="mi">79</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/img&#39;</span><span class="p">,</span> <span class="s1">&#39;critical_trial_intervention_dist.pdf&#39;</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="model-fit">
+</div>
+<div class="section" id="model-fit">
 <h2>Model Fit<a class="headerlink" href="#model-fit" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -589,8 +587,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
