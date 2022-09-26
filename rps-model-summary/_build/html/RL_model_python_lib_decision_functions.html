@@ -470,6 +470,7 @@ title="Print to PDF"
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1"># from utils import *</span>
+<span class="kn">import</span> <span class="nn">random</span>
 <span class="kn">from</span> <span class="nn">random</span> <span class="k">import</span> <span class="n">choices</span>
 
 
@@ -549,6 +550,43 @@ title="Print to PDF"
     <span class="n">df_new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_new</span><span class="p">,</span><span class="n">sofm</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">df_new</span>
 
+<span class="k">def</span> <span class="nf">get_softmax_probabilities_mix</span><span class="p">(</span><span class="n">df_agent_past</span><span class="p">,</span><span class="n">df_opponent_past</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    choose human_reward_past or opponent_reward_past based on which strategy has higher reward</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">distribution</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">vals</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.33</span><span class="p">,</span><span class="mf">0.33</span><span class="p">,</span><span class="mf">0.33</span><span class="p">]]</span> <span class="c1"># has deleted one default prob list</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">df_agent_past</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">df_agent_past</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">oppo_pre_move</span><span class="o">=</span><span class="n">df_agent_past</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">agent_pre_move</span><span class="o">=</span><span class="n">df_agent_past</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">agent_pre_move</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span> <span class="ow">and</span> <span class="n">oppo_pre_move</span><span class="o">!=</span> <span class="s1">&#39;none&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">oppo_pre_move</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">agent_pre_move</span><span class="p">):</span>
+            <span class="n">agent_reward_cols</span><span class="o">=</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{agent_pre_move}</span><span class="s1">_rock_reward&#39;</span><span class="p">,</span>
+                         <span class="n">f</span><span class="s1">&#39;</span><span class="si">{agent_pre_move}</span><span class="s1">_paper_reward&#39;</span><span class="p">,</span>
+                         <span class="n">f</span><span class="s1">&#39;</span><span class="si">{agent_pre_move}</span><span class="s1">_scissors_reward&#39;</span><span class="p">]</span> <span class="c1">#df_agent_past only has bot 0</span>
+            <span class="n">oppo_reward_cols</span><span class="o">=</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{oppo_pre_move}</span><span class="s1">_rock_reward&#39;</span><span class="p">,</span>
+                         <span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{oppo_pre_move}</span><span class="s1">_paper_reward&#39;</span><span class="p">,</span>
+                         <span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{oppo_pre_move}</span><span class="s1">_scissors_reward&#39;</span><span class="p">]</span><span class="c1"># df_opponent_past has bot=0&amp;1,so index not match</span>
+            <span class="n">val_agent</span><span class="o">=</span><span class="n">df_agent_past</span><span class="p">[</span><span class="n">agent_reward_cols</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="n">val_oppo</span> <span class="o">=</span> <span class="n">df_opponent_past</span><span class="p">[</span><span class="n">oppo_reward_cols</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">val_agent</span><span class="p">)</span><span class="o">&gt;</span><span class="nb">sum</span><span class="p">(</span><span class="n">val_oppo</span><span class="p">):</span>
+                <span class="n">val</span><span class="o">=</span><span class="n">val_agent</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">val</span><span class="o">=</span><span class="n">val_oppo</span>
+            <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">val</span><span class="o">=</span><span class="n">vals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+            
+    <span class="n">soft_max</span><span class="o">=</span><span class="p">[</span><span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">]</span> 
+    <span class="n">sofm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">soft_max</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;softmax_prob_rock&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_paper&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_scissors&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># strip only human df outside of the function</span>
+    <span class="n">df_new</span> <span class="o">=</span> <span class="n">df_agent_past</span><span class="p">[</span><span class="n">df_agent_past</span><span class="o">.</span><span class="n">is_bot</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span> 
+    <span class="n">df_new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_new</span><span class="p">,</span><span class="n">sofm</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_new</span>
+
 <span class="c1">#############################</span>
 <span class="c1">### Move choice functions ###</span>
 <span class="c1">#############################</span>
@@ -586,6 +624,16 @@ title="Print to PDF"
         <span class="n">move_choices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rock&#39;</span><span class="p">,</span> <span class="s1">&#39;paper&#39;</span><span class="p">,</span> <span class="s1">&#39;scissors&#39;</span><span class="p">]</span>
         <span class="n">distribution</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;softmax_prob_rock&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_paper&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_scissors&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># get ith [rock_prob,paper_prob,scissors_prob] from input df</span>
         <span class="n">chosen_move</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">move_choices</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)</span>
+        <span class="n">moves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">moves</span><span class="p">,</span> <span class="n">chosen_move</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">agent_move</span> <span class="o">=</span> <span class="n">moves</span><span class="p">)</span> <span class="c1"># agent_move stores sampled moves</span>
+    <span class="k">return</span> <span class="n">df</span>
+
+<span class="k">def</span> <span class="nf">pick_move_3d</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">moves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">move_choices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rock&#39;</span><span class="p">,</span> <span class="s1">&#39;paper&#39;</span><span class="p">,</span> <span class="s1">&#39;scissors&#39;</span><span class="p">]</span>
+        <span class="n">distribution</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;softmax_prob_rock&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_paper&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_scissors&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># get ith [rock_prob,paper_prob,scissors_prob] from input df </span>
+        <span class="n">chosen_move</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">move_choices</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)</span> 
         <span class="n">moves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">moves</span><span class="p">,</span> <span class="n">chosen_move</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">agent_move</span> <span class="o">=</span> <span class="n">moves</span><span class="p">)</span> <span class="c1"># agent_move stores sampled moves</span>
     <span class="k">return</span> <span class="n">df</span>

@@ -484,6 +484,11 @@ title="Print to PDF"
      3c opponent_past_human_current_reward_move
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-opponent-past-human-past-current-move-mix">
+     3d) opponent_past_human_past_current_move (mix)
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -528,6 +533,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#c-opponent-past-human-current-reward-move">
      3c opponent_past_human_current_reward_move
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-opponent-past-human-past-current-move-mix">
+     3d) opponent_past_human_past_current_move (mix)
     </a>
    </li>
   </ul>
@@ -637,23 +647,35 @@ title="Print to PDF"
 <h3>3b human_past_current_reward_move<a class="headerlink" href="#b-human-past-current-reward-move" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_win_rates</span><span class="p">(</span><span class="n">win_summary</span><span class="p">(</span><span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_result_3b</span><span class="p">,</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">separated</span><span class="p">:</span>
+    <span class="n">human_reward_past_cur_move</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="n">df_b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">separated</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df_b</span><span class="p">)</span>
+<span class="n">df_result_b</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">separated</span><span class="p">:</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">get_softmax_probabilities_3b</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">pick_move_3b</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">evaluate_outcome</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;agent_move&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;opponent_move&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_result_b</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_result_b</span><span class="p">,</span><span class="n">e</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_win_rates</span><span class="p">(</span><span class="n">win_summary</span><span class="p">(</span><span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_result_b</span><span class="p">,</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_57245/2958750840.py:9: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  modified_f_data[&#39;bin&#39;] = pd.cut(modified_f_data.loc[:, (&#39;round_index&#39;)], bins, labels = labs)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Win percentage against bot strategies&#39;}, xlabel=&#39;Trial round&#39;, ylabel=&#39;Mean win percentage&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/RLModel_code_15_2.png" src="_images/RLModel_code_15_2.png" />
+<img alt="_images/RLModel_code_17_0.png" src="_images/RLModel_code_17_0.png" />
 </div>
 </div>
 </div>
@@ -661,41 +683,54 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <h3>3c opponent_past_human_current_reward_move<a class="headerlink" href="#c-opponent-past-human-current-reward-move" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">human_reward_oppo_past_cur_move</span><span class="p">(</span><span class="n">sub_df</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    tally rewards based on both opponent past and human current moves</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">dic_reward</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;win&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;tie&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span>
-    <span class="n">dic_move</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;rock&#39;</span><span class="p">:{</span><span class="s1">&#39;rock&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;paper&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;scissors&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">},</span><span class="s1">&#39;paper&#39;</span><span class="p">:{</span><span class="s1">&#39;rock&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;paper&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;scissors&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">},</span>
-    <span class="s1">&#39;scissors&#39;</span><span class="p">:{</span><span class="s1">&#39;rock&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;paper&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;scissors&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">}}</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sub_df</span><span class="p">),</span><span class="mi">2</span><span class="p">):</span>
-        <span class="n">outcome</span><span class="o">=</span><span class="n">sub_df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_outcome&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="n">oppo_pre_move</span><span class="o">=</span><span class="n">sub_df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">cur_move</span><span class="o">=</span><span class="n">sub_df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">oppo_pre_move</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span><span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">oppo_pre_move</span><span class="p">)</span> <span class="ow">and</span> <span class="n">cur_move</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span><span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">cur_move</span><span class="p">):</span> <span class="c1"># this line may skip nan row, reward may look like 0,0,0</span>
-            <span class="n">dic_move</span><span class="p">[</span><span class="n">oppo_pre_move</span><span class="p">][</span><span class="n">cur_move</span><span class="p">]</span><span class="o">+=</span><span class="n">dic_reward</span><span class="p">[</span><span class="n">outcome</span><span class="p">]</span>
-            <span class="n">col_name</span><span class="o">=</span><span class="s1">&#39;opponent_&#39;</span><span class="o">+</span><span class="n">oppo_pre_move</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">cur_move</span><span class="o">+</span><span class="s1">&#39;_reward&#39;</span>
-            <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_rock_rock_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;rock&#39;</span><span class="p">][</span><span class="s1">&#39;rock&#39;</span><span class="p">]</span>
-            <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_rock_paper_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;rock&#39;</span><span class="p">][</span><span class="s1">&#39;paper&#39;</span><span class="p">]</span>
-            <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_rock_scissors_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;rock&#39;</span><span class="p">][</span><span class="s1">&#39;scissors&#39;</span><span class="p">]</span>
-            <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_paper_rock_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;paper&#39;</span><span class="p">][</span><span class="s1">&#39;rock&#39;</span><span class="p">]</span>
-            <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_paper_paper_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;paper&#39;</span><span class="p">][</span><span class="s1">&#39;paper&#39;</span><span class="p">]</span>
-            <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_paper_scissors_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;paper&#39;</span><span class="p">][</span><span class="s1">&#39;scissors&#39;</span><span class="p">]</span>
-            <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_scissors_rock_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;scissors&#39;</span><span class="p">][</span><span class="s1">&#39;rock&#39;</span><span class="p">]</span>
-            <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_scissors_paper_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;scissors&#39;</span><span class="p">][</span><span class="s1">&#39;paper&#39;</span><span class="p">]</span>
-            <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_scissors_scissors_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;scissors&#39;</span><span class="p">][</span><span class="s1">&#39;scissors&#39;</span><span class="p">]</span> 
-    <span class="k">return</span> <span class="n">sub_df</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># separate df into same game id</span>
+<span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">separated</span><span class="p">:</span>
+    <span class="n">human_reward_oppo_past_cur_move</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="n">df_c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">separated</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># separate df into same game id</span>
-<span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df_c</span><span class="p">)</span>
+<span class="n">df_result_c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="c1"># align results from the generaed agent move and opponent move</span>
 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">separated</span><span class="p">:</span>
-    <span class="n">human_reward_oppo_past_cur_move</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">separated</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">get_softmax_probabilities_3c</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">pick_move_3c</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">evaluate_outcome</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;agent_move&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;opponent_move&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_result_c</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_result_c</span><span class="p">,</span><span class="n">e</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_win_rates</span><span class="p">(</span><span class="n">win_summary</span><span class="p">(</span><span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_result_c</span><span class="p">,</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/RLModel_code_21_0.png" src="_images/RLModel_code_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="d-opponent-past-human-past-current-move-mix">
+<h3>3d) opponent_past_human_past_current_move (mix)<a class="headerlink" href="#d-opponent-past-human-past-current-move-mix" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated_agent_past</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df_b</span><span class="p">)</span>
+<span class="n">separated_oppo_past</span><span class="o">=</span><span class="n">separate_df</span><span class="p">(</span><span class="n">df_c</span><span class="p">)</span>
+<span class="n">df_result_mix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">separated_oppo_past</span><span class="p">)):</span>
+<span class="c1"># for e_agent,e_oppo in separated_agent_past, separated_oppo_past:</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">get_softmax_probabilities_mix</span><span class="p">(</span><span class="n">separated_agent_past</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">separated_oppo_past</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">pick_move_3d</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">evaluate_outcome</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;agent_move&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;opponent_move&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_result_mix</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_result_mix</span><span class="p">,</span><span class="n">e</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -718,6 +753,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>index</th>
       <th>game_id</th>
       <th>version</th>
       <th>is_sona_autocredit</th>
@@ -727,23 +763,23 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
       <th>round_index</th>
       <th>player_id</th>
       <th>is_bot</th>
-      <th>bot_strategy</th>
       <th>...</th>
+      <th>paper_paper_reward</th>
+      <th>paper_scissors_reward</th>
+      <th>scissors_rock_reward</th>
+      <th>scissors_paper_reward</th>
       <th>scissors_scissors_reward</th>
-      <th>opponent_rock_rock_reward</th>
-      <th>opponent_rock_paper_reward</th>
-      <th>opponent_rock_scissors_reward</th>
-      <th>opponent_paper_rock_reward</th>
-      <th>opponent_paper_paper_reward</th>
-      <th>opponent_paper_scissors_reward</th>
-      <th>opponent_scissors_rock_reward</th>
-      <th>opponent_scissors_paper_reward</th>
-      <th>opponent_scissors_scissors_reward</th>
+      <th>softmax_prob_rock</th>
+      <th>softmax_prob_paper</th>
+      <th>softmax_prob_scissors</th>
+      <th>agent_move</th>
+      <th>agent_outcome</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>0</td>
       <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
       <td>2</td>
       <td>1</td>
@@ -753,45 +789,21 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
       <td>1</td>
       <td>c82739a2-9e24-4c1b-840f-9eb00d10cd9b</td>
       <td>0</td>
-      <td>outcome_transition_dual_dependency</td>
       <td>...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>3.333333e-01</td>
+      <td>3.333333e-01</td>
+      <td>3.333333e-01</td>
+      <td>scissors</td>
+      <td>lose</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
       <td>2</td>
-      <td>1</td>
-      <td>1768</td>
-      <td>19421bc286424246b6b1e873e7a55a8e</td>
-      <td>32028</td>
-      <td>1</td>
-      <td>f1c3a029-e381-4f79-afbe-677ef9416f04</td>
-      <td>1</td>
-      <td>outcome_transition_dual_dependency</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
       <td>2</td>
       <td>1</td>
@@ -801,45 +813,21 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
       <td>2</td>
       <td>c82739a2-9e24-4c1b-840f-9eb00d10cd9b</td>
       <td>0</td>
-      <td>outcome_transition_dual_dependency</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>-1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>4.223188e-01</td>
+      <td>1.553624e-01</td>
+      <td>4.223188e-01</td>
+      <td>rock</td>
+      <td>win</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1768</td>
-      <td>19421bc286424246b6b1e873e7a55a8e</td>
-      <td>32028</td>
-      <td>2</td>
-      <td>f1c3a029-e381-4f79-afbe-677ef9416f04</td>
-      <td>1</td>
-      <td>outcome_transition_dual_dependency</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
+      <th>2</th>
+      <td>4</td>
       <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
       <td>2</td>
       <td>1</td>
@@ -849,18 +837,65 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
       <td>3</td>
       <td>c82739a2-9e24-4c1b-840f-9eb00d10cd9b</td>
       <td>0</td>
-      <td>outcome_transition_dual_dependency</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>-1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>3.333333e-01</td>
+      <td>3.333333e-01</td>
+      <td>3.333333e-01</td>
+      <td>paper</td>
+      <td>lose</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1768</td>
+      <td>19421bc286424246b6b1e873e7a55a8e</td>
+      <td>32028</td>
+      <td>4</td>
+      <td>c82739a2-9e24-4c1b-840f-9eb00d10cd9b</td>
+      <td>0</td>
+      <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>3.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>9.094430e-01</td>
+      <td>4.527850e-02</td>
+      <td>4.527850e-02</td>
+      <td>rock</td>
+      <td>win</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8</td>
+      <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1768</td>
+      <td>19421bc286424246b6b1e873e7a55a8e</td>
+      <td>32028</td>
+      <td>5</td>
+      <td>c82739a2-9e24-4c1b-840f-9eb00d10cd9b</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>9.094430e-01</td>
+      <td>4.527850e-02</td>
+      <td>4.527850e-02</td>
+      <td>rock</td>
+      <td>lose</td>
     </tr>
     <tr>
       <th>...</th>
@@ -887,7 +922,56 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
       <td>...</td>
     </tr>
     <tr>
-      <th>595</th>
+      <th>295</th>
+      <td>590</td>
+      <td>89fe5868-3da2-45b8-9687-8aec90b283f2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1768</td>
+      <td>19421bc286424246b6b1e873e7a55a8e</td>
+      <td>27853</td>
+      <td>296</td>
+      <td>9abb892e-7543-47bf-a2dc-40b0796b01b7</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-11.0</td>
+      <td>2.0</td>
+      <td>-2.0</td>
+      <td>153.0</td>
+      <td>-4.0</td>
+      <td>1.000000e+00</td>
+      <td>1.080639e-30</td>
+      <td>4.780893e-25</td>
+      <td>rock</td>
+      <td>win</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>592</td>
+      <td>89fe5868-3da2-45b8-9687-8aec90b283f2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1768</td>
+      <td>19421bc286424246b6b1e873e7a55a8e</td>
+      <td>27853</td>
+      <td>297</td>
+      <td>9abb892e-7543-47bf-a2dc-40b0796b01b7</td>
+      <td>0</td>
+      <td>...</td>
+      <td>-11.0</td>
+      <td>2.0</td>
+      <td>-2.0</td>
+      <td>153.0</td>
+      <td>-4.0</td>
+      <td>4.906095e-35</td>
+      <td>7.095474e-23</td>
+      <td>1.000000e+00</td>
+      <td>scissors</td>
+      <td>win</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>594</td>
       <td>89fe5868-3da2-45b8-9687-8aec90b283f2</td>
       <td>2</td>
       <td>1</td>
@@ -895,23 +979,23 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
       <td>19421bc286424246b6b1e873e7a55a8e</td>
       <td>27853</td>
       <td>298</td>
-      <td>aaef3106-84a2-4e42-a31f-4bcaa7c659dd</td>
-      <td>1</td>
-      <td>opponent_prev_move_positive</td>
+      <td>9abb892e-7543-47bf-a2dc-40b0796b01b7</td>
+      <td>0</td>
       <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>-11.0</td>
+      <td>2.0</td>
+      <td>-2.0</td>
+      <td>156.0</td>
+      <td>-4.0</td>
+      <td>2.406977e-69</td>
+      <td>1.000000e+00</td>
+      <td>3.257489e-70</td>
+      <td>paper</td>
+      <td>win</td>
     </tr>
     <tr>
-      <th>596</th>
+      <th>298</th>
+      <td>596</td>
       <td>89fe5868-3da2-45b8-9687-8aec90b283f2</td>
       <td>2</td>
       <td>1</td>
@@ -921,45 +1005,21 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
       <td>299</td>
       <td>9abb892e-7543-47bf-a2dc-40b0796b01b7</td>
       <td>0</td>
-      <td>opponent_prev_move_positive</td>
       <td>...</td>
+      <td>-11.0</td>
+      <td>2.0</td>
+      <td>-2.0</td>
+      <td>156.0</td>
       <td>-4.0</td>
-      <td>83.0</td>
-      <td>15.0</td>
-      <td>28.0</td>
-      <td>35.0</td>
-      <td>99.0</td>
-      <td>15.0</td>
-      <td>5.0</td>
-      <td>33.0</td>
-      <td>84.0</td>
+      <td>1.000000e+00</td>
+      <td>2.937482e-30</td>
+      <td>1.299581e-24</td>
+      <td>rock</td>
+      <td>lose</td>
     </tr>
     <tr>
-      <th>597</th>
-      <td>89fe5868-3da2-45b8-9687-8aec90b283f2</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1768</td>
-      <td>19421bc286424246b6b1e873e7a55a8e</td>
-      <td>27853</td>
-      <td>299</td>
-      <td>aaef3106-84a2-4e42-a31f-4bcaa7c659dd</td>
-      <td>1</td>
-      <td>opponent_prev_move_positive</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>598</th>
+      <th>299</th>
+      <td>598</td>
       <td>89fe5868-3da2-45b8-9687-8aec90b283f2</td>
       <td>2</td>
       <td>1</td>
@@ -969,128 +1029,31 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
       <td>300</td>
       <td>9abb892e-7543-47bf-a2dc-40b0796b01b7</td>
       <td>0</td>
-      <td>opponent_prev_move_positive</td>
       <td>...</td>
+      <td>-11.0</td>
+      <td>2.0</td>
+      <td>-2.0</td>
+      <td>156.0</td>
       <td>-4.0</td>
-      <td>83.0</td>
-      <td>15.0</td>
-      <td>28.0</td>
-      <td>35.0</td>
-      <td>99.0</td>
-      <td>18.0</td>
-      <td>5.0</td>
-      <td>33.0</td>
-      <td>84.0</td>
-    </tr>
-    <tr>
-      <th>599</th>
-      <td>89fe5868-3da2-45b8-9687-8aec90b283f2</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1768</td>
-      <td>19421bc286424246b6b1e873e7a55a8e</td>
-      <td>27853</td>
-      <td>300</td>
-      <td>aaef3106-84a2-4e42-a31f-4bcaa7c659dd</td>
-      <td>1</td>
-      <td>opponent_prev_move_positive</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1.603811e-28</td>
+      <td>1.000000e+00</td>
+      <td>6.639677e-36</td>
+      <td>paper</td>
+      <td>tie</td>
     </tr>
   </tbody>
 </table>
-<p>130200 rows × 42 columns</p>
+<p>65100 rows × 37 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_softmax_probabilities_3c</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    generate softmax probability distribution of each round so we can sample moves from the distribution</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="c1"># df.dropna(axis = 0)</span>
-    <span class="n">distribution</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">vals</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.33</span><span class="p">,</span><span class="mf">0.33</span><span class="p">,</span><span class="mf">0.33</span><span class="p">]]</span> <span class="c1"># has deleted one default prob list</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">2</span><span class="p">):</span>
-        <span class="n">pre_move</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># -1 instead of -2 since opponent_pre</span>
-        <span class="k">if</span> <span class="n">pre_move</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">pre_move</span><span class="p">):</span>
-            <span class="n">reward_cols</span><span class="o">=</span><span class="p">[</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{pre_move}</span><span class="s1">_rock_reward&#39;</span><span class="p">,</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{pre_move}</span><span class="s1">_paper_reward&#39;</span><span class="p">,</span><span class="n">f</span><span class="s1">&#39;opponent_</span><span class="si">{pre_move}</span><span class="s1">_scissors_reward&#39;</span><span class="p">]</span>
-            <span class="n">val</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">reward_cols</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-            <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">val</span><span class="o">=</span><span class="n">vals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-    <span class="n">soft_max</span><span class="o">=</span><span class="p">[</span><span class="n">softmax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vals</span><span class="p">]</span> 
-    <span class="n">sofm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">soft_max</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;softmax_prob_rock&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_paper&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_scissors&#39;</span><span class="p">])</span>
-    
-    <span class="c1"># strip only human df outside of the function</span>
-    <span class="n">df_new</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">is_bot</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="n">df_new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_new</span><span class="p">,</span><span class="n">sofm</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df_new</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pick_move_3c</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    sample agent move based on softmax distribution</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">moves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-        <span class="n">move_choices</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rock&#39;</span><span class="p">,</span> <span class="s1">&#39;paper&#39;</span><span class="p">,</span> <span class="s1">&#39;scissors&#39;</span><span class="p">]</span>
-        <span class="n">distribution</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;softmax_prob_rock&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_paper&#39;</span><span class="p">,</span> <span class="s1">&#39;softmax_prob_scissors&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="c1"># get ith [rock_prob,paper_prob,scissors_prob] from input df </span>
-        <span class="n">chosen_move</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">move_choices</span><span class="p">,</span> <span class="n">distribution</span><span class="p">)</span> 
-        <span class="n">moves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">moves</span><span class="p">,</span> <span class="n">chosen_move</span><span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">agent_move</span> <span class="o">=</span> <span class="n">moves</span><span class="p">)</span> <span class="c1"># agent_move stores sampled moves</span>
-    <span class="k">return</span> <span class="n">df</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">df_result_3c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="c1"># align results from the generaed agent move and opponent move</span>
-<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">separated</span><span class="p">:</span>
-    <span class="n">e</span> <span class="o">=</span> <span class="n">get_softmax_probabilities_3c</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    <span class="n">e</span><span class="o">=</span><span class="n">pick_move_3c</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    <span class="n">e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">evaluate_outcome</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;agent_move&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;opponent_move&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">df_result_3c</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_result_3c</span><span class="p">,</span><span class="n">e</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_win_rates</span><span class="p">(</span><span class="n">win_summary</span><span class="p">(</span><span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_result_3c</span><span class="p">,</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_win_rates</span><span class="p">(</span><span class="n">win_summary</span><span class="p">(</span><span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_result_mix</span><span class="p">,</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_57245/2958750840.py:9: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  modified_f_data[&#39;bin&#39;] = pd.cut(modified_f_data.loc[:, (&#39;round_index&#39;)], bins, labels = labs)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Win percentage against bot strategies&#39;}, xlabel=&#39;Trial round&#39;, ylabel=&#39;Mean win percentage&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/RLModel_code_22_2.png" src="_images/RLModel_code_22_2.png" />
+<img alt="_images/RLModel_code_24_0.png" src="_images/RLModel_code_24_0.png" />
 </div>
 </div>
 </div>
