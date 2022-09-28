@@ -12,12 +12,12 @@
 get_ipython().run_line_magic('run', './model_python_lib_utils.ipynb')
 get_ipython().run_line_magic('run', './model_python_lib_event_counts.ipynb')
 get_ipython().run_line_magic('run', './model_python_lib_decision_functions.ipynb')
-get_ipython().run_line_magic('run', './model_python_lib_visualization.ipynb')
+get_ipython().run_line_magic('run', './python_lib_visualization.ipynb')
 
 
 # ## Model Fit
 
-# In[ ]:
+# In[2]:
 
 
 # Read data
@@ -25,7 +25,7 @@ df = read_rps_data(os.path.join("data", DEFAULT_FILE))
 df.head()
 
 
-# In[ ]:
+# In[3]:
 
 
 # Fit model...

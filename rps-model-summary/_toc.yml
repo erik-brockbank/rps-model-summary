@@ -31,8 +31,7 @@ parts:
       - file: model_python_lib_utils.ipynb
       - file: model_python_lib_event_counts.ipynb
       - file: model_python_lib_decision_functions.ipynb
-      - file: model_python_lib_visualization.ipynb
       - file: RL_model_python_lib_utils.ipynb
       - file: RL_model_python_lib_reward.ipynb
       - file: RL_model_python_lib_decision_functions.ipynb
-      - file: RL_model_python_lib_visualization.ipynb
+      - file: python_lib_visualization.ipynb

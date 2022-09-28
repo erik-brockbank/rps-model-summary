@@ -12,7 +12,7 @@
 get_ipython().run_line_magic('run', './RL_model_python_lib_utils.ipynb')
 get_ipython().run_line_magic('run', './RL_model_python_lib_reward.ipynb')
 get_ipython().run_line_magic('run', './RL_model_python_lib_decision_functions.ipynb')
-get_ipython().run_line_magic('run', './RL_model_python_lib_visualization.ipynb')
+get_ipython().run_line_magic('run', './python_lib_visualization.ipynb')
 
 
 # ## Model Fit
@@ -70,7 +70,12 @@ df_a=assign_agent_outcomes(df_a)
 # In[8]:
 
 
-plot_win_rates(win_summary(groupby_f_data(df_a,'agent_outcome',30),'agent_outcome'))
+f_a = groupby_f_data(df_a, 'agent_outcome', bins=60)
+f_a = f_a[f_a['bin']<='50']
+plot_win_rates(f_a[f_a['agent_outcome']=='win'],'rl_a')
+# f_a = groupby_f_data(df_a, 'agent_outcome', bins=30)
+# plot_win_rates(f_a[f_a['agent_outcome']=='win'])
+# plot_win_rates(win_summary(groupby_f_data(df_a,'agent_outcome',30),'agent_outcome'))
 
 
 # In[ ]:
@@ -87,7 +92,7 @@ plot_win_rates(win_summary(groupby_f_data(df_a,'agent_outcome',30),'agent_outcom
 
 # ### 3b human_past_current_reward_move
 
-# In[10]:
+# In[13]:
 
 
 separated = separate_df(df)
@@ -96,7 +101,7 @@ for e in separated:
 df_b = pd.concat(separated)
 
 
-# In[21]:
+# In[14]:
 
 
 separated = separate_df(df_b)
@@ -108,15 +113,18 @@ for e in separated:
     df_result_b=pd.concat([df_result_b,e],axis=0)
 
 
-# In[22]:
+# In[21]:
 
 
-plot_win_rates(win_summary(groupby_f_data(df_result_b,'agent_outcome',30),'agent_outcome'))
+f_b = groupby_f_data(df_result_b, 'agent_outcome', bins=60)
+f_b = f_b[f_b['bin']<='50']
+plot_win_rates(f_b[f_b['agent_outcome']=='win'], 'rl_b')
+# plot_win_rates(win_summary(groupby_f_data(df_result_b,'agent_outcome',30),'agent_outcome'))
 
 
 # ### 3c opponent_past_human_current_reward_move
 
-# In[27]:
+# In[17]:
 
 
 # separate df into same game id
@@ -126,7 +134,7 @@ for e in separated:
 df_c = pd.concat(separated)
 
 
-# In[25]:
+# In[18]:
 
 
 separated = separate_df(df_c)
@@ -139,15 +147,18 @@ for e in separated:
     df_result_c=pd.concat([df_result_c,e],axis=0)
 
 
-# In[26]:
+# In[22]:
 
 
-plot_win_rates(win_summary(groupby_f_data(df_result_c,'agent_outcome',30),'agent_outcome'))
+f_c = groupby_f_data(df_result_c, 'agent_outcome', bins=60)
+f_c = f_c[f_c['bin']<='50']
+plot_win_rates(f_c[f_c['agent_outcome']=='win'], 'rl_c')
+# plot_win_rates(win_summary(groupby_f_data(df_result_c,'agent_outcome',30),'agent_outcome'))
 
 
 # ### 3d) opponent_past_human_past_current_move (mix)
 
-# In[29]:
+# In[23]:
 
 
 separated_agent_past = separate_df(df_b)
@@ -162,10 +173,13 @@ for i in range(len(separated_oppo_past)):
     df_result_mix=pd.concat([df_result_mix,e],axis=0)
 
 
-# In[30]:
+# In[24]:
 
 
-plot_win_rates(win_summary(groupby_f_data(df_result_mix,'agent_outcome',30),'agent_outcome'))
+f_mix = groupby_f_data(df_result_mix, 'agent_outcome', bins=60)
+f_mix = f_mix[f_mix['bin']<='50']
+plot_win_rates(f_mix[f_mix['agent_outcome']=='win'], 'rl_mix')
+#plot_win_rates(win_summary(groupby_f_data(df_result_mix,'agent_outcome',30),'agent_outcome'))
 
 
 # In[ ]:
