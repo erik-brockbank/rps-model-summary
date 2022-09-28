@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Model Overview &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -49,8 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Model Results" href="ModelModel_results.html" />
@@ -243,15 +244,6 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model_python_lib_visualization.html">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     model_visualization.py
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="RL_model_python_lib_utils.html">
    <code class="docutils literal notranslate">
     <span class="pre">
@@ -279,7 +271,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="RL_model_python_lib_visualization.html">
+  <a class="reference internal" href="python_lib_visualization.html">
    <code class="docutils literal notranslate">
     <span class="pre">
      RL_model_visualization.py
@@ -497,7 +489,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="model-overview">
+  <section class="tex2jax_ignore mathjax_ignore" id="model-overview">
 <h1>Model Overview<a class="headerlink" href="#model-overview" title="Permalink to this headline">#</a></h1>
 <p>Overview of the model (equations, decision policy, etc.)</p>
 <p>This model-based agent uses a <strong><ins>Statistical Learning Approach</ins></strong> to keeps track of patterns in the opponent’s moves to try and predict the opponent’s next move.</p>
@@ -510,11 +502,11 @@ title="Print to PDF"
 <li><p>Choose the right move corresponding the predicted move</p></li>
 </ol>
 </div></blockquote>
-<div class="section" id="details-equations-in-model-based-agent-decision-making-process">
+<section id="details-equations-in-model-based-agent-decision-making-process">
 <h2>Details(Equations) in Model-based Agent Decision-making Process<a class="headerlink" href="#details-equations-in-model-based-agent-decision-making-process" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>To choose the final move, we utilized <em><strong>expected values</strong></em> and <em><strong>softmax function</strong></em> in our model-based agent.</p>
-<div class="section" id="ins-expected-values-ins">
+<section id="ins-expected-values-ins">
 <h3><ins><strong>Expected Values:</strong><ins><a class="headerlink" href="#ins-expected-values-ins" title="Permalink to this headline">#</a></h3>
 <p>We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the bot playing each move based on the previous cumulative counts.</p>
 <div class="math notranslate nohighlight">
@@ -523,9 +515,9 @@ title="Print to PDF"
 \]</div>
 <p><span class="math notranslate nohighlight">\(x_i\)</span> = the values that X takes
 <span class="math notranslate nohighlight">\(p(x_i)\)</span> = the probability that X takes the value <span class="math notranslate nohighlight">\(x_i\)</span></p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
