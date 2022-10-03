@@ -37,7 +37,7 @@ The site is divided into the following sections:
 1. a utils library with general purpose functions needed for each model ([model_utils.py](model_python_lib_utils.ipynb) and [RL_model_utils.py](RL_model_python_lib_utils.ipynb))
 2. a library for tracking the prior events relevant to each model's decision function ([model_event_counts.py](model_python_lib_event_counts.ipynb) and [RL_model_reward.py](RL_model_python_lib_reward.ipynb))
 3.  a decision function library with the functions each model uses to choose a move ([model_decision_functions.py](model_python_lib_decision_functions.ipynb) and [RL_model_decision_functions.py](RL_model_python_lib_decision_functions.ipynb))
-4. a visualization library for generating the graphs used to evaluate each model's performance ([model_visualization.py](model_python_lib_visualization.ipynb) and [RL_model_visualization.py](RL_model_python_lib_visualization.ipynb)).
+4. a visualization library for generating the graphs used to evaluate each model's performance ([visualization.py](python_lib_visualization.ipynb).
 
 Together, this represents a complete overview of the code and results for these models. The *source-of-truth* repo for the model-based agent is [here](https://github.com/erik-brockbank/rps-agent-model) and the repo for the RL agent is [here](https://github.com/erik-brockbank/rps-rl-model).
 

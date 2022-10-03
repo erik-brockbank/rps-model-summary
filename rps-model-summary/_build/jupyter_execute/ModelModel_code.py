@@ -17,7 +17,7 @@ get_ipython().run_line_magic('run', './python_lib_visualization.ipynb')
 
 # ## Model Fit
 
-# In[2]:
+# In[ ]:
 
 
 # Read data
@@ -25,7 +25,7 @@ df = read_rps_data(os.path.join("data", DEFAULT_FILE))
 df.head()
 
 
-# In[3]:
+# In[ ]:
 
 
 # Fit model...

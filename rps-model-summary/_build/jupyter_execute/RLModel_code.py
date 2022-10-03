@@ -72,22 +72,7 @@ df_a=assign_agent_outcomes(df_a)
 
 f_a = groupby_f_data(df_a, 'agent_outcome', bins=60)
 f_a = f_a[f_a['bin']<='50']
-plot_win_rates(f_a[f_a['agent_outcome']=='win'],'rl_a')
-# f_a = groupby_f_data(df_a, 'agent_outcome', bins=30)
-# plot_win_rates(f_a[f_a['agent_outcome']=='win'])
-# plot_win_rates(win_summary(groupby_f_data(df_a,'agent_outcome',30),'agent_outcome'))
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
+plot_win_rates(f_a[f_a['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
 # ### 3b human_past_current_reward_move
@@ -118,8 +103,7 @@ for e in separated:
 
 f_b = groupby_f_data(df_result_b, 'agent_outcome', bins=60)
 f_b = f_b[f_b['bin']<='50']
-plot_win_rates(f_b[f_b['agent_outcome']=='win'], 'rl_b')
-# plot_win_rates(win_summary(groupby_f_data(df_result_b,'agent_outcome',30),'agent_outcome'))
+plot_win_rates(f_b[f_b['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
 # ### 3c opponent_past_human_current_reward_move
@@ -152,8 +136,7 @@ for e in separated:
 
 f_c = groupby_f_data(df_result_c, 'agent_outcome', bins=60)
 f_c = f_c[f_c['bin']<='50']
-plot_win_rates(f_c[f_c['agent_outcome']=='win'], 'rl_c')
-# plot_win_rates(win_summary(groupby_f_data(df_result_c,'agent_outcome',30),'agent_outcome'))
+plot_win_rates(f_c[f_c['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
 # ### 3d) opponent_past_human_past_current_move (mix)
@@ -178,12 +161,36 @@ for i in range(len(separated_oppo_past)):
 
 f_mix = groupby_f_data(df_result_mix, 'agent_outcome', bins=60)
 f_mix = f_mix[f_mix['bin']<='50']
-plot_win_rates(f_mix[f_mix['agent_outcome']=='win'], 'rl_mix')
-#plot_win_rates(win_summary(groupby_f_data(df_result_mix,'agent_outcome',30),'agent_outcome'))
+plot_win_rates(f_mix[f_mix['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
+
+
+# ### 3e) opponent_past_human_past_current_move (combined)
+
+# In[ ]:
+
+
+# TODO combined version here
+
+# separated_agent_past = separate_df(df_b)
+# separated_oppo_past=separate_df(df_c)
+# df_result_mix = pd.DataFrame()
+# count=0
+# for i in range(len(separated_oppo_past)):
+# # for e_agent,e_oppo in separated_agent_past, separated_oppo_past:
+#     e=get_softmax_probabilities_mix(separated_agent_past[i], separated_oppo_past[i])
+#     e=pick_move_3d(e)
+#     e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
+#     df_result_mix=pd.concat([df_result_mix,e],axis=0)
 
 
 # In[ ]:
 
 
+# f_mix = groupby_f_data(df_result_mix, 'agent_outcome', bins=60)
+# f_mix = f_mix[f_mix['bin']<='50']
 
+# TODO run a version that generates the figure then remove the below, replace with the following line
+# plot_win_rates(f_mix[f_mix['agent_outcome']=='win'], 'rl_combined.png')
+
+# plot_win_rates(f_mix[f_mix['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
