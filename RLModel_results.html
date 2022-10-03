@@ -21,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -272,7 +272,7 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="python_lib_visualization.html">
    <code class="docutils literal notranslate">
     <span class="pre">
-     RL_model_visualization.py
+     visualization.py
     </span>
    </code>
   </a>
@@ -400,12 +400,56 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#human-performance-benchmark">
+   Human performance: benchmark
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#null-model-move-base-rates">
+   Null model: move base rates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agent-previous-move-reward">
+   Agent previous move reward
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opponent-previous-move-rewards">
+   Opponent previous move rewards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#disjunctive-agent-opponent-previous-move-rewards">
+   Disjunctive agent, opponent previous move rewards
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -417,6 +461,39 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#human-performance-benchmark">
+   Human performance: benchmark
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#null-model-move-base-rates">
+   Null model: move base rates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agent-previous-move-reward">
+   Agent previous move reward
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opponent-previous-move-rewards">
+   Opponent previous move rewards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#disjunctive-agent-opponent-previous-move-rewards">
+   Disjunctive agent, opponent previous move rewards
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -426,7 +503,28 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="model-results">
 <h1>Model Results<a class="headerlink" href="#model-results" title="Permalink to this headline">#</a></h1>
-<p><img alt="critical_trial_intervention_dist" src="_images/critical_trial_intervention_dist.png" /></p>
+<section id="human-performance-benchmark">
+<h2>Human performance: benchmark<a class="headerlink" href="#human-performance-benchmark" title="Permalink to this headline">#</a></h2>
+<p><img alt="benchmark.png" src="_images/benchmark.png" /></p>
+<p><strong>The above visualization demonstrates how human participants performed against bots which possessed unique strategies. The red dotted baseline indicates that the wining rate would be 33% if the participant did not exploit the perceivable patterns. The wining rate converges to the chance line as pattern of each bot becomes more complicated.</strong></p>
+</section>
+<section id="null-model-move-base-rates">
+<h2>Null model: move base rates<a class="headerlink" href="#null-model-move-base-rates" title="Permalink to this headline">#</a></h2>
+<p><img alt="nullmodel.png" src="_images/rl_a.png" /></p>
+</section>
+<section id="agent-previous-move-reward">
+<h2>Agent previous move reward<a class="headerlink" href="#agent-previous-move-reward" title="Permalink to this headline">#</a></h2>
+<p><img alt="m2_summary.png" src="_images/rl_b.png" /></p>
+</section>
+<section id="opponent-previous-move-rewards">
+<h2>Opponent previous move rewards<a class="headerlink" href="#opponent-previous-move-rewards" title="Permalink to this headline">#</a></h2>
+<p><img alt="m3_summary.png" src="_images/rl_c.png" /></p>
+</section>
+<section id="disjunctive-agent-opponent-previous-move-rewards">
+<h2>Disjunctive agent, opponent previous move rewards<a class="headerlink" href="#disjunctive-agent-opponent-previous-move-rewards" title="Permalink to this headline">#</a></h2>
+<p>TODO: uncomment the below when it’s ready</p>
+<!-- ![m4_summary.png](img/rl_mix.png) -->
+</section>
 </section>
 
     <script type="text/x-thebe-config">
