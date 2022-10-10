@@ -21,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -568,68 +568,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">File /var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_17209/3777295251.py:6,</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Library for visualizing model output</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> These functions are primarily graphing functions, with some supporting functions as well</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;./RL_model_python_lib_reward.ipynb&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;./RL_model_python_lib_decision_functions.ipynb&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;./python_lib_visualization.ipynb&#39;</span><span class="p">)</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2305,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2303</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2304</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2305</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2306</span> <span class="k">return</span> <span class="n">result</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/magics/execution.py:717,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">715</span>     <span class="k">with</span> <span class="n">preserve_keys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">user_ns</span><span class="p">,</span> <span class="s1">&#39;__file__&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">716</span>         <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">user_ns</span><span class="p">[</span><span class="s1">&#39;__file__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filename</span>
-<span class="ne">--&gt; </span><span class="mi">717</span>         <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">safe_execfile_ipy</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">raise_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">718</span>     <span class="k">return</span>
-<span class="g g-Whitespace">    </span><span class="mi">720</span> <span class="c1"># Control the response to exit() calls made by the script being run</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2811,</span> in <span class="ni">InteractiveShell.safe_execfile_ipy</span><span class="nt">(self, fname, shell_futures, raise_exceptions)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2809</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell_futures</span><span class="o">=</span><span class="n">shell_futures</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2810</span> <span class="k">if</span> <span class="n">raise_exceptions</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2811</span>     <span class="n">result</span><span class="o">.</span><span class="n">raise_error</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2812</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2813</span>     <span class="k">break</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:251,</span> in <span class="ni">ExecutionResult.raise_error</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_before_exec</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_in_exec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">251</span>     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_in_exec</span>
-
-    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">1</span> <span class="n">frame</span><span class="p">]</span>
-
-<span class="nn">File /var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_17209/3777295251.py:6,</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> Library for visualizing model output</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> These functions are primarily graphing functions, with some supporting functions as well</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="model-fit">
@@ -677,6 +615,94 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.9/site-packages/pandas/core/arraylike.py:364: RuntimeWarning: overflow encountered in exp
   result = getattr(ufunc, method)(*inputs, **kwargs)
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">tm</span><span class="o">/</span><span class="n">sjjwcmbs3250mhfs5psrzf5w0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_53297</span><span class="o">/</span><span class="mf">2661994358.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">soft_dist</span> <span class="o">=</span> <span class="n">get_softmax_probabilities</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">df_a</span><span class="p">,</span> <span class="c1"># df should be just human rows at this point, strip out nans etc.</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="p">[</span><span class="s1">&#39;rock_reward&#39;</span><span class="p">,</span> <span class="s1">&#39;paper_reward&#39;</span><span class="p">,</span> <span class="s1">&#39;scissors_reward&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
+
+<span class="nn">/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_53297/3807290300.py</span> in <span class="ni">get_softmax_probabilities</span><span class="nt">(df, columns)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span><span class="sd">     vals = df[columns]</span>
+<span class="ne">---&gt; </span><span class="mi">25</span><span class="sd">     vals = vals.apply(softmax,axis=1,beta=4)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span><span class="sd">     return vals</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span><span class="sd"> </span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/frame.py</span> in <span class="ni">apply</span><span class="nt">(self, func, axis, raw, result_type, args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">8738</span><span class="sd">             kwargs=kwargs,</span>
+<span class="g g-Whitespace">   </span><span class="mi">8739</span><span class="sd">         )</span>
+<span class="ne">-&gt; </span><span class="mi">8740</span><span class="sd">         return op.apply()</span>
+<span class="g g-Whitespace">   </span><span class="mi">8741</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">8742</span><span class="sd">     def applymap(</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/apply.py</span> in <span class="ni">apply</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">686</span><span class="sd">             return self.apply_raw()</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span><span class="sd"> </span>
+<span class="ne">--&gt; </span><span class="mi">688</span><span class="sd">         return self.apply_standard()</span>
+<span class="g g-Whitespace">    </span><span class="mi">689</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">690</span><span class="sd">     def agg(self):</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">811</span><span class="sd">     def apply_standard(self):</span>
+<span class="ne">--&gt; </span><span class="mi">812</span><span class="sd">         results, res_index = self.apply_series_generator()</span>
+<span class="g g-Whitespace">    </span><span class="mi">813</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">814</span><span class="sd">         # wrap results</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/apply.py</span> in <span class="ni">apply_series_generator</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">826</span><span class="sd">             for i, v in enumerate(series_gen):</span>
+<span class="g g-Whitespace">    </span><span class="mi">827</span><span class="sd">                 # ignore SettingWithCopy here in case the user mutates</span>
+<span class="ne">--&gt; </span><span class="mi">828</span><span class="sd">                 results[i] = self.f(v)</span>
+<span class="g g-Whitespace">    </span><span class="mi">829</span><span class="sd">                 if isinstance(results[i], ABCSeries):</span>
+<span class="g g-Whitespace">    </span><span class="mi">830</span><span class="sd">                     # If we have a view on v, we need to make a copy because</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/apply.py</span> in <span class="ni">f</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span><span class="sd">             def f(x):</span>
+<span class="ne">--&gt; </span><span class="mi">131</span><span class="sd">                 return func(x, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span><span class="sd">         else:</span>
+
+<span class="nn">/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_53297/3807290300.py</span> in <span class="ni">softmax</span><span class="nt">(x, beta)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="sd"> def softmax(x, beta = 1):</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span><span class="sd">     &quot;&quot;&quot;</span><span class="n">Compute</span> <span class="n">softmax</span> <span class="n">values</span> <span class="k">for</span> <span class="n">each</span> <span class="n">sets</span> <span class="n">of</span> <span class="n">scores</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">16</span><span class="s2">     return np.exp(x * beta) / np.sum(np.exp(x * beta), axis=0)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="s2"> def get_softmax_probabilities(df, columns):</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/generic.py</span> in <span class="ni">__array_ufunc__</span><span class="nt">(self, ufunc, method, *inputs, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2030</span><span class="s2">         self, ufunc: np.ufunc, method: str, *inputs: Any, **kwargs: Any</span>
+<span class="g g-Whitespace">   </span><span class="mi">2031</span><span class="s2">     ):</span>
+<span class="ne">-&gt; </span><span class="mi">2032</span><span class="s2">         return arraylike.array_ufunc(self, ufunc, method, *inputs, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2033</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">2034</span><span class="s2">     # ideally we would define this to avoid the getattr checks, but</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/arraylike.py</span> in <span class="ni">array_ufunc</span><span class="nt">(self, ufunc, method, *inputs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">246</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">247</span><span class="s2">     # for backwards compatibility check and potentially fallback for non-aligned frames</span>
+<span class="ne">--&gt; </span><span class="mi">248</span><span class="s2">     result = _maybe_fallback(ufunc, method, *inputs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">249</span><span class="s2">     if result is not NotImplemented:</span>
+<span class="g g-Whitespace">    </span><span class="mi">250</span><span class="s2">         return result</span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/arraylike.py</span> in <span class="ni">_maybe_fallback</span><span class="nt">(ufunc, method, *inputs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span><span class="s2">     from pandas.core.generic import NDFrame</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">185</span><span class="s2">     n_alignable = sum(isinstance(x, NDFrame) for x in inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span><span class="s2">     n_frames = sum(isinstance(x, DataFrame) for x in inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span><span class="s2"> </span>
+
+<span class="nn">/opt/anaconda3/lib/python3.9/site-packages/pandas/core/arraylike.py</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span><span class="s2">     from pandas.core.generic import NDFrame</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">185</span><span class="s2">     n_alignable = sum(isinstance(x, NDFrame) for x in inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span><span class="s2">     n_frames = sum(isinstance(x, DataFrame) for x in inputs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span><span class="s2"> </span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -865,7 +891,6 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <span class="n">df_result_mix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">separated_oppo_past</span><span class="p">)):</span>
-<span class="c1"># for e_agent,e_oppo in separated_agent_past, separated_oppo_past:</span>
     <span class="n">e</span><span class="o">=</span><span class="n">get_softmax_probabilities_mix</span><span class="p">(</span><span class="n">separated_agent_past</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">separated_oppo_past</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="n">e</span><span class="o">=</span><span class="n">pick_move_3d</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="n">e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">evaluate_outcome</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;agent_move&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;opponent_move&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -914,33 +939,62 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <h3>3e) opponent_past_human_past_current_move (combined)<a class="headerlink" href="#e-opponent-past-human-past-current-move-combined" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO combined version here</span>
-
-<span class="c1"># separated_agent_past = separate_df(df_b)</span>
-<span class="c1"># separated_oppo_past=separate_df(df_c)</span>
-<span class="c1"># df_result_mix = pd.DataFrame()</span>
-<span class="c1"># count=0</span>
-<span class="c1"># for i in range(len(separated_oppo_past)):</span>
-<span class="c1"># # for e_agent,e_oppo in separated_agent_past, separated_oppo_past:</span>
-<span class="c1">#     e=get_softmax_probabilities_mix(separated_agent_past[i], separated_oppo_past[i])</span>
-<span class="c1">#     e=pick_move_3d(e)</span>
-<span class="c1">#     e[&#39;agent_outcome&#39;] = e.apply(lambda x: evaluate_outcome(x[&#39;agent_move&#39;], x[&#39;opponent_move&#39;]), axis=1)</span>
-<span class="c1">#     df_result_mix=pd.concat([df_result_mix,e],axis=0)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">)</span>
+<span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">separated</span><span class="p">:</span>
+    <span class="n">oppo_past_human_past_cur_move</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="n">df_combine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">separated</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># f_mix = groupby_f_data(df_result_mix, &#39;agent_outcome&#39;, bins=60)</span>
-<span class="c1"># f_mix = f_mix[f_mix[&#39;bin&#39;]&lt;=&#39;50&#39;]</span>
-
-<span class="c1"># TODO run a version that generates the figure then remove the below, replace with the following line</span>
-<span class="c1"># plot_win_rates(f_mix[f_mix[&#39;agent_outcome&#39;]==&#39;win&#39;], &#39;rl_combined.png&#39;)</span>
-
-<span class="c1"># plot_win_rates(f_mix[f_mix[&#39;agent_outcome&#39;]==&#39;win&#39;]) # NB: add a filename argument to save the figure locally</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df_combine</span><span class="p">)</span>
+<span class="n">df_result_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">separated</span><span class="p">:</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">get_softmax_probabilities_combined</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">pick_move_3d</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">evaluate_outcome</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;agent_move&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;opponent_move&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_result_combined</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_result_combined</span><span class="p">,</span><span class="n">e</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_combined</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_result_combined</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">f_combined</span> <span class="o">=</span> <span class="n">f_combined</span><span class="p">[</span><span class="n">f_combined</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
+
+<span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_combined</span><span class="p">[</span><span class="n">f_combined</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_52805/3777295251.py:22: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  modified_f_data[&#39;bin&#39;] = pd.cut(modified_f_data.loc[:, (&#39;round_index&#39;)], bins, labels = labs)
+/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_52805/3777295251.py:46: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data[&#39;bot_strategy&#39;] = data[&#39;bot_strategy&#39;].replace([
+/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_52805/3777295251.py:59: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  data[&#39;bin&#39;] = data[&#39;bin&#39;].replace([&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;, &#39;10&#39;], [&#39;100&#39;, &#39;200&#39;, &#39;300&#39;, &#39;400&#39;, &#39;500&#39;, &#39;600&#39;, &#39;700&#39;, &#39;800&#39;, &#39;900&#39;, &#39;1000&#39;])
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Trial round&#39;, ylabel=&#39;Mean win percentage&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/RLModel_code_26_2.png" src="_images/RLModel_code_26_2.png" />
 </div>
 </div>
 </section>

@@ -23,5 +23,8 @@
 
 ## Disjunctive agent, opponent previous move rewards
 
-TODO: uncomment the below when it's ready
-<!-- ![m4_summary.png](img/rl_mix.png) -->
+![m4_summary.png](img/rl_mix.png)
+
+# Combined agent, opponent previous move rewards
+
+![m5_summary.png](img/rl_combined.png)

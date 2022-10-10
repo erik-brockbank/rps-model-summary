@@ -86,8 +86,7 @@ def human_reward_past_cur_move(sub_df):
         # human current move
         cur_move=sub_df.get('player_move').iloc[i]
         # ignore Nan cells
-        if pre_move != 'none'and not pd.isna(pre_move) and\
-         cur_move != 'none'and not pd.isna(cur_move):
+        if pre_move != 'none'and not pd.isna(pre_move) and         cur_move != 'none'and not pd.isna(cur_move):
             # get reward for move combination of current round
             dic_move[pre_move][cur_move]+=dic_reward[outcome]
             # fill in reward
@@ -123,8 +122,7 @@ def human_reward_oppo_past_cur_move(sub_df):
         # human current move
         cur_move=sub_df.get('player_move').iloc[i]
         # get rid of Nan cells
-        if oppo_pre_move != 'none'and not pd.isna(oppo_pre_move) \
-        and cur_move != 'none'and not pd.isna(cur_move):
+        if oppo_pre_move != 'none'and not pd.isna(oppo_pre_move)         and cur_move != 'none'and not pd.isna(cur_move):
             # get reward of move combination
             dic_move[oppo_pre_move][cur_move]+=dic_reward[outcome]
             # fill in reward value
@@ -137,5 +135,28 @@ def human_reward_oppo_past_cur_move(sub_df):
             sub_df.at[i,'opponent_scissors_rock_reward']=dic_move['scissors']['rock']
             sub_df.at[i,'opponent_scissors_paper_reward']=dic_move['scissors']['paper']
             sub_df.at[i,'opponent_scissors_scissors_reward']=dic_move['scissors']['scissors']
+    return sub_df
+
+def oppo_past_human_past_cur_move(sub_df):
+    """
+    reward based on opponent past move, human past move and human current move.
+    """
+    name=['rock','paper','scissors']
+    cols=[f'opponent_{oppo}_{past}_{cur}_reward'for oppo in name for past in name for cur in name]
+    sub_df=add_col(sub_df, cols, value =0)
+    
+    dic_reward={'win':3,'tie':0,'loss':-1}
+
+    for i in range(2,len(sub_df),2):
+        outcome=sub_df.get('player_outcome').iloc[i]
+        oppo_pre_move=sub_df.get('player_move').iloc[i-1]
+        agent_pre_move=sub_df.get('player_move').iloc[i-2]
+        cur_move=sub_df.get('player_move').iloc[i]
+        
+        
+        if not pd.isna(oppo_pre_move) and not pd.isna(agent_pre_move) and not pd.isna(cur_move):
+            sub_df.loc[i,cols]=sub_df.loc[i-2,cols]
+            col_name='opponent_'+oppo_pre_move+'_'+agent_pre_move+'_'+cur_move+'_reward'
+            sub_df.loc[i,col_name]+=dic_reward[outcome]        
     return sub_df
 
