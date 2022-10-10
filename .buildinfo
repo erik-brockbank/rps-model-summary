@@ -1,12 +1,8 @@
 # Sphinx build info version 1
 # This file hashes the configuration used when building these files. When it is not found, a full rebuild will be done.
-<<<<<<< Updated upstream
 <<<<<<< HEAD
 config: 43319c52a5fc05724fa20e5ef02f7c1c
 =======
 config: 484e7ced118bc266376820e21711adbd
 >>>>>>> 3e413276a8072e382654b679347889a35e3ff72c
-=======
-config: 43319c52a5fc05724fa20e5ef02f7c1c
->>>>>>> Stashed changes
 tags: 645f666f9bcd5a90fca523b33c5a78b7

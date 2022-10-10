@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Model Overview &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -489,7 +488,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="model-overview">
+  <div class="tex2jax_ignore mathjax_ignore section" id="model-overview">
 <h1>Model Overview<a class="headerlink" href="#model-overview" title="Permalink to this headline">#</a></h1>
 <p>Overview of the model (equations, decision policy, etc.)</p>
 <p>This model-based agent uses a <strong><ins>Statistical Learning Approach</ins></strong> to keeps track of patterns in the opponent’s moves to try and predict the opponent’s next move.</p>
@@ -502,11 +501,11 @@ title="Print to PDF"
 <li><p>Choose the right move corresponding the predicted move</p></li>
 </ol>
 </div></blockquote>
-<section id="details-equations-in-model-based-agent-decision-making-process">
+<div class="section" id="details-equations-in-model-based-agent-decision-making-process">
 <h2>Details(Equations) in Model-based Agent Decision-making Process<a class="headerlink" href="#details-equations-in-model-based-agent-decision-making-process" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <p>To choose the final move, we utilized <em><strong>expected values</strong></em> and <em><strong>softmax function</strong></em> in our model-based agent.</p>
-<section id="ins-expected-values-ins">
+<div class="section" id="ins-expected-values-ins">
 <h3><ins><strong>Expected Values:</strong><ins><a class="headerlink" href="#ins-expected-values-ins" title="Permalink to this headline">#</a></h3>
 <p>We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the bot playing each move based on the previous cumulative counts.</p>
 <div class="math notranslate nohighlight">
@@ -515,9 +514,9 @@ title="Print to PDF"
 \]</div>
 <p><span class="math notranslate nohighlight">\(x_i\)</span> = the values that X takes
 <span class="math notranslate nohighlight">\(p(x_i)\)</span> = the probability that X takes the value <span class="math notranslate nohighlight">\(x_i\)</span></p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
