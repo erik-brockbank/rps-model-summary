@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Model Results &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -520,43 +521,43 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="model-results">
+  <section class="tex2jax_ignore mathjax_ignore" id="model-results">
 <h1>Model Results<a class="headerlink" href="#model-results" title="Permalink to this headline">#</a></h1>
-<div class="section" id="human-performance-benchmark">
+<section id="human-performance-benchmark">
 <h2>Human performance: benchmark<a class="headerlink" href="#human-performance-benchmark" title="Permalink to this headline">#</a></h2>
 <p><img alt="benchmark.png" src="_images/benchmark.png" /></p>
 <p><strong>The above visualization demonstrates how human participants performed against bots which possessed unique strategies. The red dotted baseline indicates that the wining rate would be 33% if the participant did not exploit the perceivable patterns. The wining rate converges to the chance line as pattern of each bot becomes more complicated.</strong></p>
-</div>
-<div class="section" id="null-model-move-base-rates">
+</section>
+<section id="null-model-move-base-rates">
 <h2>Null model: move base rates<a class="headerlink" href="#null-model-move-base-rates" title="Permalink to this headline">#</a></h2>
 <p><img alt="nullmodel.png" src="_images/nullmodel.png" /></p>
 <p><strong>The above visualization showcases how the agent performs against the bots based on the simulation of softmax probabilities. Since it is an establishment of a base model, the agent outcomes converge around the chance line, which means that the agent has not taken the advantage of the sequential patterns in the bots yet.</strong></p>
-</div>
-<div class="section" id="transition-model-bot-transitions-only">
+</section>
+<section id="transition-model-bot-transitions-only">
 <h2>Transition model: bot transitions only<a class="headerlink" href="#transition-model-bot-transitions-only" title="Permalink to this headline">#</a></h2>
 <p><img alt="m2_summary.png" src="_images/m2_summary.png" /></p>
 <p><strong>The graph above illustrates the simulation of agent’s wining rate against bot transitions and grouped them into different bins. The agent does possess similar learning trends compare to those of humans. However, the learning rates against different bots are disparate between the agent and humans.</strong></p>
-</div>
-<div class="section" id="transition-model-bot-cournot-transitions-only">
+</section>
+<section id="transition-model-bot-cournot-transitions-only">
 <h2>Transition model: bot Cournot transitions only<a class="headerlink" href="#transition-model-bot-cournot-transitions-only" title="Permalink to this headline">#</a></h2>
 <p><img alt="m3_summary.png" src="_images/m3_summary.png" /></p>
 <p><strong>This visualization captures the transition model in which the agent only focused on the cournot transitions. The cournot transitions indicate that the agent makes decisions based on its opponent’s previous move instead of its own.The simulation did showcase that as the agent started exploiting the sequential patterns based on its opponent’s previous move, its win percentage against bots that adopted corresponding strategies also increased.</strong></p>
-</div>
-<div class="section" id="transition-model-bot-transitions-cournot-transitions">
+</section>
+<section id="transition-model-bot-transitions-cournot-transitions">
 <h2>Transition model: bot transitions + Cournot transitions<a class="headerlink" href="#transition-model-bot-transitions-cournot-transitions" title="Permalink to this headline">#</a></h2>
 <p><img alt="m4_summary.png" src="_images/m4_summary.png" /></p>
 <p><strong>The figure above entails the simulation in which the agent takes the advantage of the combination of bot transitions and cournot transitions. The generated win percentage illustrates that the agent was able to capture the sequential patterns of bots with repsective strategies. While the agent possesses an upward learning curve against some bots, its outcomes against the rest of the bots are around the chance line.</strong></p>
-</div>
-<div class="section" id="outcome-transition-model-outcome-transitions-only">
+</section>
+<section id="outcome-transition-model-outcome-transitions-only">
 <h2>Outcome-transition model: outcome-transitions only<a class="headerlink" href="#outcome-transition-model-outcome-transitions-only" title="Permalink to this headline">#</a></h2>
 <p><img alt="m5_summary.png" src="_images/m5_summary.png" /></p>
 <p><strong>Model 5 simulates agent’s win percentage in a context where the agent focuses solely on the outcome transition dual dependency bot. This is one of the most sophisticated bots because it favors a particular transition each round on the basis of of both the previous outcome and the previous transition it made. After running the simulation based on the softmax probability, we could see that the agent failed to exploit sequential patterns against such a bot, as its win percentage coverges around the chance line.</strong></p>
-</div>
-<div class="section" id="dual-transition-outcome-model-complex-strategy-only">
+</section>
+<section id="dual-transition-outcome-model-complex-strategy-only">
 <h2>Dual-transition outcome model: complex strategy only<a class="headerlink" href="#dual-transition-outcome-model-complex-strategy-only" title="Permalink to this headline">#</a></h2>
 <p><img alt="m6_summary.png" src="_images/m6_summary.png" /></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

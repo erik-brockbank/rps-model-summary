@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>RL_model_reward.py &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -452,7 +453,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="rl-model-reward-py">
+  <section class="tex2jax_ignore mathjax_ignore" id="rl-model-reward-py">
 <h1><code class="docutils literal notranslate"><span class="pre">RL_model_reward.py</span></code><a class="headerlink" href="#rl-model-reward-py" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -588,11 +589,34 @@ title="Print to PDF"
             <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_scissors_paper_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;scissors&#39;</span><span class="p">][</span><span class="s1">&#39;paper&#39;</span><span class="p">]</span>
             <span class="n">sub_df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="s1">&#39;opponent_scissors_scissors_reward&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dic_move</span><span class="p">[</span><span class="s1">&#39;scissors&#39;</span><span class="p">][</span><span class="s1">&#39;scissors&#39;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">sub_df</span>
+
+<span class="k">def</span> <span class="nf">oppo_past_human_past_cur_move</span><span class="p">(</span><span class="n">sub_df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    reward based on opponent past move, human past move and human current move.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">name</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rock&#39;</span><span class="p">,</span><span class="s1">&#39;paper&#39;</span><span class="p">,</span><span class="s1">&#39;scissors&#39;</span><span class="p">]</span>
+    <span class="n">cols</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;opponent_</span><span class="si">{</span><span class="n">oppo</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">past</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">cur</span><span class="si">}</span><span class="s1">_reward&#39;</span><span class="k">for</span> <span class="n">oppo</span> <span class="ow">in</span> <span class="n">name</span> <span class="k">for</span> <span class="n">past</span> <span class="ow">in</span> <span class="n">name</span> <span class="k">for</span> <span class="n">cur</span> <span class="ow">in</span> <span class="n">name</span><span class="p">]</span>
+    <span class="n">sub_df</span><span class="o">=</span><span class="n">add_col</span><span class="p">(</span><span class="n">sub_df</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">dic_reward</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;win&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;tie&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sub_df</span><span class="p">),</span><span class="mi">2</span><span class="p">):</span>
+        <span class="n">outcome</span><span class="o">=</span><span class="n">sub_df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_outcome&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">oppo_pre_move</span><span class="o">=</span><span class="n">sub_df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">agent_pre_move</span><span class="o">=</span><span class="n">sub_df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">cur_move</span><span class="o">=</span><span class="n">sub_df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;player_move&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">oppo_pre_move</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">agent_pre_move</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">cur_move</span><span class="p">):</span>
+            <span class="n">sub_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">cols</span><span class="p">]</span><span class="o">=</span><span class="n">sub_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">cols</span><span class="p">]</span>
+            <span class="n">col_name</span><span class="o">=</span><span class="s1">&#39;opponent_&#39;</span><span class="o">+</span><span class="n">oppo_pre_move</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">agent_pre_move</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">cur_move</span><span class="o">+</span><span class="s1">&#39;_reward&#39;</span>
+            <span class="n">sub_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">col_name</span><span class="p">]</span><span class="o">+=</span><span class="n">dic_reward</span><span class="p">[</span><span class="n">outcome</span><span class="p">]</span>        
+    <span class="k">return</span> <span class="n">sub_df</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

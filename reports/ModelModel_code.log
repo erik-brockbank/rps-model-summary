@@ -1,4 +1,5 @@
 Traceback (most recent call last):
+<<<<<<< Updated upstream
   File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
   File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 1269, in execute
@@ -14,6 +15,23 @@ Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 1025, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
   File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/nbclient/client.py", line 919, in _check_raise_for_error
+=======
+  File "/opt/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/anaconda3/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+>>>>>>> Stashed changes
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -31,6 +49,7 @@ Input [0;32mIn [1][0m, in [0;36m<cell line: 5>[0;34m()[0m
 [1;32m      4[0m get_ipython()[38;5;241m.[39mrun_line_magic([38;5;124m'[39m[38;5;124mrun[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124m./model_python_lib_decision_functions.ipynb[39m[38;5;124m'[39m)
 [0;32m----> 5[0m [43mget_ipython[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mrun_line_magic[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mrun[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43m./python_lib_visualization.ipynb[39;49m[38;5;124;43m'[39;49m[43m)[49m
 
+<<<<<<< Updated upstream
 File [0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site-packages/IPython/core/interactiveshell.py:2305[0m, in [0;36mInteractiveShell.run_line_magic[0;34m(self, magic_name, line, _stack_depth)[0m
 [1;32m   2303[0m     kwargs[[38;5;124m'[39m[38;5;124mlocal_ns[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mget_local_scope(stack_depth)
 [1;32m   2304[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39mbuiltin_trap:
@@ -69,4 +88,42 @@ File [0;32m/var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_15490/357
 
 [0;31mModuleNotFoundError[0m: No module named 'matplotlib'
 ModuleNotFoundError: No module named 'matplotlib'
+=======
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m3444[0m, in [1;35mrun_code[0m
+    exec(code_obj, self.user_global_ns, self.user_ns)
+
+  File [1;32m"/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_30227/421172343.py"[0m, line [1;32m5[0m, in [1;35m<module>[0m
+    get_ipython().run_line_magic('run', './model_python_lib_visualization.ipynb')
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m2351[0m, in [1;35mrun_line_magic[0m
+    result = fn(*args, **kwargs)
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/decorator.py"[0m, line [1;32m232[0m, in [1;35mfun[0m
+    return caller(func, *(extras + args), **kw)
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/magic.py"[0m, line [1;32m187[0m, in [1;35m<lambda>[0m
+    call = lambda f, *a, **k: f(*a, **k)
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/magics/execution.py"[0m, line [1;32m724[0m, in [1;35mrun[0m
+    self.shell.safe_execfile_ipy(filename, raise_exceptions=True)
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m2838[0m, in [1;35msafe_execfile_ipy[0m
+    result.raise_error()
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m330[0m, in [1;35mraise_error[0m
+    raise self.error_before_exec
+
+  File [1;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py"[0m, line [1;32m3143[0m, in [1;35mrun_cell_async[0m
+    code_ast = compiler.ast_parse(cell, filename=cell_name)
+
+[0;36m  File [0;32m"/opt/anaconda3/lib/python3.9/site-packages/IPython/core/compilerop.py"[0;36m, line [0;32m101[0;36m, in [0;35mast_parse[0;36m[0m
+[0;31m    return compile(source, filename, symbol, self.flags | PyCF_ONLY_AST, 1)[0m
+
+[0;36m  File [0;32m"/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_30227/3635694259.py"[0;36m, line [0;32m79[0m
+[0;31m    plt.savefig(os.path.join('/img', 'critical_trial_intervention_dist.pdf'), dpi=300, bbox_inches='tight', transparent=True)[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (3635694259.py, line 79)
+>>>>>>> Stashed changes
 
