@@ -21,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -422,29 +422,41 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#human-performance-benchmark">
-   Human performance: benchmark
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Model Results
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-performance-benchmark">
+     Human performance: benchmark
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#null-model-move-base-rates">
+     Null model: move base rates
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agent-previous-move-reward">
+     Agent previous move reward
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opponent-previous-move-rewards">
+     Opponent previous move rewards
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#disjunctive-agent-opponent-previous-move-rewards">
+     Disjunctive agent, opponent previous move rewards
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#null-model-move-base-rates">
-   Null model: move base rates
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agent-previous-move-reward">
-   Agent previous move reward
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opponent-previous-move-rewards">
-   Opponent previous move rewards
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#disjunctive-agent-opponent-previous-move-rewards">
-   Disjunctive agent, opponent previous move rewards
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combined-agent-opponent-previous-move-rewards">
+   Combined agent, opponent previous move rewards
   </a>
  </li>
 </ul>
@@ -466,29 +478,41 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#human-performance-benchmark">
-   Human performance: benchmark
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Model Results
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#human-performance-benchmark">
+     Human performance: benchmark
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#null-model-move-base-rates">
+     Null model: move base rates
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agent-previous-move-reward">
+     Agent previous move reward
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opponent-previous-move-rewards">
+     Opponent previous move rewards
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#disjunctive-agent-opponent-previous-move-rewards">
+     Disjunctive agent, opponent previous move rewards
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#null-model-move-base-rates">
-   Null model: move base rates
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#agent-previous-move-reward">
-   Agent previous move reward
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#opponent-previous-move-rewards">
-   Opponent previous move rewards
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#disjunctive-agent-opponent-previous-move-rewards">
-   Disjunctive agent, opponent previous move rewards
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combined-agent-opponent-previous-move-rewards">
+   Combined agent, opponent previous move rewards
   </a>
  </li>
 </ul>
@@ -511,20 +535,26 @@ title="Print to PDF"
 <section id="null-model-move-base-rates">
 <h2>Null model: move base rates<a class="headerlink" href="#null-model-move-base-rates" title="Permalink to this headline">#</a></h2>
 <p><img alt="nullmodel.png" src="_images/rl_a.png" /></p>
+<p><strong>The above visualization showcases the mean win percentage of the reinforcement learning model before taking its previous winning rounds into consideration. Therefore, its results are gathered around the chance line and are not impacted by the complexities of the various bots.</strong></p>
 </section>
 <section id="agent-previous-move-reward">
 <h2>Agent previous move reward<a class="headerlink" href="#agent-previous-move-reward" title="Permalink to this headline">#</a></h2>
 <p><img alt="m2_summary.png" src="_images/rl_b.png" /></p>
+<p><strong>The above visualization represents the scenario when the model determines its next move based on the combination of the human’s past move and their current move. The model then generates the softmax distribution according to the reward counts of the previous combination.</strong></p>
 </section>
 <section id="opponent-previous-move-rewards">
 <h2>Opponent previous move rewards<a class="headerlink" href="#opponent-previous-move-rewards" title="Permalink to this headline">#</a></h2>
 <p><img alt="m3_summary.png" src="_images/rl_c.png" /></p>
+<p><strong>The above visualization represents the scenario when the model determines its next move based on the combination of the opponent’s past move and the human’s current move. The model then generates the softmax distribution according to the reward counts of the previous combination.</strong></p>
 </section>
 <section id="disjunctive-agent-opponent-previous-move-rewards">
 <h2>Disjunctive agent, opponent previous move rewards<a class="headerlink" href="#disjunctive-agent-opponent-previous-move-rewards" title="Permalink to this headline">#</a></h2>
-<p>TODO: uncomment the below when it’s ready</p>
-<!-- ![m4_summary.png](img/rl_mix.png) -->
+<p><img alt="m4_summary.png" src="_images/rl_mix.png" /></p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="combined-agent-opponent-previous-move-rewards">
+<h1>Combined agent, opponent previous move rewards<a class="headerlink" href="#combined-agent-opponent-previous-move-rewards" title="Permalink to this headline">#</a></h1>
+<p><img alt="m5_summary.png" src="_images/rl_combined.png" /></p>
 </section>
 
     <script type="text/x-thebe-config">

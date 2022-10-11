@@ -128,6 +128,30 @@ def get_softmax_probabilities_mix(df_agent_past,df_opponent_past):
     df_new = pd.concat([df_new,sofm], axis = 1)
     return df_new
 
+def get_softmax_probabilities_combined(df):
+    # df.dropna(axis = 0)
+    distribution = []
+    vals=[[0.33,0.33,0.33]] # has deleted one default prob list
+    for i in range(2,df.shape[0],2):
+        oppo_pre_move=df.get('player_move').iloc[i-1]
+        agent_pre_move=df.get('player_move').iloc[i-2]
+        
+        if agent_pre_move != 'none' and not pd.isna(oppo_pre_move) and not pd.isna(agent_pre_move):
+            reward_cols=[f'opponent_{oppo_pre_move}_{agent_pre_move}_rock_reward',                         f'opponent_{oppo_pre_move}_{agent_pre_move}_paper_reward',                         f'opponent_{oppo_pre_move}_{agent_pre_move}_scissors_reward']
+            val = df[reward_cols].iloc[i].tolist()
+            vals.append(val)
+        else:
+            val=vals[-1]
+            vals.append(val)
+    soft_max=[softmax(x) for x in vals] 
+    sofm = pd.DataFrame(soft_max, columns = ['softmax_prob_rock', 'softmax_prob_paper', 'softmax_prob_scissors'])
+    
+    # strip only human df outside of the function
+    df_new = df[df.is_bot == 0].reset_index()
+    df_new = pd.concat([df_new,sofm], axis = 1)
+    return df_new
+
+
 #############################
 ### Move choice functions ###
 #############################

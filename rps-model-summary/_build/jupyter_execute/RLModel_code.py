@@ -149,7 +149,6 @@ separated_oppo_past=separate_df(df_c)
 df_result_mix = pd.DataFrame()
 count=0
 for i in range(len(separated_oppo_past)):
-# for e_agent,e_oppo in separated_agent_past, separated_oppo_past:
     e=get_softmax_probabilities_mix(separated_agent_past[i], separated_oppo_past[i])
     e=pick_move_3d(e)
     e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
@@ -166,31 +165,39 @@ plot_win_rates(f_mix[f_mix['agent_outcome']=='win']) # NB: add a filename argume
 
 # ### 3e) opponent_past_human_past_current_move (combined)
 
+# In[23]:
+
+
+df=df.replace('none',np.NaN)
+separated = separate_df(df)
+for e in separated:
+    oppo_past_human_past_cur_move(e)
+df_combine = pd.concat(separated)
+
+
+# In[27]:
+
+
+separated = separate_df(df_combine)
+df_result_combined = pd.DataFrame()
+for e in separated:
+    e=get_softmax_probabilities_combined(e)
+    e=pick_move_3d(e)
+    e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
+    df_result_combined=pd.concat([df_result_combined,e],axis=0)
+
+
+# In[32]:
+
+
+f_combined = groupby_f_data(df_result_combined, 'agent_outcome', bins=60)
+f_combined = f_combined[f_combined['bin']<='50']
+
+plot_win_rates(f_combined[f_combined['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
+
+
 # In[ ]:
 
 
-# TODO combined version here
 
-# separated_agent_past = separate_df(df_b)
-# separated_oppo_past=separate_df(df_c)
-# df_result_mix = pd.DataFrame()
-# count=0
-# for i in range(len(separated_oppo_past)):
-# # for e_agent,e_oppo in separated_agent_past, separated_oppo_past:
-#     e=get_softmax_probabilities_mix(separated_agent_past[i], separated_oppo_past[i])
-#     e=pick_move_3d(e)
-#     e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
-#     df_result_mix=pd.concat([df_result_mix,e],axis=0)
-
-
-# In[ ]:
-
-
-# f_mix = groupby_f_data(df_result_mix, 'agent_outcome', bins=60)
-# f_mix = f_mix[f_mix['bin']<='50']
-
-# TODO run a version that generates the figure then remove the below, replace with the following line
-# plot_win_rates(f_mix[f_mix['agent_outcome']=='win'], 'rl_combined.png')
-
-# plot_win_rates(f_mix[f_mix['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
