@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modeling Adaptive Reasoning in 🪨 📜 ✂️ &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -480,13 +479,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="modeling-adaptive-reasoning-in">
+  <div class="tex2jax_ignore mathjax_ignore section" id="modeling-adaptive-reasoning-in">
 <h1>Modeling Adaptive Reasoning in 🪨 📜 ✂️<a class="headerlink" href="#modeling-adaptive-reasoning-in" title="Permalink to this headline">#</a></h1>
-<section id="welcome">
+<div class="section" id="welcome">
 <h2>Welcome!<a class="headerlink" href="#welcome" title="Permalink to this headline">#</a></h2>
 <p>This is the official home page for a multi-year project building <em><strong>models of how people learn from and adapt to their opponents</strong></em> when playing Rock, Paper, Scissors (or Roshambo). The bulk of the code was completed by UCSD students Betty Gong, MJ Mei, Annalea O’Halloran, and Alison Yu. The project was spearheaded by Erik Brockbank using data originally collected by Erik Brockbank and Edward Vul at the UCSD <a class="reference external" href="https://www.evullab.org/">Computational Cognition Lab</a>. Read on to learn more!</p>
-</section>
-<section id="why-this-matters">
+</div>
+<div class="section" id="why-this-matters">
 <h2>Why this matters<a class="headerlink" href="#why-this-matters" title="Permalink to this headline">#</a></h2>
 <p>Humans are excellent pattern learners. As children, our ability to learn language and social norms relies on detecting rich and nuanced structure in our environment. As adults, we rely on these abilities in everyday settings as well as for complex behaviors like testing scientific theories. One area where this is especially crucial is in <strong>adversarial settings</strong> where we’re trying to <em>outwit</em> an opponent.</p>
 <p>From sports and games to courtroom drama and international relations, people have a unique ability to adapt in adversarial interactions. Consider, for example, this interview with tennis great Andre Agassi, in which he describes realizing that his opponent Boris Becker would give away his serve direction by <a class="reference external" href="https://www.youtube.com/watch?v=57BMzCM6hQI">sticking out his tongue</a> in a predictable way before serving. Or, this more recent article about the <a class="reference external" href="https://www.nytimes.com/2022/02/15/world/europe/us-russia-ukraine-war.html">strategic signalling</a> between the US and Russia in Ukraine.</p>
@@ -494,8 +493,8 @@ title="Print to PDF"
 <p>To try and answer this, we explore people’s behavior in a <em>much simpler setting</em> than elite tennis or international relations. We use the game of Rock, Paper, Scissors (RPS) to understand what kinds of behavioral patterns people can recognize and adapt to in order to outwit their opponent. Specifically, people play <em>hundreds of rounds</em> (usually 300) against another human or a bot. In this setting, RPS is a perfect <em>model system</em> for studying adversarial interactions. The rules are simple and people don’t have a lot of prior expertise (this differentiates it from something like chess), so the best way to beat your opponent is to uncover patterns in their moves that allow you to predict their next move (for example, people will often play the same move again after winning…). In this project and elsewhere, we ask what kinds of patterns people can detect in their opponent’s moves, what kinds of patterns they can revise in their own moves, and what kind of learning processes underly this behavior.</p>
 <p><em><strong>On this site, we present one particular thread in this effort: a large-scale modeling project that compares several different computational models of how people adapt to stable patterns in an opponent’s moves.</strong></em></p>
 <p>The pages on this site present a summary of our results.</p>
-</section>
-<section id="project-overview">
+</div>
+<div class="section" id="project-overview">
 <h2>Project Overview<a class="headerlink" href="#project-overview" title="Permalink to this headline">#</a></h2>
 <p>The site is divided into the following sections:</p>
 <p>🪨 <strong>SUMMARY</strong>: this section provides first a high-level summary of the approach and the findings on the <a class="reference internal" href="Overview.html"><span class="doc std std-doc">Overview</span></a> page, then a longer explanation of the background for this work on the <a class="reference internal" href="Introduction.html"><span class="doc std std-doc">Introduction</span></a> page and the data we use for the project on the <a class="reference internal" href="Data.html"><span class="doc std std-doc">Data</span></a> page.</p>
@@ -503,7 +502,7 @@ title="Print to PDF"
 <p>✂️ <strong>MODEL-FREE RL AGENT</strong>: this section illustrates the second model we used to explore people’s ability to adapt to their opponent. The <strong>MODEL-BASED AGENT</strong> is a <em>predictive</em> model with an explicit hypothesis space about opponent behavior, while the <strong>MODEL-FREE RL AGENT</strong>, as the name implies, takes a reinforcement learning approach that doesn’t involve any kind of predictive inference about the opponent. This section is laid out just like the one above, with a <a class="reference internal" href="RLModel.html"><span class="doc std std-doc">Model Overview</span></a> page that explains how this model works, a subsequent <a class="reference internal" href="RLModel_results.html"><span class="doc std std-doc">Model Results</span></a> page demonstrating how well this model’s behavior aligns with human performance, and a reference page for the underlying code on <a class="reference internal" href="RLModel_code.html"><span class="doc std std-doc">Reference: RL Model Code</span></a>.</p>
 <p>🪨 <strong>MODEL COMPARISON</strong>: this section is where we fit parameter estimates for the two models above and compare how well they describe our human data. <em><strong>This section is still in progress! Check back for finalized results!</strong></em></p>
 <p>📜 <strong>DISCUSSION</strong>: this section provides a high-level summary of the results in the previous section and describes planned future work. Take a look here if you want to get a sense of the broader impact or plans for this project moving forward.</p>
-<p>✂️ <strong>APPENDIX - CODE</strong>: this section is where we’ve placed all the python libraries needed to run the model code in the sections above (<a class="reference internal" href="ModelModel_code.html"><span class="doc std std-doc">Reference: Model Code</span></a> and <a class="reference internal" href="RLModel_code.html"><span class="doc std std-doc">Reference: RL Model Code</span></a>). This is primarily here for full reproducibility purposes but shouldn’t be something you need unless you’re trying to run this yourself or are curious about how we actuall constructed these models. Each of the pages in this section is a python library that we’ve placed in jupyter notebook for easy viewing. There are four libraries for each of the two models:</p>
+<p>✂️ <strong>APPENDIX - CODE</strong>: this section is where we’ve placed all the python libraries needed to run the model code in the sections above (<a class="reference internal" href="ModelModel_code.html"><span class="doc std std-doc">Reference: Model Code</span></a> and <a class="reference internal" href="RLModel_code.html"><span class="doc std std-doc">Reference: RL Model Code</span></a>). This is primarily here for full reproducibility purposes but shouldn’t be something you need unless you’re trying to run this yourself or are curious about how we actually constructed these models. Each of the pages in this section is a python library that we’ve placed in jupyter notebook for easy viewing. There are four libraries for each of the two models:</p>
 <ol class="simple">
 <li><p>a utils library with general purpose functions needed for each model (<a class="reference internal" href="model_python_lib_utils.html"><span class="doc std std-doc">model_utils.py</span></a> and <a class="reference internal" href="RL_model_python_lib_utils.html"><span class="doc std std-doc">RL_model_utils.py</span></a>)</p></li>
 <li><p>a library for tracking the prior events relevant to each model’s decision function (<a class="reference internal" href="model_python_lib_event_counts.html"><span class="doc std std-doc">model_event_counts.py</span></a> and <a class="reference internal" href="RL_model_python_lib_reward.html"><span class="doc std std-doc">RL_model_reward.py</span></a>)</p></li>
@@ -512,8 +511,6 @@ title="Print to PDF"
 </ol>
 <p>Together, this represents a complete overview of the code and results for these models. The <em>source-of-truth</em> repo for the model-based agent is <a class="reference external" href="https://github.com/erik-brockbank/rps-agent-model">here</a> and the repo for the RL agent is <a class="reference external" href="https://github.com/erik-brockbank/rps-rl-model">here</a>.</p>
 <p>Feel free to contact <a class="reference external" href="http://www.erikbrockbank.com/">Erik Brockbank</a> with any questions about this work!</p>
-</section>
-<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -525,7 +522,9 @@ title="Print to PDF"
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</section>
+<div class="toctree-wrapper compound">
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
