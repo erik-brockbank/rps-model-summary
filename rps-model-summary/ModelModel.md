@@ -8,7 +8,7 @@ In order to simulate human play against the different bot opponents, the model-b
 
 1. **Track behavior patterns**: First, the agent maintains a count of *events* that it uses to try and predict the opponent's next move. To illustrate, the simplest version of this is an ongoing count of how many times the opponent played *Rock*, *Paper*, and *Scissors* in previous rounds. In each round, these counts allow for a (very rough) prediction that an opponent will choose whichever move was most likely across the previous rounds.
 
-2. **Choose an optimal move**: The behavior tracking above allows the agent to generate predictions in each round about the opponent's most likely move based on patterns observed in the previous rounds. The model-based agent must then use these predictions to make its own move choice.
+2. **Choose an optimal move**: The behavior tracking above allows the agent to generate predictions in each round about the opponent's most likely move based on patterns observed in the previous rounds. The model-based agent must then use these predictions to make its own move choice. It samples a move each round probabilistically based on how well each possible move will perform against the move it thinks its opponent will make.
 
 ***How well does an agent-based model using the steps above capture human patterns of learning against the different bot opponents?***
 
@@ -46,38 +46,30 @@ While the opponent's cumulative count of each move constitutes an overly simplis
 
 ## Choosing a move
 
-BLAH
+Each instantiation of the model-based agent tracks a particular *sequential dependency* or pattern in its opponent moves that it uses as the basis for predicting its opponent's next move in a given round. *But how does the agent choose its own move on the basis of this information?*
 
-1. Compute expected value of each move using probabilities above
+**The model-based agent has a *decision policy* of probabilistically choosing the move that will perform best against the move it expects from its opponent each round.** What does this mean?
 
-2. Sample from Softmax over EV of each move
+There are two primary steps the model-based agent undertakes to select a move: and *expected value calculation* and a *softmax move sampling* process.
 
-
-
-
-
-
-Overview of the model (equations, decision policy, etc.)
-
-This model-based agent uses a **<ins>Statistical Learning Approach</ins>** to keeps track of patterns in the opponent’s moves to try and predict the opponent’s next move.
-
-> **Simple Explanation of how the Statistical Learning Agent works:**
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Track whether or not the opponent has a bias towards playing rock, paper or scissors
-> 1. Track the cumulative counts of rock, paper and scissors that the bot has made
-> 2. Use the cumulative counts as the basis for predicting the next probable move the bot will make
-> 3. Choose the right move corresponding the predicted move
->
-
-## Details(Equations) in Model-based Agent Decision-making Process
----
-To choose the final move, we utilized ***expected values*** and ***softmax function*** in our model-based agent.
-
-#### <ins>**Expected Values:**<ins>
-We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the bot playing each move based on the previous cumulative counts.
+**Expected value calculation**: First, the agent calculates the *expected value* of each possible move it could take (*Rock*, *Paper*, or *Scissors*) in the next round. The expected value of a move is the sum of all possible possible *outcomes* from playing that move weighted by the probability of those outcomes. For example, the expected value of the agent move choice $M_a$ of *Rock* ($M_a = `R'$) can be written as:
 
 $$
-  E[X] = \sum x_ip(x_i)
+  E[M_a = `R'] = \sum_{M_o \in \{`R', `P', `S'\}} U(M_a, M_o)P(M_o)
 $$
 
-$x_i$ = the values that X takes
-$p(x_i)$ = the probability that X takes the value $x_i$
+In the above formulation, $M_o$ is the *opponent's potential move choice* ($`R'$, $`P'$, or $`S'$). $U$ is the *reward that the agent receives* for the combination of its own move choice $M_a$ and its opponent's move choice $M_o$. In the example above, this would be the points the agent receives for each possible opponent move choice $M_o \in \{`R', `P', `S'\}$ when the agent plays $M_a = `R'$: 3 points for a win (if $M_o=`S'$), 0 points for a tie ($M_o=`R'$), -1 points for a loss. Finally, $P(M_o)$ is the probabily assigned to a particular opponent move choice $M_o$. The probability of each possible opponent move choice is precisely what the agent estimates in the previous section through its opponent tracking!
+
+**Sample a move using *softmax***: The model-based agent estimates an expected value (*EV*) for each possible move it could play using the process outlined above, based on the probabilities it assigns to its opponent's moves. The agent's task is to choose the move that has the highest expected value. However, rather than merely choosing the move with the highest expected value each round, the agent chooses its move probabilistically *in proportion to the expected value of each possible move*. In other words, if one possible move has a *much higher* expected value than the others, then the agent should strongly favor this move; for example, if the agent believes the opponent is *all but guaranteed to play Scissors*, then *Rock* will have a dramatically larger EV and the agent should correspondingly favor *Rock* strongly. If, however, all of the candidate moves are equally good (as would be the case if the agent believes its opponent is *equally likely* to play *Rock*, *Paper*, or *Scissors*), then it should assign them all roughly equal probabilities when choosing its own move. In order for the model-based agent to choose its moves *in proportion to their relative EVs*, we map the expected value of each possible move calculated above to a probability of its being chosen using the *softmax* function:
+
+$$
+  P(M_a) = \dfrac{e^{\beta E[M_a]}}{\sum_{M_a' \in \{`R', `P', `S'\}} e^{\beta E[M_a']}}
+$$
+
+In the above, the probability of the agent choosing a move $P(M_a)$ is $e$ raised to the expected value of that move $E[M_a]$ as described above, divided by the sum of $e$ raised to the expected value of *all possible moves* $M_a'$. The $\beta$ term in the numerator and denominator is a common parameter used to scale *how much the agent should favor the highest expected value move*. In this version of the model, we simply set this to 1. However, our [Model Comparison](ModelComparison.md) estimates a *fitted $\beta$ parameter* for each participant as a way of estimating how well the model-based agent describes human move decisions.
+
+Once the model-based agent has transformed the expected value of each possible move into a probability distribution over those moves using the softmax function, it samples a move for that round according to its softmax probability. Thus, moves with a higher expected value in a given round are more likely to be chosen. More generally, if the agent is successfully able to predict its opponent's next move using the sequential pattern it tracks in its opponent's moves, then it will have a high probability of choosing the move that *beats* the predicted move.
+
+***But how well does the model-based agent, choosing its moves in simulated rounds through the process described above, perform against the bot opponents from our experiments?***
+
+In the next page ([Model Results](ModelModel_results.md)), we test this model's ability to adapt to each of the bot opponents in our experiment based on different levels of opponent behavior tracking.
