@@ -77,7 +77,7 @@ plot_win_rates(f_a[f_a['agent_outcome']=='win']) # NB: add a filename argument t
 
 # ### 3b human_past_current_reward_move
 
-# In[13]:
+# In[9]:
 
 
 separated = separate_df(df)
@@ -86,7 +86,7 @@ for e in separated:
 df_b = pd.concat(separated)
 
 
-# In[14]:
+# In[10]:
 
 
 separated = separate_df(df_b)
@@ -98,7 +98,7 @@ for e in separated:
     df_result_b=pd.concat([df_result_b,e],axis=0)
 
 
-# In[21]:
+# In[11]:
 
 
 f_b = groupby_f_data(df_result_b, 'agent_outcome', bins=60)
@@ -108,7 +108,7 @@ plot_win_rates(f_b[f_b['agent_outcome']=='win']) # NB: add a filename argument t
 
 # ### 3c opponent_past_human_current_reward_move
 
-# In[17]:
+# In[12]:
 
 
 # separate df into same game id
@@ -118,7 +118,7 @@ for e in separated:
 df_c = pd.concat(separated)
 
 
-# In[18]:
+# In[13]:
 
 
 separated = separate_df(df_c)
@@ -131,7 +131,7 @@ for e in separated:
     df_result_c=pd.concat([df_result_c,e],axis=0)
 
 
-# In[22]:
+# In[14]:
 
 
 f_c = groupby_f_data(df_result_c, 'agent_outcome', bins=60)
@@ -141,7 +141,7 @@ plot_win_rates(f_c[f_c['agent_outcome']=='win']) # NB: add a filename argument t
 
 # ### 3d) opponent_past_human_past_current_move (mix)
 
-# In[23]:
+# In[15]:
 
 
 separated_agent_past = separate_df(df_b)
@@ -155,7 +155,7 @@ for i in range(len(separated_oppo_past)):
     df_result_mix=pd.concat([df_result_mix,e],axis=0)
 
 
-# In[24]:
+# In[16]:
 
 
 f_mix = groupby_f_data(df_result_mix, 'agent_outcome', bins=60)
@@ -165,7 +165,7 @@ plot_win_rates(f_mix[f_mix['agent_outcome']=='win']) # NB: add a filename argume
 
 # ### 3e) opponent_past_human_past_current_move (combined)
 
-# In[23]:
+# In[17]:
 
 
 df=df.replace('none',np.NaN)
@@ -175,7 +175,7 @@ for e in separated:
 df_combine = pd.concat(separated)
 
 
-# In[27]:
+# In[18]:
 
 
 separated = separate_df(df_combine)
@@ -187,7 +187,7 @@ for e in separated:
     df_result_combined=pd.concat([df_result_combined,e],axis=0)
 
 
-# In[32]:
+# In[19]:
 
 
 f_combined = groupby_f_data(df_result_combined, 'agent_outcome', bins=60)

@@ -92,7 +92,8 @@ def count_bot_transitions(sub_df):
     for i in range(3, len(sub_df), 2):
         bot_pre = sub_df.get('previous_move').iloc[i]
         bot_curr = sub_df.get('player_move').iloc[i]
-        if bot_pre and bot_pre != 'none' and not pd.isna(bot_pre) and             bot_curr and bot_curr != 'none' and not pd.isna(bot_curr):
+        if bot_pre and bot_pre != 'none' and not pd.isna(bot_pre) and \
+            bot_curr and bot_curr != 'none' and not pd.isna(bot_curr):
 
             sub_df.at[i,'up_transition_count'] = sub_df.at[i-2, 'up_transition_count']
             sub_df.at[i,'stay_transition_count'] = sub_df.at[i-2, 'stay_transition_count']
@@ -116,7 +117,8 @@ def count_bot_cournot_transitions(sub_df):
     for i in range(3,len(sub_df),2):
         human_pre=sub_df.get('opponent_previous_move').iloc[i]
         bot_curr=sub_df.get('player_move').iloc[i]
-        if human_pre and human_pre != 'none' and not pd.isna(human_pre) and             bot_curr and bot_curr != 'none' and not pd.isna(bot_curr):
+        if human_pre and human_pre != 'none' and not pd.isna(human_pre) and \
+            bot_curr and bot_curr != 'none' and not pd.isna(bot_curr):
 
             sub_df.at[i,'cournot_up_transition_count'] = sub_df.at[i-2,'cournot_up_transition_count']
             sub_df.at[i,'cournot_stay_transition_count'] = sub_df.at[i-2,'cournot_stay_transition_count']

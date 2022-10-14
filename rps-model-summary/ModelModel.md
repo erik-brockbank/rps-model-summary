@@ -19,7 +19,7 @@ To answer this question, we implement different versions of the model and compar
 
 Below, we describe in more detail the two central aspects of the model-based agent's behavior outlined above.
 
-*The content in this section is meant to provide enough detail for readers to inspect the underlying code or think carefully about the [Model Results](ModelModle_results.md) on the next page.*
+*The content in this section is meant to provide enough detail for readers to inspect the underlying code or think carefully about the [Model Results](ModelModel_results.md) on the next page.*
 
 
 ## Tracking opponent behavior
@@ -55,15 +55,15 @@ There are two primary steps the model-based agent undertakes to select a move: a
 **Expected value calculation**: First, the agent calculates the *expected value* of each possible move it could take (*Rock*, *Paper*, or *Scissors*) in the next round. The expected value of a move is the sum of all possible possible *outcomes* from playing that move weighted by the probability of those outcomes. For example, the expected value of the agent move choice $M_a$ of *Rock* ($M_a = `R'$) can be written as:
 
 $$
-  E[M_a = `R'] = \sum_{M_o \in \{`R', `P', `S'\}} U(M_a, M_o)P(M_o)
+  E[M_a = R] = \sum_{M_o \in \{R, P, S\}} U(M_a, M_o)P(M_o)
 $$
 
-In the above formulation, $M_o$ is the *opponent's potential move choice* ($`R'$, $`P'$, or $`S'$). $U$ is the *reward that the agent receives* for the combination of its own move choice $M_a$ and its opponent's move choice $M_o$. In the example above, this would be the points the agent receives for each possible opponent move choice $M_o \in \{`R', `P', `S'\}$ when the agent plays $M_a = `R'$: 3 points for a win (if $M_o=`S'$), 0 points for a tie ($M_o=`R'$), -1 points for a loss. Finally, $P(M_o)$ is the probabily assigned to a particular opponent move choice $M_o$. The probability of each possible opponent move choice is precisely what the agent estimates in the previous section through its opponent tracking!
+In the above formulation, $M_o$ is the *opponent's potential move choice* ($R$, $P$, or $S$). $U$ is the *reward that the agent receives* for the combination of its own move choice $M_a$ and its opponent's move choice $M_o$. In the example above, this would be the points the agent receives for each possible opponent move choice $M_o \in \{R, P, S\}$ when the agent plays $M_a = R$: 3 points for a win (if $M_o=S$), 0 points for a tie ($M_o=R$), -1 points for a loss. Finally, $P(M_o)$ is the probabily assigned to a particular opponent move choice $M_o$. The probability of each possible opponent move choice is precisely what the agent estimates in the previous section through its opponent tracking!
 
 **Sample a move using *softmax***: The model-based agent estimates an expected value (*EV*) for each possible move it could play using the process outlined above, based on the probabilities it assigns to its opponent's moves. The agent's task is to choose the move that has the highest expected value. However, rather than merely choosing the move with the highest expected value each round, the agent chooses its move probabilistically *in proportion to the expected value of each possible move*. In other words, if one possible move has a *much higher* expected value than the others, then the agent should strongly favor this move; for example, if the agent believes the opponent is *all but guaranteed to play Scissors*, then *Rock* will have a dramatically larger EV and the agent should correspondingly favor *Rock* strongly. If, however, all of the candidate moves are equally good (as would be the case if the agent believes its opponent is *equally likely* to play *Rock*, *Paper*, or *Scissors*), then it should assign them all roughly equal probabilities when choosing its own move. In order for the model-based agent to choose its moves *in proportion to their relative EVs*, we map the expected value of each possible move calculated above to a probability of its being chosen using the *softmax* function:
 
 $$
-  P(M_a) = \dfrac{e^{\beta E[M_a]}}{\sum_{M_a' \in \{`R', `P', `S'\}} e^{\beta E[M_a']}}
+  P(M_a) = \dfrac{e^{\beta E[M_a]}}{\sum_{M_a' \in \{R, P, S\}} e^{\beta E[M_a']}}
 $$
 
 In the above, the probability of the agent choosing a move $P(M_a)$ is $e$ raised to the expected value of that move $E[M_a]$ as described above, divided by the sum of $e$ raised to the expected value of *all possible moves* $M_a'$. The $\beta$ term in the numerator and denominator is a common parameter used to scale *how much the agent should favor the highest expected value move*. In this version of the model, we simply set this to 1. However, our [Model Comparison](ModelComparison.md) estimates a *fitted $\beta$ parameter* for each participant as a way of estimating how well the model-based agent describes human move decisions.

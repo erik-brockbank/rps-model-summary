@@ -21,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -37,7 +37,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -50,8 +50,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Model Results" href="RLModel_results.html" />
@@ -402,49 +400,12 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-equations-in-model-free-agent-decision-making-process">
-   Details(Equations) in Model-free Agent Decision-making Process
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ins-expected-values-ins">
-     <ins>
-      <strong>
-       Expected Values:
-      </strong>
-      <ins>
-      </ins>
-     </ins>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
@@ -456,32 +417,6 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#details-equations-in-model-free-agent-decision-making-process">
-   Details(Equations) in Model-free Agent Decision-making Process
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ins-expected-values-ins">
-     <ins>
-      <strong>
-       Expected Values:
-      </strong>
-      <ins>
-      </ins>
-     </ins>
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -491,27 +426,29 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="model-overview">
 <h1>Model Overview<a class="headerlink" href="#model-overview" title="Permalink to this headline">#</a></h1>
-<p>Overview of the model (equations, decision policy, etc.)</p>
-<p>This model adopts the notion of <strong><ins>reinforcement learning</ins></strong> as the agent determines its next move by scrutinizing its previous winning patterns. The reinforcement learning model is fundamentally different than the model based model as its next moves are no longer susceptible to his opponent’s counterparts. Therefore, this model is as known as “model-free”. The implementation of the reinforcement model incorporates is summarized as below.</p>
-<blockquote>
-<div><p><strong>Simple Explanation of how the Reinforcement Learning Agent works:</strong>
-Essentially, we kept tracking the agent’s prior moves and calculated their respective reward rates through the soft-max probability function. In order to facilitate the tracking process, we generated new columns that store the human player’s rewards associated with different scenarios. These scenarios include the rewards of human player’s each move, combinations of the human previous move and the human’s current move, opponent’s past move and the human’s current move, opponent past move, human past move, and human current move reward. The counts of the accumulative rewards have been updated under the rules of win-3pts, tie-0pt,and loss–1pt. After the reward counts have been finalized, the agent will simulate playing against each bot by converting the rewards to a probability distribution through the soft-max function. Finally, the visualizations of the simulation of agent outcomes were generated.</p>
-</div></blockquote>
-<section id="details-equations-in-model-free-agent-decision-making-process">
-<h2>Details(Equations) in Model-free Agent Decision-making Process<a class="headerlink" href="#details-equations-in-model-free-agent-decision-making-process" title="Permalink to this headline">#</a></h2>
-<hr class="docutils" />
-<p>To choose the final move, we utilized <em><strong>expected values</strong></em> and <em><strong>softmax function</strong></em> in our model-free agent.</p>
-<section id="ins-expected-values-ins">
-<h3><ins><strong>Expected Values:</strong><ins><a class="headerlink" href="#ins-expected-values-ins" title="Permalink to this headline">#</a></h3>
-<p>We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the agent playing each move based on the reward column information from the previous round.</p>
-<div class="math notranslate nohighlight">
-\[
+<!--
+Overview of the model (equations, decision policy, etc.)
+
+This model adopts the notion of **<ins>reinforcement learning</ins>** as the agent determines its next move by scrutinizing its previous winning patterns. The reinforcement learning model is fundamentally different than the model based model as its next moves are no longer susceptible to his opponent's counterparts. Therefore, this model is as known as "model-free". The implementation of the reinforcement model incorporates is summarized as below.
+
+
+> **Simple Explanation of how the Reinforcement Learning Agent works:**
+> Essentially, we kept tracking the agent's prior moves and calculated their respective reward rates through the soft-max probability function. In order to facilitate the tracking process, we generated new columns that store the human player's rewards associated with different scenarios. These scenarios include the rewards of human player's each move, combinations of the human previous move and the human's current move, opponent's past move and the human's current move, opponent past move, human past move, and human current move reward. The counts of the accumulative rewards have been updated under the rules of win-3pts, tie-0pt,and loss--1pt. After the reward counts have been finalized, the agent will simulate playing against each bot by converting the rewards to a probability distribution through the soft-max function. Finally, the visualizations of the simulation of agent outcomes were generated.
+
+
+## Details(Equations) in Model-free Agent Decision-making Process
+---
+To choose the final move, we utilized ***expected values*** and ***softmax function*** in our model-free agent.
+
+#### <ins>**Expected Values:**<ins>
+We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the agent playing each move based on the reward column information from the previous round.
+
+$$
   E[X] = \sum x_ip(x_i)
-\]</div>
-<p><span class="math notranslate nohighlight">\(x_i\)</span> = the values that X takes
-<span class="math notranslate nohighlight">\(p(x_i)\)</span> = the probability that X takes the value <span class="math notranslate nohighlight">\(x_i\)</span></p>
-</section>
-</section>
+$$
+
+$x_i$ = the values that X takes
+$p(x_i)$ = the probability that X takes the value $x_i$ -->
 </section>
 
     <script type="text/x-thebe-config">

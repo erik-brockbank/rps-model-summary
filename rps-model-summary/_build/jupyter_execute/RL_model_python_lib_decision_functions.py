@@ -137,7 +137,9 @@ def get_softmax_probabilities_combined(df):
         agent_pre_move=df.get('player_move').iloc[i-2]
         
         if agent_pre_move != 'none' and not pd.isna(oppo_pre_move) and not pd.isna(agent_pre_move):
-            reward_cols=[f'opponent_{oppo_pre_move}_{agent_pre_move}_rock_reward',                         f'opponent_{oppo_pre_move}_{agent_pre_move}_paper_reward',                         f'opponent_{oppo_pre_move}_{agent_pre_move}_scissors_reward']
+            reward_cols=[f'opponent_{oppo_pre_move}_{agent_pre_move}_rock_reward',\
+                         f'opponent_{oppo_pre_move}_{agent_pre_move}_paper_reward',\
+                         f'opponent_{oppo_pre_move}_{agent_pre_move}_scissors_reward']
             val = df[reward_cols].iloc[i].tolist()
             vals.append(val)
         else:
