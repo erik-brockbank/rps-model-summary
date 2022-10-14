@@ -1,3 +1,3 @@
 # Introduction
 
-***How do people figure out sequential patterns in others’ behavior?***
+<!-- ***How do people figure out sequential patterns in others’ behavior?*** -->

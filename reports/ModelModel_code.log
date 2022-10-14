@@ -58,15 +58,13 @@ File [0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site
 
     [0;31m[... skipping hidden 1 frame][0m
 
-File [0;32m/var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_15490/3573289646.py:6[0m, in [0;36m<cell line: 6>[0;34m()[0m
-[1;32m      1[0m [38;5;124;03m"""[39;00m
-[1;32m      2[0m [38;5;124;03mLibrary for visualizing model output[39;00m
-[1;32m      3[0m [38;5;124;03mThese functions are primarily graphing functions, with some supporting functions as well[39;00m
-[1;32m      4[0m [38;5;124;03m"""[39;00m
-[0;32m----> 6[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+File [0;32m/var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_1326/3777295251.py:9[0m, in [0;36m<cell line: 9>[0;34m()[0m
 [1;32m      7[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
 [1;32m      8[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[0;32m----> 9[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m [38;5;28;01mimport[39;00m stats
+[1;32m     10[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m
+[1;32m     12[0m [38;5;28;01mfrom[39;00m [38;5;21;01mutils[39;00m [38;5;28;01mimport[39;00m N_ROUNDS
 
-[0;31mModuleNotFoundError[0m: No module named 'matplotlib'
-ModuleNotFoundError: No module named 'matplotlib'
+[0;31mModuleNotFoundError[0m: No module named 'scipy'
+ModuleNotFoundError: No module named 'scipy'
 
