@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Model Overview &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -50,6 +49,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Model Results" href="RLModel_results.html" />
@@ -400,12 +401,53 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Model Overview
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-details">
+   Model Details
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tracking-behavior-associated-rewards">
+     Tracking behavior associated rewards
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-a-move">
+     Choosing a move
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -417,6 +459,36 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Model Overview
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-details">
+   Model Details
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tracking-behavior-associated-rewards">
+     Tracking behavior associated rewards
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-a-move">
+     Choosing a move
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -424,32 +496,56 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="model-overview">
+  <div class="tex2jax_ignore mathjax_ignore section" id="model-overview">
 <h1>Model Overview<a class="headerlink" href="#model-overview" title="Permalink to this headline">#</a></h1>
-<!--
-Overview of the model (equations, decision policy, etc.)
-
-This model adopts the notion of **<ins>reinforcement learning</ins>** as the agent determines its next move by scrutinizing its previous winning patterns. The reinforcement learning model is fundamentally different than the model based model as its next moves are no longer susceptible to his opponent's counterparts. Therefore, this model is as known as "model-free". The implementation of the reinforcement model incorporates is summarized as below.
-
-
-> **Simple Explanation of how the Reinforcement Learning Agent works:**
-> Essentially, we kept tracking the agent's prior moves and calculated their respective reward rates through the soft-max probability function. In order to facilitate the tracking process, we generated new columns that store the human player's rewards associated with different scenarios. These scenarios include the rewards of human player's each move, combinations of the human previous move and the human's current move, opponent's past move and the human's current move, opponent past move, human past move, and human current move reward. The counts of the accumulative rewards have been updated under the rules of win-3pts, tie-0pt,and loss--1pt. After the reward counts have been finalized, the agent will simulate playing against each bot by converting the rewards to a probability distribution through the soft-max function. Finally, the visualizations of the simulation of agent outcomes were generated.
-
-
-## Details(Equations) in Model-free Agent Decision-making Process
----
-To choose the final move, we utilized ***expected values*** and ***softmax function*** in our model-free agent.
-
-#### <ins>**Expected Values:**<ins>
-We calculated corresponding expected values for each move (rock, paper, and scissor) using the probabilities of the agent playing each move based on the reward column information from the previous round.
-
-$$
-  E[X] = \sum x_ip(x_i)
-$$
-
-$x_i$ = the values that X takes
-$p(x_i)$ = the probability that X takes the value $x_i$ -->
-</section>
+<p><em><strong>At a high-level, the RL-based agent simulates what would happen if (human) players were trying to determine their next optimal move on the basis of particular rewards associated with different past events (patterns in agent’s previous moves).</strong></em></p>
+<p>In this way, the RL-based agent represents a kind of <em>idealized</em> model of human behavior that serves as a basis for evaluating what people are <em>actually</em> doing.</p>
+<p>In order to simulate human play against the different bot opponents, the RL-based agent has two high-level functions (we spell these out in more detail below):</p>
+<ol class="simple">
+<li><p><strong>Track reward patterns</strong>: First, the agent maintains a count of <em>events</em> that it uses to try and predict the the reward of its next move. To illustrate, the simplest version of this is an ongoing count of how many times the agent has won by playing <em>Rock</em>, <em>Paper</em>, and <em>Scissors</em> in previous rounds. In each round, these counts allow for a (very rough) prediction that the agent will choose whichever move that generated a win on the previous round.</p></li>
+<li><p><strong>Choose an optimal move</strong>: The behavior tracking above allows the agent to generate predictions in each round about its most logical next move based on the reward counts observed in the previous rounds. The RL-based agent must then use these patterns to make its own move choice. It samples a move each round probabilistically based on how well each possible move performed in the past would beat the move it thinks its opponent will make.</p></li>
+</ol>
+<p><em><strong>How well does an RL-based model using the steps above capture human patterns of learning against the different bot opponents?</strong></em></p>
+<p>To answer this question, we implement different versions of the model and compare them to the human behavior in our experiment data. Each version of the model has the same <em>decision function</em> from step 2 above but differs in the underlying information that it tracks about different combination of reward counts (step 1). In this way, we simulate different levels of <em>reward tracking</em> that people might be engaging in when playing against algorithmic opponents.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="model-details">
+<h1>Model Details<a class="headerlink" href="#model-details" title="Permalink to this headline">#</a></h1>
+<p>Below, we describe in more detail the two central aspects of the model-based agent’s behavior outlined above.</p>
+<p><em>The content in this section is meant to provide enough detail for readers to inspect the underlying code or think carefully about the <a class="reference internal" href="RLModel_results.html"><span class="doc std std-doc">Model Results</span></a> on the next page.</em></p>
+<div class="section" id="tracking-behavior-associated-rewards">
+<h2>Tracking behavior associated rewards<a class="headerlink" href="#tracking-behavior-associated-rewards" title="Permalink to this headline">#</a></h2>
+<p>For an apples-to-apples comparison of model behavior to our experimental results, we run a version of the model alongside each human participant. Thus, model results are based on 300 simulated move choices in each of the games that human participants played; the agent’s decisions in these games is based on reward counts of various prior moves in each game, to ensure that the agent essentially <em>shared the same experience</em> as our human players.</p>
+<p>The basis for the RL-based agent’s move choices is an ongoing count of patterns in previous moves. To compute this, we add columns to our existing data frame that maintain the relevant event counts from earlier rounds in each row. For example, the simplest version of the agent adds columns for <code class="docutils literal notranslate"><span class="pre">rock_count</span></code>, <code class="docutils literal notranslate"><span class="pre">paper_count</span></code>, and <code class="docutils literal notranslate"><span class="pre">scissors_count</span></code>. Next, we iterate through each round of human play and update the values in each column based on the cumulative number of times that human played <em>Rock</em>, <em>Paper</em>, and <em>Scissors</em>. The values across these columns in a given row of our dataframe represent an idealized (but very simple) model of human behavior that can be used to make (rough) the most optimal choice for the next round.</p>
+<p>While the agent’s count of each previous move constitutes an overly simplistic basis for the optimal next move against the bot opponents, the patterns that the RL-based agent tracks can be arbitrarily complex. In our <a class="reference internal" href="RLModel_results.html"><span class="doc std std-doc">Model Results</span></a> on the next page, we evaluate a number of additional models that track different combinations of previous moves using the same process described above. These patterns fall into several distinct categories, described below in increasing complexity:</p>
+<ul class="simple">
+<li><p><strong>Self-previous move reward</strong>: The RL-based agent tracks its own <em>previous reward</em> counts by adding columns which tally the cumulative number of <em>win</em> (<span class="math notranslate nohighlight">\(3 points\)</span>), <em>tie</em> (<span class="math notranslate nohighlight">\(0 point\)</span>), and <em>loss</em> (<span class="math notranslate nohighlight">\(-1 point\)</span>) reward points that the agent itself has made from one round to the next (for a reminder of how <em>reward counts</em> are formalized in rock, paper, scissors, see the latter <span class="xref myst">RL_model_reward</span> page). This count is obviously well-aligned to the self-previous move reward agent; but <em>how</em> quickly it learns to choose their moves, how well it performs against the <em>other</em> bots, and whether this closely captures <em>human</em> learning against the bot opponents are all open questions (see <a class="reference internal" href="RLModel_results.html"><span class="doc std std-doc">Model Results</span></a>).</p></li>
+<li><p><strong>Opponent-previous move rewards</strong>: We also implement a version of the RL-based agent that tracks the opponent’s previous move rewards. This requires a cumulative tally in each round of the opponent’s <em>win</em> (<span class="math notranslate nohighlight">\(3 points\)</span>), <em>tie</em> (<span class="math notranslate nohighlight">\(0 point\)</span>), and <em>loss</em> (<span class="math notranslate nohighlight">\(-1 point\)</span>) reward points. This state information is optimal against the opponent-transition bots; as with the above, this allows us to explore how well such tracking performs in simulated rounds against all the bot opponents and whether this aligns with human learning.</p></li>
+<li><p><strong>Disjunctive agent-opponent previous move rewards</strong>: In addition to simple <em>self-</em> and <em>opponent-</em> previous move rewards, the RL-based agent tracks the disjunction of the opponent’s past move and human’s current move <em>contingent on prior round outcomes</em>. Rather than merely tallying the count of <em>win</em> (<span class="math notranslate nohighlight">\(3 points\)</span>), <em>tie</em> (<span class="math notranslate nohighlight">\(0 point\)</span>), and <em>loss</em> (<span class="math notranslate nohighlight">\(-1 point\)</span>) reward points , these counts are updated <em>for each possible previous outcome</em> (<em>win</em>, <em>tie</em>, and <em>loss</em>). Maintaining and updating these counts therefore requires nine additional columns in the data instead of three as with the above. Using this tally for RL-based agent decision making ought to perform better since it takes both the previous moves of human and opponents into consideration.</p></li>
+<li><p><strong>Combined agent-opponent previous move rewards</strong>: Finally, the most complex version of the model-based agent tracks the ongoing combined reward count of the opponent past move and human past move. This represents a further increase in complexity from the above version which only tracks the reward counts of the disjunction of the opponent’s past move and human’s current move. As such, this level of reward count tracking requires 27 columns to maintain state from one round to the next. While it is unlikely that people playing bot opponents would explicitly track previous moves on this level of complexity, this allows us to model ideal learning conditions for the most complex RL-agent and determine how such an agent performs by adopting simpler reward counting mechnisms.</p></li>
+</ul>
+</div>
+<div class="section" id="choosing-a-move">
+<h2>Choosing a move<a class="headerlink" href="#choosing-a-move" title="Permalink to this headline">#</a></h2>
+<p>Each instantiation of the RL-based agent tracks a particular <em>reward count</em> or previous moves that it uses as the basis for choosing its optimal next move in a given round. <em>But how does the agent choose its own move on the basis of this information?</em></p>
+<p><strong>The RL-based agent has a <em>decision policy</em> of probabilistically choosing the move that will perform best based on the move that has the highest probability of winning in previous rounds.</strong> What does this mean?</p>
+<p>There are two primary steps the RL-based agent undertakes to select a move: and <em>expected value calculation</em> and a <em>softmax move sampling</em> process.</p>
+<p><strong>Expected value calculation</strong>: First, the agent calculates the <em>expected value</em> of each possible move it could take (<em>Rock</em>, <em>Paper</em>, or <em>Scissors</em>) in the next round. The expected value of a move is the sum of all possible possible <em>outcomes</em> from playing that move weighted by the probability of those outcomes. For example, the expected value of the agent move choice <span class="math notranslate nohighlight">\(M_a\)</span> of <em>Rock</em> (<span class="math notranslate nohighlight">\(M_a = `R'\)</span>) can be written as:</p>
+<div class="math notranslate nohighlight">
+\[
+  E[M_a = `R'] = \sum_{M_o \in \{`R', `P', `S'\}} U(M_a, M_o)P(M_o)
+\]</div>
+<p>In the above formulation, <span class="math notranslate nohighlight">\(M_o\)</span> is the <em>opponent’s potential move choice</em> (<span class="math notranslate nohighlight">\(`R'\)</span>, <span class="math notranslate nohighlight">\(`P'\)</span>, or <span class="math notranslate nohighlight">\(`S'\)</span>). <span class="math notranslate nohighlight">\(U\)</span> is the <em>reward that the agent receives</em> for the combination of its own move choice <span class="math notranslate nohighlight">\(M_a\)</span> and its opponent’s move choice <span class="math notranslate nohighlight">\(M_o\)</span>. In the example above, this would be the points the agent receives for each possible opponent move choice <span class="math notranslate nohighlight">\(M_o \in \{`R', `P', `S'\}\)</span> when the agent plays <span class="math notranslate nohighlight">\(M_a = `R'\)</span>: 3 points for a win (if <span class="math notranslate nohighlight">\(M_o=`S'\)</span>), 0 points for a tie (<span class="math notranslate nohighlight">\(M_o=`R'\)</span>), -1 points for a loss. Finally, <span class="math notranslate nohighlight">\(P(M_o)\)</span> is the probabily assigned to a particular opponent move choice <span class="math notranslate nohighlight">\(M_o\)</span>. The probability of each possible opponent move choice is precisely what the agent estimates in the previous section through its opponent tracking!</p>
+<p><strong>Sample a move using <em>softmax</em></strong>: The RL-based agent estimates an expected value (<em>EV</em>) for each possible move it could play using the process outlined above, based on the probabilities it assigns to its opponent’s moves. The agent’s task is to choose the move that has the highest expected value. However, rather than merely choosing the move with the highest expected value each round, the agent chooses its move probabilistically <em>in proportion to the expected value of each possible move</em>. In other words, if one possible move has a <em>much higher</em> expected value than the others, then the agent should strongly favor this move; for example, if the agent believes the opponent is <em>all but guaranteed to play Scissors</em>, then <em>Rock</em> will have a dramatically larger EV and the agent should correspondingly favor <em>Rock</em> strongly. If, however, all of the candidate moves are equally good (as would be the case if the agent believes its opponent is <em>equally likely</em> to play <em>Rock</em>, <em>Paper</em>, or <em>Scissors</em>), then it should assign them all roughly equal probabilities when choosing its own move. In order for the model-based agent to choose its moves <em>in proportion to their relative EVs</em>, we map the expected value of each possible move calculated above to a probability of its being chosen using the <em>softmax</em> function:</p>
+<div class="math notranslate nohighlight">
+\[
+  P(M_a) = \dfrac{e^{\beta E[M_a]}}{\sum_{M_a' \in \{`R', `P', `S'\}} e^{\beta E[M_a']}}
+\]</div>
+<p>In the above, the probability of the agent choosing a move <span class="math notranslate nohighlight">\(P(M_a)\)</span> is <span class="math notranslate nohighlight">\(e\)</span> raised to the expected value of that move <span class="math notranslate nohighlight">\(E[M_a]\)</span> as described above, divided by the sum of <span class="math notranslate nohighlight">\(e\)</span> raised to the expected value of <em>all possible moves</em> <span class="math notranslate nohighlight">\(M_a'\)</span>. The <span class="math notranslate nohighlight">\(\beta\)</span> term in the numerator and denominator is a common parameter used to scale <em>how much the agent should favor the highest expected value move</em>. In this version of the model, we simply set this to 1. However, our <a class="reference internal" href="ModelComparison.html"><span class="doc std std-doc">Model Comparison</span></a> estimates a <em>fitted <span class="math notranslate nohighlight">\(\beta\)</span> parameter</em> for each participant as a way of estimating how well the RL-based agent describes human move decisions.</p>
+<p>Once the RL-based agent has transformed the expected value of each possible move into a probability distribution over those moves using the softmax function, it samples a move for that round according to its softmax probability. Thus, moves with a higher expected value in a given round are more likely to be chosen. More generally, if the agent is successfully able to track the reward counts of the previous moves, then it will have a high probability of choosing the move that <em>beats</em> the opponent’s next move.</p>
+<p><em><strong>But how well does the RL-based agent, choosing its moves in simulated rounds through the process described above, perform against the bot opponents from our experiments?</strong></em></p>
+<p>In the next page (<a class="reference internal" href="RLModel_results.html"><span class="doc std std-doc">Model Results</span></a>), we test this model’s performance in the context of different reward counts tracking.</p>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Model Results &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -37,7 +36,7 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -525,37 +524,37 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="model-results">
+  <div class="tex2jax_ignore mathjax_ignore section" id="model-results">
 <h1>Model Results<a class="headerlink" href="#model-results" title="Permalink to this headline">#</a></h1>
-<section id="human-performance-benchmark">
+<div class="section" id="human-performance-benchmark">
 <h2>Human performance: benchmark<a class="headerlink" href="#human-performance-benchmark" title="Permalink to this headline">#</a></h2>
 <p><img alt="benchmark.png" src="_images/benchmark.png" /></p>
 <p><strong>The above visualization demonstrates how human participants performed against bots which possessed unique strategies. The red dotted baseline indicates that the wining rate would be 33% if the participant did not exploit the perceivable patterns. The wining rate converges to the chance line as pattern of each bot becomes more complicated.</strong></p>
-</section>
-<section id="null-model-move-base-rates">
+</div>
+<div class="section" id="null-model-move-base-rates">
 <h2>Null model: move base rates<a class="headerlink" href="#null-model-move-base-rates" title="Permalink to this headline">#</a></h2>
 <p><img alt="nullmodel.png" src="_images/rl_a.png" /></p>
 <p><strong>The above visualization showcases the mean win percentage of the reinforcement learning model before taking its previous winning rounds into consideration. Therefore, its results are gathered around the chance line and are not impacted by the complexities of the various bots.</strong></p>
-</section>
-<section id="agent-previous-move-reward">
+</div>
+<div class="section" id="agent-previous-move-reward">
 <h2>Agent previous move reward<a class="headerlink" href="#agent-previous-move-reward" title="Permalink to this headline">#</a></h2>
 <p><img alt="m2_summary.png" src="_images/rl_b.png" /></p>
 <p><strong>The above visualization represents the scenario when the model determines its next move based on the combination of the human’s past move and their current move. The model then generates the softmax distribution according to the reward counts of the previous combination.</strong></p>
-</section>
-<section id="opponent-previous-move-rewards">
+</div>
+<div class="section" id="opponent-previous-move-rewards">
 <h2>Opponent previous move rewards<a class="headerlink" href="#opponent-previous-move-rewards" title="Permalink to this headline">#</a></h2>
 <p><img alt="m3_summary.png" src="_images/rl_c.png" /></p>
 <p><strong>The above visualization represents the scenario when the model determines its next move based on the combination of the opponent’s past move and the human’s current move. The model then generates the softmax distribution according to the reward counts of the previous combination.</strong></p>
-</section>
-<section id="disjunctive-agent-opponent-previous-move-rewards">
+</div>
+<div class="section" id="disjunctive-agent-opponent-previous-move-rewards">
 <h2>Disjunctive agent, opponent previous move rewards<a class="headerlink" href="#disjunctive-agent-opponent-previous-move-rewards" title="Permalink to this headline">#</a></h2>
 <p><img alt="m4_summary.png" src="_images/rl_mix.png" /></p>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="combined-agent-opponent-previous-move-rewards">
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="combined-agent-opponent-previous-move-rewards">
 <h1>Combined agent, opponent previous move rewards<a class="headerlink" href="#combined-agent-opponent-previous-move-rewards" title="Permalink to this headline">#</a></h1>
 <p><img alt="m5_summary.png" src="_images/rl_combined.png" /></p>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
