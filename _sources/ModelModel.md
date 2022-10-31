@@ -52,7 +52,7 @@ Each instantiation of the model-based agent tracks a particular *sequential depe
 
 There are two primary steps the model-based agent undertakes to select a move: and *expected value calculation* and a *softmax move sampling* process.
 
-**Expected value calculation**: First, the agent calculates the *expected value* of each possible move it could take (*Rock*, *Paper*, or *Scissors*) in the next round. The expected value of a move is the sum of all possible possible *outcomes* from playing that move weighted by the probability of those outcomes. For example, the expected value of the agent move choice $M_a$ of *Rock* ($M_a = `R'$) can be written as:
+**Expected value calculation**: First, the agent calculates the *expected value* of each possible move it could take (*Rock*, *Paper*, or *Scissors*) in the next round. The expected value of a move is the sum of all possible possible *outcomes* from playing that move weighted by the probability of those outcomes. For example, the expected value of the agent move choice $M_a$ of *Rock* ($M_a = R$) can be written as:
 
 $$
   E[M_a = R] = \sum_{M_o \in \{R, P, S\}} U(M_a, M_o)P(M_o)
