@@ -1,0 +1,1017 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>model_wrapper.py &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RL_model_utils.py" href="RL_model_python_lib_utils.html" />
+    <link rel="prev" title="model_decision_functions.py" href="model_python_lib_decision_functions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/rps_graphic.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Modeling Adaptive Reasoning in 🪨 📜 ✂️</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="home.html">
+   Modeling Adaptive Reasoning in 🪨 📜 ✂️
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Summary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data.html">
+   Data
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Model-Based Agent
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ModelModel.html">
+   Model Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ModelModel_results.html">
+   Model Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ModelModel_code.html">
+   Reference: Model Code
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Model-Free RL Agent
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="RLModel.html">
+   Model Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RLModel_results.html">
+   Model Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RLModel_code.html">
+   Reference: RL Model Code
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Model Comparison
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ModelComparison.html">
+   Model Comparison Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ModelComparison_results.html">
+   Model Comparison Results
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Discussion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Discussion.html">
+   Discussion
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APPENDIX - code
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_python_lib_utils.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     model_utils.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_python_lib_event_counts.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     model_event_counts.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="model_python_lib_decision_functions.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     model_decision_functions.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     model_wrapper.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RL_model_python_lib_utils.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RL_model_utils.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RL_model_python_lib_reward.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RL_model_reward.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RL_model_python_lib_decision_functions.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     RL_model_decision_functions.py
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_lib_visualization.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     visualization.py
+    </span>
+   </code>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/model_wrapper.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/model_wrapper.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initialize">
+   Initialize
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-data">
+   Read data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-bot-predictors">
+   Add bot predictors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compute-probabilities">
+   Compute probabilities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculate-expected-value">
+   Calculate Expected Value
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>model_wrapper.py</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initialize">
+   Initialize
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-data">
+   Read data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-bot-predictors">
+   Add bot predictors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compute-probabilities">
+   Compute probabilities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#calculate-expected-value">
+   Calculate Expected Value
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="model-wrapper-py">
+<h1><code class="docutils literal notranslate"><span class="pre">model_wrapper.py</span></code><a class="headerlink" href="#model-wrapper-py" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="initialize">
+<h2>Initialize<a class="headerlink" href="#initialize" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run dependencies</span>
+<span class="o">%</span><span class="k">run</span> ./model_python_lib_utils.ipynb
+<span class="o">%</span><span class="k">run</span> ./model_python_lib_event_counts.ipynb
+<span class="o">%</span><span class="k">run</span> ./model_python_lib_decision_functions.ipynb
+<span class="o">%</span><span class="k">run</span> ./python_lib_visualization.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="read-data">
+<h2>Read data<a class="headerlink" href="#read-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">read_rps_data</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">DEFAULT_FILE</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>game_id</th>
+      <th>version</th>
+      <th>is_sona_autocredit</th>
+      <th>sona_experiment_id</th>
+      <th>sona_credit_token</th>
+      <th>sona_survey_code</th>
+      <th>round_index</th>
+      <th>player_id</th>
+      <th>is_bot</th>
+      <th>bot_strategy</th>
+      <th>bot_move_probabilities</th>
+      <th>round_begin_ts</th>
+      <th>player_move</th>
+      <th>player_rt</th>
+      <th>player_outcome</th>
+      <th>player_outcome_viewtime</th>
+      <th>player_points</th>
+      <th>player_total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1768</td>
+      <td>19421bc286424246b6b1e873e7a55a8e</td>
+      <td>32028</td>
+      <td>1</td>
+      <td>c82739a2-9e24-4c1b-840f-9eb00d10cd9b</td>
+      <td>0</td>
+      <td>outcome_transition_dual_dependency</td>
+      <td>{'win': {'0': {'rock': {'rock': 0.049999999999...</td>
+      <td>1583904283047</td>
+      <td>rock</td>
+      <td>2091</td>
+      <td>tie</td>
+      <td>3951</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1768</td>
+      <td>19421bc286424246b6b1e873e7a55a8e</td>
+      <td>32028</td>
+      <td>1</td>
+      <td>f1c3a029-e381-4f79-afbe-677ef9416f04</td>
+      <td>1</td>
+      <td>outcome_transition_dual_dependency</td>
+      <td>{'win': {'0': {'rock': {'rock': 0.049999999999...</td>
+      <td>1583904283047</td>
+      <td>rock</td>
+      <td>0</td>
+      <td>tie</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1768</td>
+      <td>19421bc286424246b6b1e873e7a55a8e</td>
+      <td>32028</td>
+      <td>2</td>
+      <td>c82739a2-9e24-4c1b-840f-9eb00d10cd9b</td>
+      <td>0</td>
+      <td>outcome_transition_dual_dependency</td>
+      <td>{'win': {'0': {'rock': {'rock': 0.049999999999...</td>
+      <td>1583904289171</td>
+      <td>paper</td>
+      <td>2886</td>
+      <td>loss</td>
+      <td>1741</td>
+      <td>-1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1768</td>
+      <td>19421bc286424246b6b1e873e7a55a8e</td>
+      <td>32028</td>
+      <td>2</td>
+      <td>f1c3a029-e381-4f79-afbe-677ef9416f04</td>
+      <td>1</td>
+      <td>outcome_transition_dual_dependency</td>
+      <td>{'win': {'0': {'rock': {'rock': 0.049999999999...</td>
+      <td>1583904289171</td>
+      <td>scissors</td>
+      <td>0</td>
+      <td>win</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>30aea025-4c7b-41c0-bd03-363cc73bf583</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1768</td>
+      <td>19421bc286424246b6b1e873e7a55a8e</td>
+      <td>32028</td>
+      <td>3</td>
+      <td>c82739a2-9e24-4c1b-840f-9eb00d10cd9b</td>
+      <td>0</td>
+      <td>outcome_transition_dual_dependency</td>
+      <td>{'win': {'0': {'rock': {'rock': 0.049999999999...</td>
+      <td>1583904293847</td>
+      <td>scissors</td>
+      <td>1676</td>
+      <td>tie</td>
+      <td>2040</td>
+      <td>0</td>
+      <td>-1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="add-bot-predictors">
+<h2>Add bot predictors<a class="headerlink" href="#add-bot-predictors" title="Permalink to this headline">¶</a></h2>
+<p><em>Initialize columns</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO may want to move these to `utils.py` as globals so that functions in `event_counts.py` can reference them there</span>
+<span class="c1"># Add columns corresponding to opponent move counts</span>
+<span class="n">supplementary_cols</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;opponent_move&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;previous_move&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_previous_move&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;previous_outcome&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_previous_outcome&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;previous_transition&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_previous_transition&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;current_transition&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_prev2_transition&#39;</span>
+<span class="p">]</span>
+
+<span class="n">event_counts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># transition counts</span>
+    <span class="s1">&#39;up_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;down_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;stay_transition_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cournot_up_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;cournot_down_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;cournot_stay_transition_count&#39;</span><span class="p">,</span>
+    <span class="c1"># outcome-dependent transition counts</span>
+    <span class="s1">&#39;win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;win_stay_count&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;tie_stay_count&#39;</span><span class="p">,</span> 
+    <span class="c1"># dual transition outcome counts</span>
+    <span class="s1">&#39;up_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;up_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;up_win_stay_count&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;up_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;up_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;up_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;up_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;up_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;up_tie_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;down_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;down_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;down_win_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;down_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;down_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;down_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;down_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;down_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;down_tie_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stay_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;stay_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;stay_win_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stay_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;stay_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;stay_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stay_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;stay_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;stay_tie_stay_count&#39;</span>
+<span class="p">]</span>
+
+<span class="n">opponent_counts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># base move counts</span>
+    <span class="s1">&#39;opponent_rock_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_paper_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_scissors_count&#39;</span><span class="p">,</span>
+    <span class="c1"># transition counts</span>
+    <span class="s1">&#39;opponent_up_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_transition_count&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;opponent_cournot_up_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_cournot_down_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_cournot_stay_transition_count&#39;</span><span class="p">,</span>
+    <span class="c1"># outcome-dependent transition counts   </span>
+    <span class="s1">&#39;opponent_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_win_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_tie_stay_count&#39;</span><span class="p">,</span>
+    <span class="c1"># dual transition outcome counts</span>
+    <span class="s1">&#39;opponent_up_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_win_stay_count&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;opponent_up_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_up_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_tie_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_down_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_win_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_down_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_down_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_tie_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_stay_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_win_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_stay_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_stay_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_tie_stay_count&#39;</span>
+<span class="p">]</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">supplementary_cols</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">event_counts</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">opponent_counts</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># df.head()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Populate new columns with counts</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">game_split</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">game_split</span> <span class="o">=</span> <span class="n">get_event_counts</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">game_split</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">game_split</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compute-probabilities">
+<h2>Compute probabilities<a class="headerlink" href="#compute-probabilities" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO make these programmatic (esp. final set)</span>
+
+<span class="c1"># Move baserate probabilities</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span> 
+    <span class="s1">&#39;opponent_rock_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_paper_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_scissors_count&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;p_opponent_rock&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_paper&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_scissors&#39;</span>
+<span class="p">)</span>
+<span class="c1"># Transition probabilities</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span> 
+    <span class="s1">&#39;opponent_up_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_transition_count&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;p_opponent_transition_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_transition_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_transition_stay&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span> 
+    <span class="s1">&#39;opponent_cournot_up_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_cournot_down_transition_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_cournot_stay_transition_count&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;p_opponent_cournot_transition_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_cournot_transition_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_cournot_transition_stay&#39;</span>
+<span class="p">)</span>
+<span class="c1"># Outcome-transition probabilities</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_win_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_win_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_win_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_win_stay&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_loss_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_loss_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_loss_stay&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_tie_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_tie_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_tie_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_tie_stay&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Dual transition outcome probabilities</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_up_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_win_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_up_win_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_up_win_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_up_win_stay&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_up_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_up_loss_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_up_loss_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_up_loss_stay&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_up_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_up_tie_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_up_tie_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_up_tie_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_up_tie_stay&#39;</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_down_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_win_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_down_win_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_down_win_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_down_win_stay&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_down_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_down_loss_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_down_loss_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_down_loss_stay&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_down_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_down_tie_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_down_tie_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_down_tie_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_down_tie_stay&#39;</span>
+<span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_stay_win_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_win_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_win_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_stay_win_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_stay_win_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_stay_win_stay&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_stay_loss_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_loss_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_loss_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_stay_loss_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_stay_loss_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_stay_loss_stay&#39;</span>
+<span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">add_prob</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="s1">&#39;opponent_stay_tie_up_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_tie_down_count&#39;</span><span class="p">,</span> <span class="s1">&#39;opponent_stay_tie_stay_count&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;p_opponent_stay_tie_up&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_stay_tie_down&#39;</span><span class="p">,</span> <span class="s1">&#39;p_opponent_stay_tie_stay&#39;</span>
+<span class="p">)</span>
+
+
+<span class="c1"># df.head(8)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculate-expected-value">
+<h2>Calculate Expected Value<a class="headerlink" href="#calculate-expected-value" title="Permalink to this headline">¶</a></h2>
+<p><em>Filter bot rows, any rows without interpretable values for previous move, etc.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter out non-nan, agent-only rows and add expected value calculations</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">drop_bot_rows</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">df_agent</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;previous_move&#39;</span><span class="p">])</span> <span class="c1"># TODO why is this necessary?</span>
+<span class="c1"># NB: need this for cournot transition tracking</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">df_agent</span><span class="p">[</span><span class="n">df_agent</span><span class="p">[</span><span class="s1">&#39;previous_move&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span><span class="p">]</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">df_agent</span><span class="p">[</span><span class="n">df_agent</span><span class="p">[</span><span class="s1">&#39;previous_move&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">df_agent</span><span class="p">[</span><span class="n">df_agent</span><span class="p">[</span><span class="s1">&#39;opponent_previous_move&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<span class="c1"># outcome-transition</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">df_agent</span><span class="p">[</span><span class="n">df_agent</span><span class="p">[</span><span class="s1">&#39;opponent_previous_transition&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">df_agent</span><span class="p">[</span><span class="n">df_agent</span><span class="p">[</span><span class="s1">&#39;opponent_prev2_transition&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+
+<span class="c1"># df_agent.head(25)</span>
+<span class="c1"># df_agent.shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Compute expected value</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># EV for move base rates</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">ev_move_baserate</span><span class="p">(</span><span class="n">df_agent</span><span class="p">)</span>
+
+<span class="c1"># EV for transitions</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">ev_transitions</span><span class="p">(</span><span class="n">df_agent</span><span class="p">)</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">ev_cournot</span><span class="p">(</span><span class="n">df_agent</span><span class="p">)</span>
+
+<span class="c1"># EV for outcome-transitions</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">ev_previous_outcome</span><span class="p">(</span><span class="n">df_agent</span><span class="p">)</span>
+
+<span class="c1"># EV for dual outcome-transitions</span>
+<span class="n">df_agent</span> <span class="o">=</span> <span class="n">ev_previous_outcome_previous_transition</span><span class="p">(</span><span class="n">df_agent</span><span class="p">)</span>
+
+
+<span class="c1"># df_agent.head(6)</span>
+<span class="c1"># df_agent.shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-1-a2bbd7e510ee&gt;:75: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_agent[&#39;filler_1&#39;] = points_lookup(agent_move, transition_move_lookup(&quot;transition_up&quot;, df_agent[move])).tolist()
+&lt;ipython-input-1-a2bbd7e510ee&gt;:76: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_agent[&#39;filler_2&#39;] = points_lookup(agent_move, transition_move_lookup(&quot;transition_down&quot;, df_agent[move])).tolist()
+&lt;ipython-input-1-a2bbd7e510ee&gt;:77: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_agent[&#39;filler_3&#39;] = points_lookup(agent_move, transition_move_lookup(&quot;transition_stay&quot;, df_agent[move])).tolist()
+&lt;ipython-input-1-a2bbd7e510ee&gt;:78: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_agent[&#39;prod_1&#39;] = df_agent[prob1] * df_agent.filler_1
+&lt;ipython-input-1-a2bbd7e510ee&gt;:79: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_agent[&#39;prod_2&#39;] = df_agent[prob2] * df_agent.filler_2
+&lt;ipython-input-1-a2bbd7e510ee&gt;:80: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_agent[&#39;prod_3&#39;] = df_agent[prob3] * df_agent.filler_3
+&lt;ipython-input-1-a2bbd7e510ee&gt;:81: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_agent[&#39;ev_transitions&#39;] = df_agent[&#39;prod_1&#39;] + df_agent[&#39;prod_2&#39;] + df_agent[&#39;prod_3&#39;]
+&lt;ipython-input-1-a2bbd7e510ee&gt;:83: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_agent[ev_col_name] = df_agent[&#39;ev_transitions&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test</span>
+<span class="c1"># model7 = df_agent.copy()</span>
+
+
+<span class="c1"># model7[&#39;ev_rock&#39;] = model7[&#39;ev_outcome_dual_depend_rock&#39;]</span>
+<span class="c1"># model7[&#39;ev_paper&#39;] = model7[&#39;ev_outcome_dual_depend_paper&#39;]</span>
+<span class="c1"># model7[&#39;ev_scissors&#39;] = model7[&#39;ev_outcome_dual_depend_scissors&#39;]</span>
+
+<span class="c1"># # Compute softmax distribution (1 min.)</span>
+<span class="c1"># m7_softmax = get_softmax_probabilities(</span>
+<span class="c1">#     model7, </span>
+<span class="c1">#     [&#39;ev_rock&#39;, &#39;ev_paper&#39;, &#39;ev_scissors&#39;]</span>
+<span class="c1"># )</span>
+
+<span class="c1"># # Select agent move based on softmax computed above (1 min.)</span>
+<span class="c1"># model7 = pick_move(model7, m7_softmax)</span>
+
+<span class="c1"># # Evaluate outcome of agent move choices in simulation above</span>
+<span class="c1"># model7 = assign_agent_outcomes(model7)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot_summary_coarse = win_summary(groupby_f_data(model7, &#39;agent_outcome&#39;, 5), &#39;agent_outcome&#39;)</span>
+<span class="c1"># plot_summary_fine = win_summary(groupby_f_data(model7, &#39;agent_outcome&#39;, 60), &#39;agent_outcome&#39;)</span>
+<span class="c1"># plot_summary_fine = plot_summary_fine[plot_summary_fine[&#39;bin&#39;] &lt;= &#39;50&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot_win_rates(plot_summary_coarse)</span>
+<span class="c1"># plot_win_rates(plot_summary_fine)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=692c6dea-2203-4a62-9fb8-3ed6d8b73891' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="model_python_lib_decision_functions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">model_decision_functions.py</span></code></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="RL_model_python_lib_utils.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">RL_model_utils.py</span></code></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Betty Gong, MJ Mei, Annalea O'Halloran, Alison Yu, Erik Brockbank<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
