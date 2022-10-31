@@ -32,12 +32,10 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-# Run dependencies
-%run ./model_python_lib_utils.ipynb
-%run ./model_python_lib_event_counts.ipynb
-%run ./model_python_lib_decision_functions.ipynb
-%run ./python_lib_visualization.ipynb
+game_split = separate_df(df)
+game_split = get_event_counts(df, game_split)
+df = pd.concat(game_split).reset_index(drop = True)
 
-%run ./model_wrapper.ipynb
+df.head(8)
 -------------------
 
