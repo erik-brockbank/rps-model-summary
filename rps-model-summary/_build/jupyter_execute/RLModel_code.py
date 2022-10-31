@@ -33,7 +33,7 @@ for e in separated:
 df = pd.concat(separated)
 
 
-# ### a) human_reward_move
+# ### Null model
 
 # In[4]:
 
@@ -75,7 +75,7 @@ f_a = f_a[f_a['bin']<='50']
 plot_win_rates(f_a[f_a['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
-# ### 3b human_past_current_reward_move
+# ### Self-previous move reward
 
 # In[9]:
 
@@ -93,7 +93,7 @@ separated = separate_df(df_b)
 df_result_b = pd.DataFrame()
 for e in separated:
     e = get_softmax_probabilities_3b(e)
-    e=pick_move_3b(e)
+    e=pick_move_v2(e)
     e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
     df_result_b=pd.concat([df_result_b,e],axis=0)
 
@@ -106,7 +106,7 @@ f_b = f_b[f_b['bin']<='50']
 plot_win_rates(f_b[f_b['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
-# ### 3c opponent_past_human_current_reward_move
+# ### Opponent-previous move reward
 
 # In[12]:
 
@@ -126,7 +126,7 @@ df_result_c = pd.DataFrame()
 # align results from the generaed agent move and opponent move
 for e in separated:
     e = get_softmax_probabilities_3c(e)
-    e=pick_move_3c(e)
+    e=pick_move_v2(e)
     e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
     df_result_c=pd.concat([df_result_c,e],axis=0)
 
@@ -139,7 +139,7 @@ f_c = f_c[f_c['bin']<='50']
 plot_win_rates(f_c[f_c['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
-# ### 3d) opponent_past_human_past_current_move (mix)
+# ### Disjunctive agent-opponent previous move rewards 
 
 # In[15]:
 
@@ -150,7 +150,7 @@ df_result_mix = pd.DataFrame()
 count=0
 for i in range(len(separated_oppo_past)):
     e=get_softmax_probabilities_mix(separated_agent_past[i], separated_oppo_past[i])
-    e=pick_move_3d(e)
+    e=pick_move_v2(e)
     e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
     df_result_mix=pd.concat([df_result_mix,e],axis=0)
 
@@ -163,7 +163,7 @@ f_mix = f_mix[f_mix['bin']<='50']
 plot_win_rates(f_mix[f_mix['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
-# ### 3e) opponent_past_human_past_current_move (combined)
+# ### Combined agent-opponent previous move rewards
 
 # In[17]:
 
@@ -182,7 +182,7 @@ separated = separate_df(df_combine)
 df_result_combined = pd.DataFrame()
 for e in separated:
     e=get_softmax_probabilities_combined(e)
-    e=pick_move_3d(e)
+    e=pick_move_v2(e)
     e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
     df_result_combined=pd.concat([df_result_combined,e],axis=0)
 
