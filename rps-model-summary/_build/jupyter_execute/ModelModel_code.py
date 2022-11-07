@@ -30,12 +30,12 @@ df.head()
 # ## Human performance: benchmark
 # 
 
-# In[4]:
+# In[8]:
 
 
 # Plot human win rates
-f_a = groupby_f_data(df_agent, 'player_outcome', bins=60)
-f_a = f_a[f_a['bin']<='50']
+f_a = groupby_f_data(df_agent, 'player_outcome', bins=10)
+# f_a = f_a[f_a['bin']<='50']
 plot_win_rates(f_a[f_a['player_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
@@ -43,7 +43,7 @@ plot_win_rates(f_a[f_a['player_outcome']=='win']) # NB: add a filename argument 
 
 # *Run model*
 
-# In[5]:
+# In[4]:
 
 
 model1 = df_agent.copy()
@@ -71,12 +71,12 @@ model1 = assign_agent_outcomes(model1)
 
 # *Plot model results*
 
-# In[6]:
+# In[10]:
 
 
 # Plot agent win rates
-f_b = groupby_f_data(model1, 'agent_outcome', bins=60)
-f_b = f_b[f_b['bin']<='50']
+f_b = groupby_f_data(model1, 'agent_outcome', bins=10)
+# f_b = f_b[f_b['bin']<='50']
 plot_win_rates(f_b[f_b['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
@@ -84,7 +84,7 @@ plot_win_rates(f_b[f_b['agent_outcome']=='win']) # NB: add a filename argument t
 
 # *Run model*
 
-# In[7]:
+# In[11]:
 
 
 import time
@@ -117,12 +117,12 @@ print(end - start)
 
 # *Plot model results*
 
-# In[9]:
+# In[14]:
 
 
 # Plot agent win rates
-f_c = groupby_f_data(model2, 'agent_outcome', bins=60)
-f_c = f_c[f_c['bin']<='50']
+f_c = groupby_f_data(model2, 'agent_outcome', bins = 10)
+# f_c = f_c[f_c['bin']<='50']
 plot_win_rates(f_c[f_c['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
@@ -130,7 +130,7 @@ plot_win_rates(f_c[f_c['agent_outcome']=='win']) # NB: add a filename argument t
 
 # *Run model*
 
-# In[10]:
+# In[15]:
 
 
 start = time.time()
@@ -160,20 +160,20 @@ print(end - start)
 
 # *Plot model results*
 
-# In[12]:
+# In[18]:
 
 
 # Plot agent win rates
-f_d = groupby_f_data(model3, 'agent_outcome', bins=60)
-f_d = f_d[f_d['bin']<='50']
-plot_win_rates(f_d[f_d['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
+f_d = groupby_f_data(model3, 'agent_outcome', bins=10)
+# f_d = f_d[f_d['bin']<='50']
+plot_win_rates(f_d[f_d['agent_outcome']=='win'], img_name= 'model_botcournot_transition_only.png') # NB: add a filename argument to save the figure locally
 
 
 # ## Transition model: bot transitions + Cournot transitions
 
 # *Run model*
 
-# In[13]:
+# In[19]:
 
 
 start = time.time()
@@ -205,12 +205,12 @@ print(end- start)
 
 # *Plot model results*
 
-# In[14]:
+# In[22]:
 
 
 # Plot agent win rates
-f_e = groupby_f_data(model4, 'agent_outcome', bins=60)
-f_e = f_e[f_e['bin']<='50']
+f_e = groupby_f_data(model4, 'agent_outcome', bins = 10)
+# f_e = f_e[f_e['bin']<='50']
 plot_win_rates(f_e[f_e['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
@@ -218,7 +218,7 @@ plot_win_rates(f_e[f_e['agent_outcome']=='win']) # NB: add a filename argument t
 
 # *Run model*
 
-# In[15]:
+# In[23]:
 
 
 start = time.time()
@@ -249,12 +249,12 @@ print(end - start)
 
 # *Plot model results*
 
-# In[16]:
+# In[31]:
 
 
 # Plot agent win rates
-f_f = groupby_f_data(model5, 'agent_outcome', bins=60)
-f_f = f_f[f_f['bin']<='50']
+f_f = groupby_f_data(model5, 'agent_outcome', bins=10)
+# f_f = f_f[f_f['bin']<='50']
 plot_win_rates(f_f[f_f['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
@@ -262,7 +262,7 @@ plot_win_rates(f_f[f_f['agent_outcome']=='win']) # NB: add a filename argument t
 
 # *Run model*
 
-# In[17]:
+# In[34]:
 
 
 start = time.time()
@@ -293,11 +293,17 @@ print(end - start)
 
 # *Plot model results*
 
-# In[18]:
+# In[37]:
 
 
 # Plot agent win rates
-f_g = groupby_f_data(model6, 'agent_outcome', bins=60)
-f_g = f_g[f_g['bin']<='50']
+f_g = groupby_f_data(model6, 'agent_outcome', bins=10)
+# f_g = f_g[f_g['bin']<='50']
 plot_win_rates(f_g[f_g['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
+
+
+# In[ ]:
+
+
+
 

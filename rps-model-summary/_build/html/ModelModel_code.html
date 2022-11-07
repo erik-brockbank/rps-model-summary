@@ -677,8 +677,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot human win rates</span>
-<span class="n">f_a</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_agent</span><span class="p">,</span> <span class="s1">&#39;player_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">f_a</span> <span class="o">=</span> <span class="n">f_a</span><span class="p">[</span><span class="n">f_a</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
+<span class="n">f_a</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_agent</span><span class="p">,</span> <span class="s1">&#39;player_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># f_a = f_a[f_a[&#39;bin&#39;]&lt;=&#39;50&#39;]</span>
 <span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_a</span><span class="p">[</span><span class="n">f_a</span><span class="p">[</span><span class="s1">&#39;player_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
 </pre></div>
 </div>
@@ -745,8 +745,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot agent win rates</span>
-<span class="n">f_b</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model1</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">f_b</span> <span class="o">=</span> <span class="n">f_b</span><span class="p">[</span><span class="n">f_b</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
+<span class="n">f_b</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model1</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># f_b = f_b[f_b[&#39;bin&#39;]&lt;=&#39;50&#39;]</span>
 <span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_b</span><span class="p">[</span><span class="n">f_b</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
 </pre></div>
 </div>
@@ -814,7 +814,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74.33586931228638
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72.75148606300354
 </pre></div>
 </div>
 </div>
@@ -823,8 +823,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot agent win rates</span>
-<span class="n">f_c</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model2</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">f_c</span> <span class="o">=</span> <span class="n">f_c</span><span class="p">[</span><span class="n">f_c</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
+<span class="n">f_c</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model2</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1"># f_c = f_c[f_c[&#39;bin&#39;]&lt;=&#39;50&#39;]</span>
 <span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_c</span><span class="p">[</span><span class="n">f_c</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
 </pre></div>
 </div>
@@ -889,7 +889,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72.48529481887817
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72.12722420692444
 </pre></div>
 </div>
 </div>
@@ -898,9 +898,9 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot agent win rates</span>
-<span class="n">f_d</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model3</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">f_d</span> <span class="o">=</span> <span class="n">f_d</span><span class="p">[</span><span class="n">f_d</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
-<span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_d</span><span class="p">[</span><span class="n">f_d</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
+<span class="n">f_d</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model3</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># f_d = f_d[f_d[&#39;bin&#39;]&lt;=&#39;50&#39;]</span>
+<span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_d</span><span class="p">[</span><span class="n">f_d</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">],</span> <span class="n">img_name</span><span class="o">=</span> <span class="s1">&#39;model_botcournot_transition_only.png&#39;</span><span class="p">)</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
 </pre></div>
 </div>
 </div>
@@ -966,7 +966,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>76.50155401229858
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71.46850514411926
 </pre></div>
 </div>
 </div>
@@ -975,8 +975,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot agent win rates</span>
-<span class="n">f_e</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model4</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">f_e</span> <span class="o">=</span> <span class="n">f_e</span><span class="p">[</span><span class="n">f_e</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
+<span class="n">f_e</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model4</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c1"># f_e = f_e[f_e[&#39;bin&#39;]&lt;=&#39;50&#39;]</span>
 <span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_e</span><span class="p">[</span><span class="n">f_e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
 </pre></div>
 </div>
@@ -1042,7 +1042,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72.51381182670593
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71.46870303153992
 </pre></div>
 </div>
 </div>
@@ -1051,8 +1051,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot agent win rates</span>
-<span class="n">f_f</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model5</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">f_f</span> <span class="o">=</span> <span class="n">f_f</span><span class="p">[</span><span class="n">f_f</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
+<span class="n">f_f</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model5</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># f_f = f_f[f_f[&#39;bin&#39;]&lt;=&#39;50&#39;]</span>
 <span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_f</span><span class="p">[</span><span class="n">f_f</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
 </pre></div>
 </div>
@@ -1118,7 +1118,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>73.05872225761414
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>73.76682901382446
 </pre></div>
 </div>
 </div>
@@ -1127,8 +1127,8 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot agent win rates</span>
-<span class="n">f_g</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model6</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">f_g</span> <span class="o">=</span> <span class="n">f_g</span><span class="p">[</span><span class="n">f_g</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
+<span class="n">f_g</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">model6</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1"># f_g = f_g[f_g[&#39;bin&#39;]&lt;=&#39;50&#39;]</span>
 <span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_g</span><span class="p">[</span><span class="n">f_g</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
 </pre></div>
 </div>
