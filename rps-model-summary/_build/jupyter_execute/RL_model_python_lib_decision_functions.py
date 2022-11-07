@@ -167,38 +167,14 @@ def pick_move(df, sofm):
         chosen_move = choices(move_choices, distribution)
         moves = np.append(moves, chosen_move)
     df = df.assign(agent_move = moves)
-
     return df
 
-def pick_move_3b(df):
+def pick_move_v2(df):
     moves = np.array([])
     for i in range(df.shape[0]):
         move_choices = ['rock', 'paper', 'scissors']
         distribution = df[['softmax_prob_rock', 'softmax_prob_paper', 'softmax_prob_scissors']].iloc[i].tolist() # get ith [rock_prob,paper_prob,scissors_prob] from input df
         chosen_move = random.choices(move_choices, distribution)
-        moves = np.append(moves, chosen_move)
-    df = df.assign(agent_move = moves) # agent_move stores sampled moves
-    return df
-
-def pick_move_3c(df):
-    '''
-    sample agent move based on softmax distribution
-    '''
-    moves = np.array([])
-    for i in range(df.shape[0]):
-        move_choices = ['rock', 'paper', 'scissors']
-        distribution = df[['softmax_prob_rock', 'softmax_prob_paper', 'softmax_prob_scissors']].iloc[i].tolist() # get ith [rock_prob,paper_prob,scissors_prob] from input df
-        chosen_move = random.choices(move_choices, distribution)
-        moves = np.append(moves, chosen_move)
-    df = df.assign(agent_move = moves) # agent_move stores sampled moves
-    return df
-
-def pick_move_3d(df):
-    moves = np.array([])
-    for i in range(df.shape[0]):
-        move_choices = ['rock', 'paper', 'scissors']
-        distribution = df[['softmax_prob_rock', 'softmax_prob_paper', 'softmax_prob_scissors']].iloc[i].tolist() # get ith [rock_prob,paper_prob,scissors_prob] from input df 
-        chosen_move = random.choices(move_choices, distribution) 
         moves = np.append(moves, chosen_move)
     df = df.assign(agent_move = moves) # agent_move stores sampled moves
     return df
