@@ -20,7 +20,7 @@
 
 ## Transition model: bot Cournot transitions only
 
-![model_botcournot_transition_only.png.png](img/model_botcournot_transition_only.png.png)
+![model_botcournot_transition_only.png](img/model_botcournot_transition_only.png)
 
 **This visualization captures the transition model in which the agent only focused on the cournot transitions. The cournot transitions indicate that the agent makes decisions based on its opponent's previous move instead of its own.The simulation did showcase that as the agent started exploiting the sequential patterns based on its opponent's previous move, its win percentage against bots that adopted corresponding strategies also increased.**
 
