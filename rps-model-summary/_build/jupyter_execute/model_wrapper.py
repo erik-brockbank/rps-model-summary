@@ -92,6 +92,7 @@ df = add_col(df, opponent_counts, value = 1)
 # df.head()
 
 
+
 # *Populate new columns with counts*
 
 # In[4]:
@@ -277,6 +278,7 @@ df_agent = ev_previous_outcome_previous_transition(df_agent)
 # plot_summary_coarse = win_summary(groupby_f_data(model7, 'agent_outcome', 5), 'agent_outcome')
 # plot_summary_fine = win_summary(groupby_f_data(model7, 'agent_outcome', 60), 'agent_outcome')
 # plot_summary_fine = plot_summary_fine[plot_summary_fine['bin'] <= '50']
+
 
 
 # In[10]:

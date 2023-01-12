@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Model Overview &#8212; Modeling Adaptive Reasoning in 🪨 📜 ✂️</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,42 +20,38 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >let toggleHintShow = 'Click to show';</script>
-    <script >let toggleHintHide = 'Click to hide';</script>
-    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Model Results" href="ModelModel_results.html" />
@@ -65,7 +63,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -74,9 +86,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -94,14 +107,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="home.html">
-   Modeling Adaptive Reasoning in 🪨 📜 ✂️
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Modeling Adaptive Reasoning in 🪨 📜 ✂️
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Summary
  </span>
@@ -123,7 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Model-Based Agent
  </span>
@@ -145,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Model-Free RL Agent
  </span>
@@ -167,24 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  Model Comparison
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ModelComparison.html">
-   Model Comparison Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ModelComparison_results.html">
-   Model Comparison Results
-  </a>
- </li>
-</ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Discussion
  </span>
@@ -196,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   APPENDIX - code
  </span>
@@ -277,87 +274,148 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ModelModel.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ModelModel.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Model Overview
@@ -382,12 +440,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Model Overview</h1>
@@ -428,61 +485,62 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="model-overview">
-<h1>Model Overview<a class="headerlink" href="#model-overview" title="Permalink to this headline">¶</a></h1>
-<p><em><strong>At a high-level, the model-based agent simulates what would happen if (human) players were trying to predict their (bot) opponent’s next move on the basis of particular patterns in their previous moves.</strong></em></p>
-<p>In this way, the model-based agent represents a kind of <em>idealized</em> model of human behavior that serves as a basis for evaluating what people are <em>actually</em> doing.</p>
-<p>In order to simulate human play against the different bot opponents, the model-based agent has two high-level functions (we spell these out in more detail below):</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="model-overview">
+<h1>Model Overview<a class="headerlink" href="#model-overview" title="Permalink to this headline">#</a></h1>
+<p><em><strong>At a high-level, the Model-based Agent simulates what would happen if human players were trying to predict their bot opponent’s next move on the basis of particular patterns in their previous moves.</strong></em></p>
+<p>In this way, the Model-based Agent represents a kind of <em>idealized</em> model of human behavior that serves as a basis for evaluating what people are <em>actually</em> doing.</p>
+<p>In order to simulate human play against the different bot opponents, the Model-based Agent has two high-level functions (we spell these out in more detail below):</p>
 <ol class="simple">
-<li><p><strong>Track behavior patterns</strong>: First, the agent maintains a count of <em>events</em> that it uses to try and predict the opponent’s next move. To illustrate, the simplest version of this is an ongoing count of how many times the opponent played <em>Rock</em>, <em>Paper</em>, and <em>Scissors</em> in previous rounds. In each round, these counts allow for a (very rough) prediction that an opponent will choose whichever move was most likely across the previous rounds.</p></li>
-<li><p><strong>Choose an optimal move</strong>: The behavior tracking above allows the agent to generate predictions in each round about the opponent’s most likely move based on patterns observed in the previous rounds. The model-based agent must then use these predictions to make its own move choice. It samples a move each round probabilistically based on how well each possible move will perform against the move it thinks its opponent will make.</p></li>
+<li><p><strong>Track behavior patterns</strong>: First, the agent maintains a count of <em>events</em> that it uses to try and predict the opponent’s next move. To illustrate, the simplest version of this is an ongoing count of how many times the opponent played <code class="docutils literal notranslate"><span class="pre">Rock</span></code>, <code class="docutils literal notranslate"><span class="pre">Paper</span></code>, and <code class="docutils literal notranslate"><span class="pre">Scissors</span></code> in previous rounds. In each round, these counts allow for a (very rough) prediction that an opponent will choose whichever move was most likely across the previous rounds.</p></li>
+<li><p><strong>Choose an optimal move</strong>: The behavior tracking above allows the agent to generate predictions in each round about the opponent’s most likely move based on patterns observed in the previous rounds. The Model-based Agent must then use these predictions to make its own move choice. It samples a move each round probabilistically based on how well each possible move will perform against the move it thinks its opponent will make.</p></li>
 </ol>
-<p><em><strong>How well does an agent-based model using the steps above capture human patterns of learning against the different bot opponents?</strong></em></p>
-<p>To answer this question, we implement different versions of the model and compare them to the human behavior in our experiment data. Each version of the model has the same <em>decision function</em> from step 2 above but differs in the underlying information that it tracks about its opponent (step 1). In this way, we simulate different levels of <em>opponent tracking</em> that people might be engaging in when playing against algorithmic opponents.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="model-details">
-<h1>Model Details<a class="headerlink" href="#model-details" title="Permalink to this headline">¶</a></h1>
-<p>Below, we describe in more detail the two central aspects of the model-based agent’s behavior outlined above.</p>
+<p><em><strong>How well does the Model-based Agent described above capture human patterns of learning against the different bot opponents?</strong></em></p>
+<p>To answer this question, we implement different versions of the model and compare them to the human behavior in our experiment data. Each version of the model has the same <em>decision function</em> from step 2 above but differs in the underlying information that it tracks about its opponent (step 1). In this way, we simulate different levels of <em>opponent modeling</em> that people might be engaging in when playing against algorithmic opponents.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="model-details">
+<h1>Model Details<a class="headerlink" href="#model-details" title="Permalink to this headline">#</a></h1>
+<p>Below, we describe in more detail the two central aspects of the Model-based Agent’s behavior.</p>
 <p><em>The content in this section is meant to provide enough detail for readers to inspect the underlying code or think carefully about the <a class="reference internal" href="ModelModel_results.html"><span class="doc std std-doc">Model Results</span></a> on the next page.</em></p>
-<div class="section" id="tracking-opponent-behavior">
-<h2>Tracking opponent behavior<a class="headerlink" href="#tracking-opponent-behavior" title="Permalink to this headline">¶</a></h2>
-<p>For an apples-to-apples comparison of model behavior to our experimental results, we run a version of the model alongside each human participant. Thus, model results are based on 300 simulated move choices in each of the games that human participants played; the agent’s decisions in these games is based on the bot opponent’s prior moves in each game, to ensure that the agent essentially <em>shared the same experience</em> as our human players.</p>
-<p>The basis for the model-based agent’s move choices is an ongoing count of patterns in the opponent’s previous moves. To compute this, we add columns to our existing data frame that maintain the relevant event counts from earlier rounds in each row. For example, the simplest version of the agent adds columns for <code class="docutils literal notranslate"><span class="pre">opponent_rock_count</span></code>, <code class="docutils literal notranslate"><span class="pre">opponent_paper_count</span></code>, and <code class="docutils literal notranslate"><span class="pre">opponent_scissors_count</span></code>. Next, we iterate through each round of human play and update the values in each column based on the cumulative number of times that human’s opponent played <em>Rock</em>, <em>Paper</em>, and <em>Scissors</em>. The values across these columns in a given row of our dataframe represent an idealized (but very simple) model of opponent behavior that can be used to make (rough) predictions about the opponent’s next move.</p>
-<p>While the opponent’s cumulative count of each move constitutes an overly simplistic basis for prediction against the bot opponents, the patterns that the model-based agent tracks can be arbitrarily complex. In our <a class="reference internal" href="ModelModel_results.html"><span class="doc std std-doc">Model Results</span></a> on the next page, we evaluate a number of additional models that track different patterns in the bot opponent moves using the same process described above. These patterns fall into several distinct categories, described below in increasing complexity:</p>
+<p>For an apples-to-apples comparison of model behavior to our experimental results, each variant of the model simulates all of our human participants in the original experiment. Thus, model results are based on 300 agent-supplied move choices in each of the games that human participants played; the agent’s decisions in these games are based on the bot opponent’s prior moves in each game, to ensure that the agent <em>shares the same experience</em> as our human players.</p>
+<section id="tracking-opponent-behavior">
+<h2>Tracking opponent behavior<a class="headerlink" href="#tracking-opponent-behavior" title="Permalink to this headline">#</a></h2>
+<p>The basis for the Model-based Agent’s move choices is an ongoing count of patterns in the opponent’s previous moves. To compute this, we add columns to our existing data frame that maintain the relevant event counts from earlier bot decisions. For example, the simplest version of the agent adds columns for <code class="docutils literal notranslate"><span class="pre">opponent_rock_count</span></code>, <code class="docutils literal notranslate"><span class="pre">opponent_paper_count</span></code>, and <code class="docutils literal notranslate"><span class="pre">opponent_scissors_count</span></code> to track the bot opponent’s move counts. We populate them by iterating through each round of human play and updating the values in each column based on the cumulative number of times that human’s opponent displayed the given pattern, for example playing <code class="docutils literal notranslate"><span class="pre">Rock</span></code>, <code class="docutils literal notranslate"><span class="pre">Paper</span></code>, and <code class="docutils literal notranslate"><span class="pre">Scissors</span></code>. The values across these columns in a given row of our dataframe represent an idealized (and very simple) model of opponent behavior that can be used to make predictions about the opponent’s next move.</p>
+<p>While the opponent’s cumulative count of each move constitutes an overly simplistic basis for prediction against the bot opponents, the patterns that the Model-based Agent tracks can be arbitrarily complex. In our <a class="reference internal" href="ModelModel_results.html"><span class="doc std std-doc">Model Results</span></a> on the next page, we evaluate a number of additional models that track different patterns in the bot opponent moves using the same process described above. These patterns fall into several distinct categories, described below in increasing complexity:</p>
 <ul class="simple">
-<li><p><strong>Self-transitions</strong>: The model-based agent tracks the opponent’s <em>self-transition</em> counts by adding columns which tally the cumulative number of <em>up</em> (<span class="math notranslate nohighlight">\(+\)</span>), <em>down</em> (<span class="math notranslate nohighlight">\(-\)</span>), and <em>stay</em> (<span class="math notranslate nohighlight">\(0\)</span>) self-transitions that the opponent has made from one round to the next (for a reminder of how <em>transitions</em> are formalized in rock, paper, scissors, see the previous <a class="reference internal" href="Data.html"><span class="doc std std-doc">Data</span></a> page). This count is obviously well-aligned to the self-transition bot opponents; but <em>how</em> quickly it learns to predict their moves, how well it performs against the <em>other</em> bots, and whether this closely captures <em>human</em> learning against the bot opponents are all open questions (see <a class="reference internal" href="ModelModel_results.html"><span class="doc std std-doc">Model Results</span></a>).</p></li>
-<li><p><strong>Opponent-transitions</strong>: We also implement a version of the model-based agent that tracks the opponent’s <em>opponent-transition</em> counts. This requires a cumulative tally in each round of the opponent’s <em>up</em> (<span class="math notranslate nohighlight">\(+\)</span>), <em>down</em> (<span class="math notranslate nohighlight">\(-\)</span>), and <em>stay</em> (<span class="math notranslate nohighlight">\(0\)</span>) opponent-transitions. This state information is optimal against the opponent-transition bots; as with the above, this allows us to explore how well such tracking performs in simulated rounds against all the bot opponents and whether this aligns with human learning.</p></li>
-<li><p><strong>Outcome-based transitions</strong>: In addition to simple <em>self-</em> and <em>opponent-</em> transitions, the model-based agent tracks transitions <em>contingent on prior round outcomes</em>. Rather than merely tallying the count of <em>up</em> (<span class="math notranslate nohighlight">\(+\)</span>), <em>down</em> (<span class="math notranslate nohighlight">\(-\)</span>), and <em>stay</em> (<span class="math notranslate nohighlight">\(0\)</span>) transitions, these counts are updated <em>for each possible previous outcome</em> (<em>win</em>, <em>tie</em>, and <em>loss</em>). Maintaining and updating these counts therefore requires nine additional columns in the data instead of three as with the above. Using this tally for model-based agent decision making ought to perform optimally against the outcome-dependent transition bots (i.e., those using <em>win-stay, lose-shift</em> strategies), <em>as well as</em> those using simple self-transition and opponent-transition strategies (these are essentially a subset of the outcome-transition strategies).</p></li>
-<li><p><strong>Transitions based on the previous outcome and previous transition</strong>: Finally, the most complex version of the model-based agent tracks the ongoing count of the opponent’s self-transitions contingent on each combination of a) the previous round outcome (as above) <em>and</em> b) the opponent’s <em>previous</em> transition. This represents a further increase in complexity from the above version which only tracks potential patterns in the transitions that follow each outcome. As such, this level of opponent behavior tracking requires 27 columns to maintain state from one round to the next. While it is unlikely that people playing bot opponents would explicitly track patterns at this level of complexity, this allows us to model ideal learning conditions for the most complex bot opponent and determine how such an agent performs against simpler opponents such as the outcome-based transition bots.</p></li>
+<li><p><strong>Self-transitions</strong>: The Model-based Agent tracks the opponent’s <em>self-transition</em> counts by adding columns which tally the cumulative number of <em>up</em> (<span class="math notranslate nohighlight">\(+\)</span>), <em>down</em> (<span class="math notranslate nohighlight">\(-\)</span>), and <em>stay</em> (<span class="math notranslate nohighlight">\(0\)</span>) self-transitions that the opponent has made from one round to the next (for a reminder of how <em>transitions</em> are formalized in RPS, see the previous <a class="reference internal" href="Data.html"><span class="doc std std-doc">Data</span></a> page). This count is obviously well-aligned to the self-transition bot opponents; but <em>how</em> quickly it learns to predict their moves, how well it performs against the <em>other</em> bots, and whether this closely captures <em>human</em> learning against the bot opponents are all open questions (see <a class="reference internal" href="ModelModel_results.html"><span class="doc std std-doc">Model Results</span></a>).</p></li>
+<li><p><strong>Opponent-transitions</strong>: We also implement a version of the Model-based Agent that tracks each bot’s <em>opponent-transition</em> counts. This requires a cumulative tally in each round of the opponent’s <em>up</em> (<span class="math notranslate nohighlight">\(+\)</span>), <em>down</em> (<span class="math notranslate nohighlight">\(-\)</span>), and <em>stay</em> (<span class="math notranslate nohighlight">\(0\)</span>) opponent-transitions. This state information is optimal against the opponent-transition bots; as with the above, this allows us to explore how well such tracking performs in simulated rounds against <em>all</em> the bot opponents and whether this aligns with human learning.</p></li>
+<li><p><strong>Outcome-based transitions</strong>: In addition to simple <em>self-</em> and <em>opponent-</em> transitions, the Model-based Agent tracks transitions <em>contingent on prior round outcomes</em>. Rather than merely tallying the count of <em>up</em> (<span class="math notranslate nohighlight">\(+\)</span>), <em>down</em> (<span class="math notranslate nohighlight">\(-\)</span>), and <em>stay</em> (<span class="math notranslate nohighlight">\(0\)</span>) transitions, these counts are updated <em>for each possible previous outcome</em> (<em>win</em>, <em>tie</em>, and <em>loss</em>). Maintaining and updating these counts therefore requires nine additional columns in the data (counts of <em>win-up-transition</em>, <em>win-down-transition</em>, <em>win-stay-transition</em>, etc.). Using this tally for Model-based Agent decision making ought to perform optimally against the outcome-dependent transition bots (i.e., those using <em>win-stay, lose-shift</em> strategies), <em>as well as</em> those using simple self-transition and opponent-transition strategies (these are essentially a subset of the outcome-transition strategies).</p></li>
+<li><p><strong>Transitions based on the previous outcome and previous transition</strong>: Finally, the most complex version of the Model-based Agent tracks the ongoing count of the opponent’s self-transitions contingent on each combination of a) the previous round outcome (as above) <em>and</em> b) the opponent’s <em>previous</em> transition. This represents a further increase in complexity from the above version which only tracks potential patterns in the transitions that follow each outcome. As such, this level of opponent behavior tracking requires 27 columns to maintain state from one round to the next. While it is unlikely that people playing bot opponents would explicitly track patterns at this level of complexity, this allows us to model ideal learning conditions for the most complex bot opponent and determine how such an agent performs against simpler opponents such as the outcome-based transition bots.</p></li>
 </ul>
-<p><strong>In summary, the model-based agent’s <em>opponent tracking</em> process involves updating cumulative counts of prior events (such as the opponent’s moves or transitions) that might allow it to better predict its opponent’s next move in a given round.</strong> We implement several different <em>classes</em> of opponent tracking which correspond to distinct and increasingly complex sequential patterns in opponent behavior that the agent uses to select a move.</p>
-<p><em>In the next section, we walk through how the model-based agent uses this information about its opponent’s prior actions to choose its own move in simulated rounds against the bot opponents.</em></p>
-</div>
-<div class="section" id="choosing-a-move">
-<h2>Choosing a move<a class="headerlink" href="#choosing-a-move" title="Permalink to this headline">¶</a></h2>
-<p>Each instantiation of the model-based agent tracks a particular <em>sequential dependency</em> or pattern in its opponent moves that it uses as the basis for predicting its opponent’s next move in a given round. <em>But how does the agent choose its own move on the basis of this information?</em></p>
-<p><strong>The model-based agent has a <em>decision policy</em> of probabilistically choosing the move that will perform best against the move it expects from its opponent each round.</strong> What does this mean?</p>
-<p>There are two primary steps the model-based agent undertakes to select a move: and <em>expected value calculation</em> and a <em>softmax move sampling</em> process.</p>
-<p><strong>Expected value calculation</strong>: First, the agent calculates the <em>expected value</em> of each possible move it could take (<em>Rock</em>, <em>Paper</em>, or <em>Scissors</em>) in the next round. The expected value of a move is the sum of all possible possible <em>outcomes</em> from playing that move weighted by the probability of those outcomes. For example, the expected value of the agent move choice <span class="math notranslate nohighlight">\(M_a\)</span> of <em>Rock</em> (<span class="math notranslate nohighlight">\(M_a = R\)</span>) can be written as:</p>
+<p><strong>In summary, the Model-based Agent’s <em>opponent tracking</em> process involves updating cumulative counts of prior events (such as the opponent’s moves or transitions) that might allow it to better predict its opponent’s next move in a given round.</strong> We implement several different <em>classes</em> of opponent tracking which correspond to distinct and increasingly complex sequential patterns in opponent behavior that the agent uses to select a move.</p>
+<p><em>In the next section, we walk through how the Model-based Agent uses this information about its opponent’s prior actions to choose its own move in simulated rounds against the bot opponents.</em></p>
+</section>
+<section id="choosing-a-move">
+<h2>Choosing a move<a class="headerlink" href="#choosing-a-move" title="Permalink to this headline">#</a></h2>
+<p>Each instantiation of the Model-based Agent tracks a particular <em>sequential dependency</em> or pattern in its opponent moves that it uses as the basis for predicting its opponent’s next move in a given round. <em>But how does the agent choose its own move on the basis of this information?</em></p>
+<p><strong>The Model-based Agent has a <em>decision policy</em> of probabilistically choosing the move that will perform best against the move it expects from its opponent each round.</strong> What does this mean?</p>
+<p>There are two primary steps the Model-based Agent undertakes to select a move: an <em>expected value calculation</em> and a <em>softmax move sampling</em> process.</p>
+<p><strong>Expected value calculation</strong>: First, the agent calculates the <em>expected value</em> of each possible move it could select (<code class="docutils literal notranslate"><span class="pre">Rock</span></code>, <code class="docutils literal notranslate"><span class="pre">Paper</span></code>, or <code class="docutils literal notranslate"><span class="pre">Scissors</span></code>) in the next round. The expected value of a move is the sum of all possible <em>outcomes</em> from playing that move weighted by the probability of those outcomes. For example, the expected value of the agent move choice <span class="math notranslate nohighlight">\(M_a\)</span> of <code class="docutils literal notranslate"><span class="pre">Rock</span></code> (<span class="math notranslate nohighlight">\(M_a = R\)</span>) can be written as:</p>
 <div class="math notranslate nohighlight">
 \[
   E[M_a = R] = \sum_{M_o \in \{R, P, S\}} U(M_a, M_o)P(M_o)
 \]</div>
-<p>In the above formulation, <span class="math notranslate nohighlight">\(M_o\)</span> is the <em>opponent’s potential move choice</em> (<span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, or <span class="math notranslate nohighlight">\(S\)</span>). <span class="math notranslate nohighlight">\(U\)</span> is the <em>reward that the agent receives</em> for the combination of its own move choice <span class="math notranslate nohighlight">\(M_a\)</span> and its opponent’s move choice <span class="math notranslate nohighlight">\(M_o\)</span>. In the example above, this would be the points the agent receives for each possible opponent move choice <span class="math notranslate nohighlight">\(M_o \in \{R, P, S\}\)</span> when the agent plays <span class="math notranslate nohighlight">\(M_a = R\)</span>: 3 points for a win (if <span class="math notranslate nohighlight">\(M_o=S\)</span>), 0 points for a tie (<span class="math notranslate nohighlight">\(M_o=R\)</span>), -1 points for a loss. Finally, <span class="math notranslate nohighlight">\(P(M_o)\)</span> is the probabily assigned to a particular opponent move choice <span class="math notranslate nohighlight">\(M_o\)</span>. The probability of each possible opponent move choice is precisely what the agent estimates in the previous section through its opponent tracking!</p>
-<p><strong>Sample a move using <em>softmax</em></strong>: The model-based agent estimates an expected value (<em>EV</em>) for each possible move it could play using the process outlined above, based on the probabilities it assigns to its opponent’s moves. The agent’s task is to choose the move that has the highest expected value. However, rather than merely choosing the move with the highest expected value each round, the agent chooses its move probabilistically <em>in proportion to the expected value of each possible move</em>. In other words, if one possible move has a <em>much higher</em> expected value than the others, then the agent should strongly favor this move; for example, if the agent believes the opponent is <em>all but guaranteed to play Scissors</em>, then <em>Rock</em> will have a dramatically larger EV and the agent should correspondingly favor <em>Rock</em> strongly. If, however, all of the candidate moves are equally good (as would be the case if the agent believes its opponent is <em>equally likely</em> to play <em>Rock</em>, <em>Paper</em>, or <em>Scissors</em>), then it should assign them all roughly equal probabilities when choosing its own move. In order for the model-based agent to choose its moves <em>in proportion to their relative EVs</em>, we map the expected value of each possible move calculated above to a probability of its being chosen using the <em>softmax</em> function:</p>
+<p>In the above formulation, <span class="math notranslate nohighlight">\(M_o\)</span> is the <em>opponent’s potential move choice</em> (<span class="math notranslate nohighlight">\(R\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, or <span class="math notranslate nohighlight">\(S\)</span>). <span class="math notranslate nohighlight">\(U\)</span> is the <em>reward that the agent receives</em> for the combination of its own move choice <span class="math notranslate nohighlight">\(M_a\)</span> and its opponent’s move choice <span class="math notranslate nohighlight">\(M_o\)</span>. In the example above, this would be the points the agent receives for each possible opponent move choice <span class="math notranslate nohighlight">\(M_o \in \{R, P, S\}\)</span> when the agent plays <span class="math notranslate nohighlight">\(M_a = R\)</span>: 3 points for a win (if <span class="math notranslate nohighlight">\(M_o=S\)</span>), 0 points for a tie (<span class="math notranslate nohighlight">\(M_o=R\)</span>), -1 points for a loss (<span class="math notranslate nohighlight">\(M_o=P\)</span>). Finally, <span class="math notranslate nohighlight">\(P(M_o)\)</span> is the probabily assigned to a particular opponent move choice <span class="math notranslate nohighlight">\(M_o\)</span>. The probability of each possible opponent move choice is precisely what the agent estimates in the previous section through its opponent tracking!</p>
+<p><strong>Sample a move based on its <em>softmax probability</em></strong>: The Model-based Agent estimates an expected value (<em>EV</em>) for each possible move it could play using the process outlined above, based on the probabilities it assigns to its opponent’s moves. However, rather than merely choosing the move with the highest EV each round, the agent chooses its move probabilistically <em>in proportion to the expected value of each possible move</em>. In other words, if one possible move has a <em>much higher</em> expected value than the others, then the agent should strongly favor this move; for example, if the agent believes the opponent is <em>all but guaranteed to play <code class="docutils literal notranslate"><span class="pre">Scissors</span></code></em>, then <code class="docutils literal notranslate"><span class="pre">Rock</span></code> will have a dramatically larger EV and the agent should correspondingly favor <code class="docutils literal notranslate"><span class="pre">Rock</span></code> strongly. If, however, all of the candidate moves are equally good (as would be the case if the agent believes its opponent is <em>equally likely</em> to play <code class="docutils literal notranslate"><span class="pre">Rock</span></code>, <code class="docutils literal notranslate"><span class="pre">Paper</span></code>, or <code class="docutils literal notranslate"><span class="pre">Scissors</span></code>), then it should assign them all roughly equal probabilities when choosing its own move. In order for the Model-based Agent to choose its moves <em>in proportion to their relative EVs</em>, we map the expected value of each possible move calculated above to a probability of its being chosen using the <em>softmax</em> function:</p>
 <div class="math notranslate nohighlight">
 \[
-  P(M_a) = \dfrac{e^{\beta E[M_a]}}{\sum_{M_a' \in \{R, P, S\}} e^{\beta E[M_a']}}
+  P(M_a) = \dfrac{e^{\beta E[M_a]}}{\sum_{M_{a'} \in \{R, P, S\}} e^{\beta E[M_{a'}]}}
 \]</div>
-<p>In the above, the probability of the agent choosing a move <span class="math notranslate nohighlight">\(P(M_a)\)</span> is <span class="math notranslate nohighlight">\(e\)</span> raised to the expected value of that move <span class="math notranslate nohighlight">\(E[M_a]\)</span> as described above, divided by the sum of <span class="math notranslate nohighlight">\(e\)</span> raised to the expected value of <em>all possible moves</em> <span class="math notranslate nohighlight">\(M_a'\)</span>. The <span class="math notranslate nohighlight">\(\beta\)</span> term in the numerator and denominator is a common parameter used to scale <em>how much the agent should favor the highest expected value move</em>. In this version of the model, we simply set this to 1. However, our <a class="reference internal" href="ModelComparison.html"><span class="doc std std-doc">Model Comparison</span></a> estimates a <em>fitted <span class="math notranslate nohighlight">\(\beta\)</span> parameter</em> for each participant as a way of estimating how well the model-based agent describes human move decisions.</p>
-<p>Once the model-based agent has transformed the expected value of each possible move into a probability distribution over those moves using the softmax function, it samples a move for that round according to its softmax probability. Thus, moves with a higher expected value in a given round are more likely to be chosen. More generally, if the agent is successfully able to predict its opponent’s next move using the sequential pattern it tracks in its opponent’s moves, then it will have a high probability of choosing the move that <em>beats</em> the predicted move.</p>
-<p><em><strong>But how well does the model-based agent, choosing its moves in simulated rounds through the process described above, perform against the bot opponents from our experiments?</strong></em></p>
+<p>In the above, the probability of the agent choosing a move <span class="math notranslate nohighlight">\(P(M_a)\)</span> is a function of the expected value of that move <span class="math notranslate nohighlight">\(E[M_a]\)</span>, scaled by the expected value of <em>all possible moves</em> <span class="math notranslate nohighlight">\(M_{a'}\)</span>. The <span class="math notranslate nohighlight">\(\beta\)</span> term in the numerator and denominator is a common parameter used to scale <em>how much the agent should favor the highest expected value move</em>. In this version of the model, we simply set this to 1. However, in another line of work we estimate a <em>fitted <span class="math notranslate nohighlight">\(\beta\)</span> parameter</em> for each participant as a way of estimating how well the Model-based Agent describes human move decisions.</p>
+<p>Once the Model-based Agent has transformed the expected value of each possible move into a probability distribution over those moves using the softmax function, it samples a move for that round according to its softmax probability. Thus, moves with a higher expected value in a given round are more likely to be chosen. More generally, if the agent is successfully able to predict its opponent’s <em>next</em> move using the sequential pattern it tracks in its opponent’s previous moves, then it will have a high probability of choosing the move that <em>beats</em> the predicted move.</p>
+<p><em><strong>But how well does the Model-based Agent, choosing its moves in simulated rounds through the process described above, perform against the bot opponents from our experiments?</strong></em></p>
 <p>In the next page (<a class="reference internal" href="ModelModel_results.html"><span class="doc std std-doc">Model Results</span></a>), we test this model’s ability to adapt to each of the bot opponents in our experiment based on different levels of opponent behavior tracking.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -506,9 +564,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Data.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -524,24 +584,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Betty Gong, MJ Mei, Annalea O'Halloran, Alison Yu, Erik Brockbank<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Betty Gong, MJ Mei, Annalea O'Halloran, Alison Yu, Erik Brockbank<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

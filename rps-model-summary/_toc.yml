@@ -19,10 +19,10 @@ parts:
       - file: RLModel.md
       - file: RLModel_results.md
       - file: RLModel_code.ipynb
-  - caption: Model Comparison
-    chapters:
-      - file: ModelComparison.md
-      - file: ModelComparison_results.md
+  # - caption: Model Comparison
+  #   chapters:
+  #     - file: ModelComparison.md
+  #     - file: ModelComparison_results.md
   - caption: Discussion
     chapters:
       - file: Discussion.md
