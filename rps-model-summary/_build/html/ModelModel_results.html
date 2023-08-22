@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Reference: Model Code" href="ModelModel_code.html" />
@@ -176,23 +178,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="RLModel_code.html">
    Reference: RL Model Code
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Model Comparison
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ModelComparison.html">
-   Model Comparison Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ModelComparison_results.html">
-   Model Comparison Results
   </a>
  </li>
 </ul>
@@ -432,38 +417,69 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#human-performance-benchmark">
-   Human performance: benchmark
+  <a class="reference internal nav-link" href="#overview">
+   Overview
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#null-model-move-base-rates">
-   Null model: move base rates
+  <a class="reference internal nav-link" href="#model-benchmark-human-performance">
+   Model Benchmark: Human Performance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transition-model-bot-transitions-only">
-   Transition model: bot transitions only
+  <a class="reference internal nav-link" href="#null-model-tracking-opponent-move-baserates">
+   <em>
+    Null Model
+   </em>
+   : Tracking Opponent Move Baserates
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transition-model-bot-cournot-transitions-only">
-   Transition model: bot Cournot transitions only
+  <a class="reference internal nav-link" href="#transition-model-tracking-opponent-self-transitions">
+   <em>
+    Transition Model
+   </em>
+   : Tracking Opponent Self-Transitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transition-model-bot-transitions-cournot-transitions">
-   Transition model: bot transitions + Cournot transitions
+  <a class="reference internal nav-link" href="#transition-model-tracking-opponent-opponent-transitions">
+   <em>
+    Transition Model
+   </em>
+   : Tracking Opponent Opponent-Transitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outcome-transition-model-outcome-transitions-only">
-   Outcome-transition model: outcome-transitions only
+  <a class="reference internal nav-link" href="#combined-transition-model-tracking-opponent-self-and-opponent-transitions">
+   <em>
+    Combined Transition Model
+   </em>
+   : Tracking Opponent Self-
+   <em>
+    and
+   </em>
+   Opponent-Transitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dual-transition-outcome-model-complex-strategy-only">
-   Dual-transition outcome model: complex strategy only
+  <a class="reference internal nav-link" href="#outcome-transition-model-tracking-opponent-transitions-across-outcomes">
+   <em>
+    Outcome-Transition Model
+   </em>
+   : Tracking Opponent Transitions Across Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dual-outcome-transition-model-tracking-opponent-transitions-across-outcomes-and-prior-transitions">
+   <em>
+    Dual-Outcome-Transition Model
+   </em>
+   : Tracking Opponent Transitions Across Outcomes
+   <em>
+    and
+   </em>
+   Prior Transitions
   </a>
  </li>
 </ul>
@@ -486,38 +502,69 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#human-performance-benchmark">
-   Human performance: benchmark
+  <a class="reference internal nav-link" href="#overview">
+   Overview
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#null-model-move-base-rates">
-   Null model: move base rates
+  <a class="reference internal nav-link" href="#model-benchmark-human-performance">
+   Model Benchmark: Human Performance
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transition-model-bot-transitions-only">
-   Transition model: bot transitions only
+  <a class="reference internal nav-link" href="#null-model-tracking-opponent-move-baserates">
+   <em>
+    Null Model
+   </em>
+   : Tracking Opponent Move Baserates
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transition-model-bot-cournot-transitions-only">
-   Transition model: bot Cournot transitions only
+  <a class="reference internal nav-link" href="#transition-model-tracking-opponent-self-transitions">
+   <em>
+    Transition Model
+   </em>
+   : Tracking Opponent Self-Transitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#transition-model-bot-transitions-cournot-transitions">
-   Transition model: bot transitions + Cournot transitions
+  <a class="reference internal nav-link" href="#transition-model-tracking-opponent-opponent-transitions">
+   <em>
+    Transition Model
+   </em>
+   : Tracking Opponent Opponent-Transitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outcome-transition-model-outcome-transitions-only">
-   Outcome-transition model: outcome-transitions only
+  <a class="reference internal nav-link" href="#combined-transition-model-tracking-opponent-self-and-opponent-transitions">
+   <em>
+    Combined Transition Model
+   </em>
+   : Tracking Opponent Self-
+   <em>
+    and
+   </em>
+   Opponent-Transitions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dual-transition-outcome-model-complex-strategy-only">
-   Dual-transition outcome model: complex strategy only
+  <a class="reference internal nav-link" href="#outcome-transition-model-tracking-opponent-transitions-across-outcomes">
+   <em>
+    Outcome-Transition Model
+   </em>
+   : Tracking Opponent Transitions Across Outcomes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dual-outcome-transition-model-tracking-opponent-transitions-across-outcomes-and-prior-transitions">
+   <em>
+    Dual-Outcome-Transition Model
+   </em>
+   : Tracking Opponent Transitions Across Outcomes
+   <em>
+    and
+   </em>
+   Prior Transitions
   </a>
  </li>
 </ul>
@@ -532,39 +579,66 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="model-results">
 <h1>Model Results<a class="headerlink" href="#model-results" title="Permalink to this headline">#</a></h1>
-<section id="human-performance-benchmark">
-<h2>Human performance: benchmark<a class="headerlink" href="#human-performance-benchmark" title="Permalink to this headline">#</a></h2>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<p>As described in the previous <a class="reference internal" href="ModelModel.html"><span class="doc std std-doc">Model Overview</span></a> page, we evaluate the success of this model by comparing its decisions to human behavior in our experimental data. Concretely, we implement <em>six versions</em> of the Model-Based Agent: each version differs in the specific set of behavior patterns it uses to try and predict its bot opponent’s moves. In this way, the results shown here allow us to ask: <strong>what kind of predictive opponent modeling strategy best accounts for people’s performance against the bot opponents?</strong></p>
+<p>For an accurate comparison to human behavior, each version of the model simulates all of the games played by participants in our earlier experiment. Therefore, the model results below represent a simulation in which every participant in our initial experiment was replaced by the Model-Based Agent being tested. We are interested in assessing which version of the model most closely resembles the pattern of human outcomes against the full range of bot opponents.</p>
+<p>In the first section below, we show the human results against each bot; this is the pattern our model attempts to capture. Then, we show simulation results for six different versions of the model, each one increasing in complexity from the previous one.</p>
+<p><strong>At a high level, we find that capturing human behavior against the bots requires tracking multiple distinct patterns in the opponents’ moves over time.</strong> However, even the closest-matching version of our Model-Based Agent fails to account for several key features of human performance in our experimental data.</p>
+</section>
+<section id="model-benchmark-human-performance">
+<h2>Model Benchmark: Human Performance<a class="headerlink" href="#model-benchmark-human-performance" title="Permalink to this headline">#</a></h2>
+<p>In the figure below, we first show human performance against each of the bot opponents. On <span class="math notranslate nohighlight">\(y\)</span>, we plot average human win percentage against the bots in each block of 30 trials on <span class="math notranslate nohighlight">\(x\)</span>. Performance against each bot is shown in a different color, with bots that exhibit similar patterns in their own moves shown in similar colors (e.g., blue for self-transition bots, purple for opponent-transition bots, green for outcome-transition, and brown for the most complex dual-outcome-transition bot).</p>
+<p><strong>The overall pattern of people’s ability to exploit certain bot behaviors shown below is what we seek to capture with the different versions of our Model-Based Agent.</strong></p>
 <p><img alt="model_human_performance.png" src="_images/model_human_performance.png" /></p>
-<p><strong>The above visualization demonstrates how human participants performed against bots which possessed unique strategies. The red dotted baseline indicates that the wining rate would be 33% if the participant did not exploit the perceivable patterns. The wining rate converges to the chance line as pattern of each bot becomes more complicated.</strong></p>
+<p>In the figure above, the gray dashed line at 33% win rate represents chance performance. Several key patterns emerge, which we explore further in our modeling results below:</p>
+<ul class="simple">
+<li><p>Against the bot opponents that exhibit simple <em>transition</em> patterns in blue and purple (Previous move and opponent previous move dependencies), people show strong performance. People rapidly learn the bots’ behavioral patterns and win reliably against these opponents for most of the experiment.</p></li>
+<li><p>Against the bot opponents whose transitions each round vary based on the previous <em>outcome</em> shown in green (<em>win-stay-lose-positive</em> and <em>win-positive-lose-negative</em>), people exhibit some ability to win above chance levels. However, this is notably attenuated relative to the simple transition bots above—people learn to exploit these opponents only in the last 100 rounds or so and don’t perform nearly as well.</p></li>
+<li><p>Finally, against the most complex bot opponent in brown, whose moves are chosen each round based on the previous outcome <em>and</em> the bot’s <em>previous</em> transition, people never perform above chance. In short, the patterns exhibited by this bot appear to be too complex for people to detect or exploit over the 300 rounds.</p></li>
+</ul>
+<p>Therefore, we can synthesize the above by saying that <strong>the patterns exhibited by the bot opponents represent a range of behaviors which people can either recognize and exploit maximally, partially, or not at all.</strong></p>
+<p><em>How well can different versions of the Model-Based Agent capture these empirical patterns?</em></p>
 </section>
-<section id="null-model-move-base-rates">
-<h2>Null model: move base rates<a class="headerlink" href="#null-model-move-base-rates" title="Permalink to this headline">#</a></h2>
+<section id="null-model-tracking-opponent-move-baserates">
+<h2><em>Null Model</em>: Tracking Opponent Move Baserates<a class="headerlink" href="#null-model-tracking-opponent-move-baserates" title="Permalink to this headline">#</a></h2>
+<p>The first version of the Model-Based Agent we test is the simplest version described in the <a class="reference internal" href="ModelModel.html"><span class="doc std std-doc">Model Overview</span></a>; this version merely tracks the proportion of each move chosen by its opponent. The prediction that forms the basis of the Model-Based Agent’s own move choice is, in this case, that its opponent will choose whatever move it had chosen most in previous rounds. This represents a <em>null model</em> because none of the bot opponents in our experimental data could be exploited merely on the basis of their move baserates. As such, we do not expect this simple version of the Model-Based Agent to perform well in simulated rounds against <em>any</em> of the bot opponents.</p>
 <p><img alt="model_null.png" src="_images/model_null.png" /></p>
-<p><strong>The above visualization showcases how the agent performs against the bots based on the simulation of softmax probabilities. Since it is an establishment of a base model, the agent outcomes converge around the chance line, which means that the agent has not taken the advantage of the sequential patterns in the bots yet.</strong></p>
+<p>Our results in the figure above are consistent with the null model prediction. This simple version of the Model-Based Agent performed at chance against all seven of the bot opponents. Thus, <strong>using an opponent’s move common previous move to predict their next move fails to capture human learning against the bot opponents in our experiment.</strong></p>
+<p><em>But what about a more complex predictive model of the opponent?</em></p>
 </section>
-<section id="transition-model-bot-transitions-only">
-<h2>Transition model: bot transitions only<a class="headerlink" href="#transition-model-bot-transitions-only" title="Permalink to this headline">#</a></h2>
+<section id="transition-model-tracking-opponent-self-transitions">
+<h2><em>Transition Model</em>: Tracking Opponent Self-Transitions<a class="headerlink" href="#transition-model-tracking-opponent-self-transitions" title="Permalink to this headline">#</a></h2>
+<p>The first version of the Model-Based Agent we test that aligns with the behavior of the bots in the experiment is one that tracks its opponent’s <em>self-transitions</em> across rounds. This version of the agent ought to perform very well in simulated rounds against the self-transition bot opponents in blue (those exhibiting <em>previous move</em> patterns). <em>But how quickly will the agent learn those opponent patterns compared to humans? And how well will it perform in simulated rounds against the other bot opponents?</em> The figure below allows us to explore these questions with greater quantitative precision.</p>
 <p><img alt="model_bot_transition_only.png" src="_images/model_bot_transition_only.png" /></p>
-<p><strong>The graph above illustrates the simulation of agent’s wining rate against bot transitions and grouped them into different bins. The agent does possess similar learning trends compare to those of humans. However, the learning rates against different bots are disparate between the agent and humans.</strong></p>
+<p>Results from the Model-Based Agent tracking opponent self-transitions exhibit several key differences from the human behavioral data above. First, as we anticipated, the agent shows clear evidence of learning to predict and exploit the <em>self-transition</em> bot opponents in blue, just as people did. However, the agent learns these patterns much more rapidly and effectively than people did, suggesting that people’s ability to track this pattern, evident in their performance against the self-transition bots, was not quite optimal. Next, this agent’s ability is relatively restricted to the self-transition bots. The agent performs above chance against the <em>opponent-transition</em> bots but not as well as people did (this above chance performance, intriguingly, suggests that the opponent-transition bots in purple displayed a certian level of predictability in self-transitions, despite choosing their moves based on opponent-transition patterns). By the end of the 300 rounds, this agent shows similar performance against the outcome-transition (green) and dual-outcome-transition (brown) bots; however, the learning curve against the outcome-transition bots is quite different. In summary, <strong>this agent captures people’s success against the self-transition bots but is far from human performance against the opponent-transition bots</strong>.</p>
+<p><em>Does the Model-Based Agent perform better when tracking the bots’ <em>opponent-transitions?</em></em></p>
 </section>
-<section id="transition-model-bot-cournot-transitions-only">
-<h2>Transition model: bot Cournot transitions only<a class="headerlink" href="#transition-model-bot-cournot-transitions-only" title="Permalink to this headline">#</a></h2>
+<section id="transition-model-tracking-opponent-opponent-transitions">
+<h2><em>Transition Model</em>: Tracking Opponent Opponent-Transitions<a class="headerlink" href="#transition-model-tracking-opponent-opponent-transitions" title="Permalink to this headline">#</a></h2>
+<p>We next test a second version of the Model-Based Agent that is symmetrical to the one above, except this one tracks exclusively <em>opponent-transition</em> patterns in its bot opponent’s moves. As above, we expect this version of the agent to perform strongly against the bots whose moves follow opponent-transition patterns (the <em>opponent previous move</em> bots, shown in purple in the figure below). Further, given the similarity of this agent to the previous one, we expect roughly similar results, with above-chance performance against the self-transition bots and close to chance behavior against the others. Below we plot the agent’s win rate in simulated rounds against each of the bot opponents, as above.</p>
 <p><img alt="model_botcournot_transition_only.png" src="_images/model_botcournot_transition_only.png" /></p>
-<p><strong>This visualization captures the transition model in which the agent only focused on the cournot transitions. The cournot transitions indicate that the agent makes decisions based on its opponent’s previous move instead of its own.The simulation did showcase that as the agent started exploiting the sequential patterns based on its opponent’s previous move, its win percentage against bots that adopted corresponding strategies also increased.</strong></p>
+<p>As expected, this version of the agent is symmetrical to the one above. It performs optimally against the bot opponents that exhibit precisely the opponent-transition patterns it is tracking. As above, it performs above chance but not nearly as well against the bots that exhibit self-transition patterns, and at chance against the rest.</p>
+<p>Critically, in the human data above, we saw that people performed similarly well against bots that exhibited self- <em>and</em> opponent-transition patterns. The version of the agent in this and the preceding section, which tracks only one or the other patterns, is not able to match human win percentages against both types of bot opponents. How does an agent that instead tracks both patterns perform?</p>
 </section>
-<section id="transition-model-bot-transitions-cournot-transitions">
-<h2>Transition model: bot transitions + Cournot transitions<a class="headerlink" href="#transition-model-bot-transitions-cournot-transitions" title="Permalink to this headline">#</a></h2>
+<section id="combined-transition-model-tracking-opponent-self-and-opponent-transitions">
+<h2><em>Combined Transition Model</em>: Tracking Opponent Self- <em>and</em> Opponent-Transitions<a class="headerlink" href="#combined-transition-model-tracking-opponent-self-and-opponent-transitions" title="Permalink to this headline">#</a></h2>
+<p>Below, we evaluate performance of a version of the model that tracks <em>both</em> self-transition and opponent-transition patterns in its opponent’s behavior. How does it integrate both of these pattern types into its decision process? Recall that the Model-Based Agent chooses its move by computing the expected value of each possible move, then sampling according to the softmax distribution over these expected values. The versions of the model above, which only consider a single type of pattern in their opponent’s moves, compute the expected value of a move based on the probability assigned to each possible <em>opponent</em> move by the pattern they are tracking. This version of the model instead calculates expected value for a given move multiple times under different assumptions about the pattern in the opponent’s moves. It then adds these values up before generating the softmax distribution. For example, the expected value of <code class="docutils literal notranslate"><span class="pre">Rock</span></code> used in the softmax distribution will be the expected value of choosing <code class="docutils literal notranslate"><span class="pre">Rock</span></code> if the opponent is a self-transition bot plus the expected value of <code class="docutils literal notranslate"><span class="pre">Rock</span></code> if the opponent is an opponent-transition bot. In this way, the agent is capable of responding to either type of pattern in its opponent’s moves.</p>
 <p><img alt="model_botandcournot_transitions.png" src="_images/model_botandcournot_transitions.png" /></p>
-<p><strong>The figure above entails the simulation in which the agent takes the advantage of the combination of bot transitions and cournot transitions. The generated win percentage illustrates that the agent was able to capture the sequential patterns of bots with repsective strategies. While the agent possesses an upward learning curve against some bots, its outcomes against the rest of the bots are around the chance line.</strong></p>
+<p>Results show that an agent that tracks multiple possible patterns in their opponent’s mvoes in this way is capable of performing optimally against both the self-transition and opponent-transition bots. In this way, this agent is the first to exhibit human-like success against the bots. As shown above, this agent succeeds far <em>better</em> against the self- and opponent-transition bots than people did. It also shows some success against the outcome-transition agents, despite not tracking these patterns explicitly. Given the moderate success of people against the outcome-transition bots, this agent might offer a reasonable account of how humans adapted to the bots; it represents a testable hypothesis about people’s success against the outcome-transition opponnets (namely, that they exploited asymmetric transition rates in these bots’ moves).</p>
+<p>How much better does the agent do when it instead <em>explicitly</em> considers its opponent’s transition patterns after each outcome?</p>
 </section>
-<section id="outcome-transition-model-outcome-transitions-only">
-<h2>Outcome-transition model: outcome-transitions only<a class="headerlink" href="#outcome-transition-model-outcome-transitions-only" title="Permalink to this headline">#</a></h2>
+<section id="outcome-transition-model-tracking-opponent-transitions-across-outcomes">
+<h2><em>Outcome-Transition Model</em>: Tracking Opponent Transitions Across Outcomes<a class="headerlink" href="#outcome-transition-model-tracking-opponent-transitions-across-outcomes" title="Permalink to this headline">#</a></h2>
+<p>Below, we consider an extension of the previous agent which considers not only the baserate of its opponent’s simple transitions, but also the probability of its transitions given each round’s previous outcome. In this way, it is equippped to track the full scope of the outcome-transition bots’ behavioral dependencies rather than any bias in transitions they happened to exhibit.</p>
 <p><img alt="model_outcome-transition_only.png" src="_images/model_outcome-transition_only.png" /></p>
-<p><strong>Model 5 simulates agent’s win percentage in a context where the agent focuses solely on the outcome transition dual dependency bot. This is one of the most sophisticated bots because it favors a particular transition each round on the basis of of both the previous outcome and the previous transition it made. After running the simulation based on the softmax probability, we could see that the agent failed to exploit sequential patterns against such a bot, as its win percentage coverges around the chance line.</strong></p>
+<p>The figure above shows that when tracking opponent patterns at this level, the Model-Based Agent performs opetimally against the outcome-transition oppponents. This far outstrips human performance against these bots, suggesting that people either did not track their opponent’s behavior at this level of pattern complexity, or that their ability to choose moves that exploit such a pattern was much noisier, something that could also be tested in future work.</p>
 </section>
-<section id="dual-transition-outcome-model-complex-strategy-only">
-<h2>Dual-transition outcome model: complex strategy only<a class="headerlink" href="#dual-transition-outcome-model-complex-strategy-only" title="Permalink to this headline">#</a></h2>
+<section id="dual-outcome-transition-model-tracking-opponent-transitions-across-outcomes-and-prior-transitions">
+<h2><em>Dual-Outcome-Transition Model</em>: Tracking Opponent Transitions Across Outcomes <em>and</em> Prior Transitions<a class="headerlink" href="#dual-outcome-transition-model-tracking-opponent-transitions-across-outcomes-and-prior-transitions" title="Permalink to this headline">#</a></h2>
+<p>Finally, below we plot results for an agent that considers <em>all</em> the patterns exhibited by the bots. This represents a kind of theoretical ceiling for performance; how well can a learner perform when they consider a range of behaviors that fully encapsulates all possible opponents?</p>
 <p><img alt="model_complex_strategy_only.png" src="_images/model_complex_strategy_only.png" /></p>
+<p>In the figure above, this agent has uniformly optimal performance against all of the bot opponents. Interestingly, against the more complex opponents (especially the dual outcome-prior-transition opponent here), more interactions are needed to fully learn the patterns in their behavior. Thus, it’s in principle possible to have bot opponents whose behavior, despite being highly predictable cannot be fully exploited for many rounds until the full set of contingencies in their moves have surfaced. Here, we see that for even the most complex opponnet, this does not pose a challenge to an optimal learner (though it surely does for humans!).</p>
 </section>
 </section>
 

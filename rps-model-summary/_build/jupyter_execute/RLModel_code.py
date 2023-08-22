@@ -3,6 +3,10 @@
 
 # # Reference: RL Model Code
 
+# This page is a reference for the code used to generate the figures in the previous results page.
+# 
+# This is included largely for reproducibility so that others can generate similar results; it also provides more fine-grained insight into the model implementation.
+
 # ## Initialization
 
 # In[1]:
@@ -152,7 +156,7 @@ for i in range(len(separated_oppo_past)):
     e=get_softmax_probabilities_mix(separated_agent_past[i], separated_oppo_past[i])
     e=pick_move_v2(e)
     e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
-    df_result_mix=pd.concat([df_result_mix,e],axis=0)
+    df_result_mix=pd.concat([df_result_mix, e], axis=0)
 
 
 # In[16]:
@@ -181,10 +185,10 @@ df_combine = pd.concat(separated)
 separated = separate_df(df_combine)
 df_result_combined = pd.DataFrame()
 for e in separated:
-    e=get_softmax_probabilities_combined(e)
-    e=pick_move_v2(e)
+    e = get_softmax_probabilities_combined(e)
+    e = pick_move_v2(e)
     e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
-    df_result_combined=pd.concat([df_result_combined,e],axis=0)
+    df_result_combined = pd.concat([df_result_combined,e],axis=0)
 
 
 # In[19]:
@@ -194,10 +198,4 @@ f_combined = groupby_f_data(df_result_combined, 'agent_outcome', bins=60)
 f_combined = f_combined[f_combined['bin']<='50']
 
 plot_win_rates(f_combined[f_combined['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
-
-
-# In[ ]:
-
-
-
 
