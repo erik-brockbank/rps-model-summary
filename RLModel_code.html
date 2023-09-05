@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Model Comparison Overview" href="ModelComparison.html" />
+    <link rel="next" title="Discussion" href="Discussion.html" />
     <link rel="prev" title="Model Results" href="RLModel_results.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -176,23 +176,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Reference: RL Model Code
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Model Comparison
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ModelComparison.html">
-   Model Comparison Overview
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ModelComparison_results.html">
-   Model Comparison Results
   </a>
  </li>
 </ul>
@@ -466,36 +449,44 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-fit">
-   Model Fit
+  <a class="reference internal nav-link" href="#null-model-reward-learning-from-move-baserates">
+   <em>
+    Null Model
+   </em>
+   : Reward Learning from Move Baserates
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#null-model">
-     Null model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#self-previous-move-reward">
-     Self-previous move reward
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#opponent-previous-move-reward">
-     Opponent-previous move reward
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#disjunctive-agent-opponent-previous-move-rewards">
-     Disjunctive agent-opponent previous move rewards
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combined-agent-opponent-previous-move-rewards">
-     Combined agent-opponent previous move rewards
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transition-model-reward-learning-from-previous-moves">
+   <em>
+    Transition Model
+   </em>
+   : Reward Learning from Previous Moves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transition-model-reward-learning-from-opponent-previous-moves">
+   <em>
+    Transition Model
+   </em>
+   : Reward Learning from Opponent Previous Moves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combined-transition-model-reward-learning-from-self-and-opponent-previous-moves">
+   <em>
+    Combined Transition Model
+   </em>
+   : Reward Learning from Self and Opponent Previous Moves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#disjunctive-transition-model-learning-separately-from-self-and-opponent-previous-moves">
+   <em>
+    Disjunctive Transition Model
+   </em>
+   : Learning Separately from Self and Opponent Previous Moves
+  </a>
  </li>
 </ul>
 
@@ -522,36 +513,44 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-fit">
-   Model Fit
+  <a class="reference internal nav-link" href="#null-model-reward-learning-from-move-baserates">
+   <em>
+    Null Model
+   </em>
+   : Reward Learning from Move Baserates
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#null-model">
-     Null model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#self-previous-move-reward">
-     Self-previous move reward
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#opponent-previous-move-reward">
-     Opponent-previous move reward
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#disjunctive-agent-opponent-previous-move-rewards">
-     Disjunctive agent-opponent previous move rewards
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#combined-agent-opponent-previous-move-rewards">
-     Combined agent-opponent previous move rewards
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transition-model-reward-learning-from-previous-moves">
+   <em>
+    Transition Model
+   </em>
+   : Reward Learning from Previous Moves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transition-model-reward-learning-from-opponent-previous-moves">
+   <em>
+    Transition Model
+   </em>
+   : Reward Learning from Opponent Previous Moves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combined-transition-model-reward-learning-from-self-and-opponent-previous-moves">
+   <em>
+    Combined Transition Model
+   </em>
+   : Reward Learning from Self and Opponent Previous Moves
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#disjunctive-transition-model-learning-separately-from-self-and-opponent-previous-moves">
+   <em>
+    Disjunctive Transition Model
+   </em>
+   : Learning Separately from Self and Opponent Previous Moves
+  </a>
  </li>
 </ul>
 
@@ -565,6 +564,8 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="reference-rl-model-code">
 <h1>Reference: RL Model Code<a class="headerlink" href="#reference-rl-model-code" title="Permalink to this headline">#</a></h1>
+<p>This page is a reference for the code used to generate the figures in the previous results page.</p>
+<p>This is included largely for reproducibility so that others can generate similar results; it also provides more fine-grained insight into the model implementation.</p>
 <section id="initialization">
 <h2>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
@@ -580,14 +581,14 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">File /var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_3327/3777295251.py:9,</span> in <span class="ni">&lt;cell line: 9&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="nn">File /var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_3289/3777295251.py:10,</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">N_ROUNDS</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">def</span> <span class="nf">groupby_f_data</span><span class="p">(</span><span class="n">f_data</span><span class="p">,</span> <span class="n">colname</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -624,31 +625,24 @@ title="Print to PDF"
 
     <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">1</span> <span class="n">frame</span><span class="p">]</span>
 
-<span class="nn">File /var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_3327/3777295251.py:9,</span> in <span class="ni">&lt;cell line: 9&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="nn">File /var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_3289/3777295251.py:10,</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">N_ROUNDS</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">def</span> <span class="nf">groupby_f_data</span><span class="p">(</span><span class="n">f_data</span><span class="p">,</span> <span class="n">colname</span><span class="p">,</span> <span class="n">bins</span><span class="p">):</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="model-fit">
-<h2>Model Fit<a class="headerlink" href="#model-fit" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">read_rps_data</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">DEFAULT_FILE</span><span class="p">))</span>
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add opponent move column</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">read_rps_data</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">DEFAULT_FILE</span><span class="p">))</span>
+
+<span class="c1"># Add opponent move column</span>
 <span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">separated</span><span class="p">:</span>
     <span class="n">get_opponent_move</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
@@ -657,8 +651,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<section id="null-model">
-<h3>Null model<a class="headerlink" href="#null-model" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="null-model-reward-learning-from-move-baserates">
+<h2><em>Null Model</em>: Reward Learning from Move Baserates<a class="headerlink" href="#null-model-reward-learning-from-move-baserates" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_a</span> <span class="o">=</span> <span class="n">add_col</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;rock_reward&#39;</span><span class="p">,</span> <span class="s1">&#39;paper_reward&#39;</span><span class="p">,</span><span class="s1">&#39;scissors_reward&#39;</span><span class="p">,],</span> <span class="n">value</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -733,12 +728,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Trial round&#39;, ylabel=&#39;Mean win percentage&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/RLModel_code_11_2.png" src="_images/RLModel_code_11_2.png" />
+<img alt="_images/RLModel_code_10_2.png" src="_images/RLModel_code_10_2.png" />
 </div>
 </div>
 </section>
-<section id="self-previous-move-reward">
-<h3>Self-previous move reward<a class="headerlink" href="#self-previous-move-reward" title="Permalink to this headline">#</a></h3>
+<section id="transition-model-reward-learning-from-previous-moves">
+<h2><em>Transition Model</em>: Reward Learning from Previous Moves<a class="headerlink" href="#transition-model-reward-learning-from-previous-moves" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -794,12 +789,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Trial round&#39;, ylabel=&#39;Mean win percentage&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/RLModel_code_15_2.png" src="_images/RLModel_code_15_2.png" />
+<img alt="_images/RLModel_code_14_2.png" src="_images/RLModel_code_14_2.png" />
 </div>
 </div>
 </section>
-<section id="opponent-previous-move-reward">
-<h3>Opponent-previous move reward<a class="headerlink" href="#opponent-previous-move-reward" title="Permalink to this headline">#</a></h3>
+<section id="transition-model-reward-learning-from-opponent-previous-moves">
+<h2><em>Transition Model</em>: Reward Learning from Opponent Previous Moves<a class="headerlink" href="#transition-model-reward-learning-from-opponent-previous-moves" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># separate df into same game id</span>
@@ -857,65 +852,12 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Trial round&#39;, ylabel=&#39;Mean win percentage&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/RLModel_code_19_2.png" src="_images/RLModel_code_19_2.png" />
+<img alt="_images/RLModel_code_18_2.png" src="_images/RLModel_code_18_2.png" />
 </div>
 </div>
 </section>
-<section id="disjunctive-agent-opponent-previous-move-rewards">
-<h3>Disjunctive agent-opponent previous move rewards<a class="headerlink" href="#disjunctive-agent-opponent-previous-move-rewards" title="Permalink to this headline">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated_agent_past</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df_b</span><span class="p">)</span>
-<span class="n">separated_oppo_past</span><span class="o">=</span><span class="n">separate_df</span><span class="p">(</span><span class="n">df_c</span><span class="p">)</span>
-<span class="n">df_result_mix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">count</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">separated_oppo_past</span><span class="p">)):</span>
-    <span class="n">e</span><span class="o">=</span><span class="n">get_softmax_probabilities_mix</span><span class="p">(</span><span class="n">separated_agent_past</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">separated_oppo_past</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">e</span><span class="o">=</span><span class="n">pick_move_v2</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    <span class="n">e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">evaluate_outcome</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;agent_move&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;opponent_move&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">df_result_mix</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_result_mix</span><span class="p">,</span><span class="n">e</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_mix</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_result_mix</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
-<span class="n">f_mix</span> <span class="o">=</span> <span class="n">f_mix</span><span class="p">[</span><span class="n">f_mix</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
-<span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_mix</span><span class="p">[</span><span class="n">f_mix</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_58289/3777295251.py:22: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  modified_f_data[&#39;bin&#39;] = pd.cut(modified_f_data.loc[:, (&#39;round_index&#39;)], bins, labels = labs)
-/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_58289/3777295251.py:46: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  data[&#39;bot_strategy&#39;] = data[&#39;bot_strategy&#39;].replace([
-/var/folders/tm/sjjwcmbs3250mhfs5psrzf5w0000gn/T/ipykernel_58289/3777295251.py:59: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  data[&#39;bin&#39;] = data[&#39;bin&#39;].replace([&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;, &#39;10&#39;], [&#39;100&#39;, &#39;200&#39;, &#39;300&#39;, &#39;400&#39;, &#39;500&#39;, &#39;600&#39;, &#39;700&#39;, &#39;800&#39;, &#39;900&#39;, &#39;1000&#39;])
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Trial round&#39;, ylabel=&#39;Mean win percentage&#39;&gt;
-</pre></div>
-</div>
-<img alt="_images/RLModel_code_22_2.png" src="_images/RLModel_code_22_2.png" />
-</div>
-</div>
-</section>
-<section id="combined-agent-opponent-previous-move-rewards">
-<h3>Combined agent-opponent previous move rewards<a class="headerlink" href="#combined-agent-opponent-previous-move-rewards" title="Permalink to this headline">#</a></h3>
+<section id="combined-transition-model-reward-learning-from-self-and-opponent-previous-moves">
+<h2><em>Combined Transition Model</em>: Reward Learning from Self and Opponent Previous Moves<a class="headerlink" href="#combined-transition-model-reward-learning-from-self-and-opponent-previous-moves" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">NaN</span><span class="p">)</span>
@@ -932,10 +874,10 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df_combine</span><span class="p">)</span>
 <span class="n">df_result_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">separated</span><span class="p">:</span>
-    <span class="n">e</span><span class="o">=</span><span class="n">get_softmax_probabilities_combined</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    <span class="n">e</span><span class="o">=</span><span class="n">pick_move_v2</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">get_softmax_probabilities_combined</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="n">pick_move_v2</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="n">e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">evaluate_outcome</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;agent_move&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;opponent_move&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">df_result_combined</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_result_combined</span><span class="p">,</span><span class="n">e</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">df_result_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_result_combined</span><span class="p">,</span><span class="n">e</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -973,10 +915,36 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Trial round&#39;, ylabel=&#39;Mean win percentage&#39;&gt;
 </pre></div>
 </div>
-<img alt="_images/RLModel_code_26_2.png" src="_images/RLModel_code_26_2.png" />
+<img alt="_images/RLModel_code_22_2.png" src="_images/RLModel_code_22_2.png" />
 </div>
 </div>
 </section>
+<section id="disjunctive-transition-model-learning-separately-from-self-and-opponent-previous-moves">
+<h2><em>Disjunctive Transition Model</em>: Learning Separately from Self and Opponent Previous Moves<a class="headerlink" href="#disjunctive-transition-model-learning-separately-from-self-and-opponent-previous-moves" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separated_agent_past</span> <span class="o">=</span> <span class="n">separate_df</span><span class="p">(</span><span class="n">df_b</span><span class="p">)</span>
+<span class="n">separated_oppo_past</span><span class="o">=</span><span class="n">separate_df</span><span class="p">(</span><span class="n">df_c</span><span class="p">)</span>
+<span class="n">df_result_mix</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">separated_oppo_past</span><span class="p">)):</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">get_softmax_probabilities_mix</span><span class="p">(</span><span class="n">separated_agent_past</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">separated_oppo_past</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">e</span><span class="o">=</span><span class="n">pick_move_v2</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">e</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">evaluate_outcome</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;agent_move&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;opponent_move&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_result_mix</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_result_mix</span><span class="p">,</span> <span class="n">e</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f_mix</span> <span class="o">=</span> <span class="n">groupby_f_data</span><span class="p">(</span><span class="n">df_result_mix</span><span class="p">,</span> <span class="s1">&#39;agent_outcome&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">f_mix</span> <span class="o">=</span> <span class="n">f_mix</span><span class="p">[</span><span class="n">f_mix</span><span class="p">[</span><span class="s1">&#39;bin&#39;</span><span class="p">]</span><span class="o">&lt;=</span><span class="s1">&#39;50&#39;</span><span class="p">]</span>
+<span class="n">plot_win_rates</span><span class="p">(</span><span class="n">f_mix</span><span class="p">[</span><span class="n">f_mix</span><span class="p">[</span><span class="s1">&#39;agent_outcome&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;win&#39;</span><span class="p">])</span> <span class="c1"># NB: add a filename argument to save the figure locally</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1014,10 +982,10 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
             <p class="prev-next-title">Model Results</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="ModelComparison.html" title="next page">
+    <a class='right-next' id="next-link" href="Discussion.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Model Comparison Overview</p>
+        <p class="prev-next-title">Discussion</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
