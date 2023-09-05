@@ -13,13 +13,13 @@ In the first section below, we show the human results against each bot; this is 
 
 ## Model Benchmark: Human Performance
 
-In the figure below, we first show human performance against each of the bot opponents. On $y$, we plot average human win percentage against the bots in each block of 30 trials on $x$. Performance against each bot is shown in a different color, with bots that exhibit similar patterns in their own moves shown in similar colors (e.g., blue for self-transition bots, purple for opponent-transition bots, green for outcome-transition, and brown for the most complex dual-outcome-transition bot).
+In the figure below, we first show human performance against each of the bot opponents. On $y$, we plot average human win percentage against the bots in each block of 30 trials on $x$. The gray dashed line at 33% win rate represents chance performance. Performance against each bot is shown in a different color, with bots that exhibit similar patterns in their own moves shown in similar colors (e.g., blue for self-transition bots, purple for opponent-transition bots, green for outcome-transition, and brown for the most complex dual-outcome-transition bot).
 
 **The overall pattern of people's ability to exploit certain bot behaviors shown below is what we seek to capture with the different versions of our Model-Based Agent.**
 
 ![model_human_performance.png](img/model_human_performance.png)
 
-In the figure above, the gray dashed line at 33% win rate represents chance performance. Several key patterns emerge, which we explore further in our modeling results below:
+Several key patterns emerge in the figure above which we attempt to capture in our modeling results:
 
 - Against the bot opponents that exhibit simple *transition* patterns in blue and purple (Previous move and opponent previous move dependencies), people show strong performance. People rapidly learn the bots' behavioral patterns and win reliably against these opponents for most of the experiment.
 

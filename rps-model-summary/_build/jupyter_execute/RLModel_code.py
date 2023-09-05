@@ -19,25 +19,20 @@ get_ipython().run_line_magic('run', './RL_model_python_lib_decision_functions.ip
 get_ipython().run_line_magic('run', './python_lib_visualization.ipynb')
 
 
-# ## Model Fit
-
-# In[2]:
+# In[ ]:
 
 
+# Read data
 df = read_rps_data(os.path.join("data", DEFAULT_FILE))
 
-
-# In[3]:
-
-
-# add opponent move column
+# Add opponent move column
 separated = separate_df(df)
 for e in separated:
     get_opponent_move(e)
 df = pd.concat(separated)
 
 
-# ### Null model
+# ## *Null Model*: Reward Learning from Move Baserates
 
 # In[4]:
 
@@ -79,7 +74,7 @@ f_a = f_a[f_a['bin']<='50']
 plot_win_rates(f_a[f_a['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
-# ### Self-previous move reward
+# ## *Transition Model*: Reward Learning from Previous Moves
 
 # In[9]:
 
@@ -110,7 +105,7 @@ f_b = f_b[f_b['bin']<='50']
 plot_win_rates(f_b[f_b['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
-# ### Opponent-previous move reward
+# ## *Transition Model*: Reward Learning from Opponent Previous Moves
 
 # In[12]:
 
@@ -143,31 +138,7 @@ f_c = f_c[f_c['bin']<='50']
 plot_win_rates(f_c[f_c['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 
 
-# ### Disjunctive agent-opponent previous move rewards 
-
-# In[15]:
-
-
-separated_agent_past = separate_df(df_b)
-separated_oppo_past=separate_df(df_c)
-df_result_mix = pd.DataFrame()
-count=0
-for i in range(len(separated_oppo_past)):
-    e=get_softmax_probabilities_mix(separated_agent_past[i], separated_oppo_past[i])
-    e=pick_move_v2(e)
-    e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
-    df_result_mix=pd.concat([df_result_mix, e], axis=0)
-
-
-# In[16]:
-
-
-f_mix = groupby_f_data(df_result_mix, 'agent_outcome', bins=60)
-f_mix = f_mix[f_mix['bin']<='50']
-plot_win_rates(f_mix[f_mix['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
-
-
-# ### Combined agent-opponent previous move rewards
+# ## *Combined Transition Model*: Reward Learning from Self and Opponent Previous Moves
 
 # In[17]:
 
@@ -198,4 +169,28 @@ f_combined = groupby_f_data(df_result_combined, 'agent_outcome', bins=60)
 f_combined = f_combined[f_combined['bin']<='50']
 
 plot_win_rates(f_combined[f_combined['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
+
+
+# ## *Disjunctive Transition Model*: Learning Separately from Self and Opponent Previous Moves
+
+# In[ ]:
+
+
+separated_agent_past = separate_df(df_b)
+separated_oppo_past=separate_df(df_c)
+df_result_mix = pd.DataFrame()
+count=0
+for i in range(len(separated_oppo_past)):
+    e=get_softmax_probabilities_mix(separated_agent_past[i], separated_oppo_past[i])
+    e=pick_move_v2(e)
+    e['agent_outcome'] = e.apply(lambda x: evaluate_outcome(x['agent_move'], x['opponent_move']), axis=1)
+    df_result_mix=pd.concat([df_result_mix, e], axis=0)
+
+
+# In[ ]:
+
+
+f_mix = groupby_f_data(df_result_mix, 'agent_outcome', bins=60)
+f_mix = f_mix[f_mix['bin']<='50']
+plot_win_rates(f_mix[f_mix['agent_outcome']=='win']) # NB: add a filename argument to save the figure locally
 

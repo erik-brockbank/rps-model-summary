@@ -58,7 +58,7 @@ File [0;32m/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/site
 
     [0;31m[... skipping hidden 1 frame][0m
 
-File [0;32m/var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_1855/3777295251.py:10[0m, in [0;36m<cell line: 10>[0;34m()[0m
+File [0;32m/var/folders/vc/0d4071bd7rbd6q1btkk05jcw0000gn/T/ipykernel_3289/3777295251.py:10[0m, in [0;36m<cell line: 10>[0;34m()[0m
 [1;32m      8[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
 [1;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m [38;5;28;01mimport[39;00m stats
 [0;32m---> 10[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m
